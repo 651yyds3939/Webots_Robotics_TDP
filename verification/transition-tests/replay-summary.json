@@ -1,0 +1,64 @@
+{
+  "measurement_count": 12,
+  "cases": {
+    "replay_ball_present_direct": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 1,
+      "maximum_torso_tilt_degrees_range": [
+        9.49139275559445,
+        90.89086226079152
+      ],
+      "yaw_degrees_range": [
+        15.860723493515362,
+        23.94314141564144
+      ],
+      "minimum_height_metres": 0.1078484573801678
+    },
+    "replay_ball_present_stand": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        9.344798728602093,
+        16.648411217605794
+      ],
+      "yaw_degrees_range": [
+        15.767124574584749,
+        19.175691386932073
+      ],
+      "minimum_height_metres": 0.30109633714360484
+    },
+    "replay_ball_absent_direct": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 3,
+      "maximum_torso_tilt_degrees_range": [
+        91.44665115030082,
+        91.44665115030082
+      ],
+      "yaw_degrees_range": [
+        15.601766287433145,
+        15.601766287433145
+      ],
+      "minimum_height_metres": 0.10533310471599966
+    },
+    "replay_ball_absent_stand": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        16.960688495394283,
+        16.960688495394283
+      ],
+      "yaw_degrees_range": [
+        18.24665716188364,
+        18.24665716188364
+      ],
+      "minimum_height_metres": 0.3024945222496416
+    }
+  },
+  "limitations": [
+    "Low tilted observation requires at least three samples with torso height < 0.20 m and up < 0.5; samples need not be consecutive.",
+    "Cases replay motor commands; tactical decisions and automatic recovery are disabled.",
+    "Identical-condition repeats demonstrate repeatability, not a general success probability.",
+    "Stand transitions add time and change subsequent physical state.",
+    "Torso tilt uses acos of model up-axis; it is not identical to per-axis IMU thresholds."
+  ]
+}

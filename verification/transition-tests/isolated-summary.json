@@ -1,0 +1,155 @@
+{
+  "measurement_count": 33,
+  "cases": {
+    "right_left_direct": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        5.61947755808294,
+        5.61947755808294
+      ],
+      "yaw_degrees_range": [
+        0.478613932849571,
+        0.478613932849571
+      ],
+      "minimum_height_metres": 0.30432317628926037
+    },
+    "right_stand_left": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        5.61947755808294,
+        5.61947755808294
+      ],
+      "yaw_degrees_range": [
+        1.214352817488411,
+        1.214352817488411
+      ],
+      "minimum_height_metres": 0.3044886708457986
+    },
+    "walk_phase0_direct_right_left": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        5.61947755808294,
+        5.61947755808294
+      ],
+      "yaw_degrees_range": [
+        10.114710948227373,
+        10.11471094825956
+      ],
+      "minimum_height_metres": 0.30339354368811555
+    },
+    "walk_phase0_stand_right_left": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        5.69885333382115,
+        5.6988533338392156
+      ],
+      "yaw_degrees_range": [
+        2.700450091967452,
+        2.700450092136225
+      ],
+      "minimum_height_metres": 0.3033935436881237
+    },
+    "walk_phase480_direct_right_left": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        5.61947755808294,
+        5.61947755808294
+      ],
+      "yaw_degrees_range": [
+        -8.448500442703295,
+        -8.448500442703295
+      ],
+      "minimum_height_metres": 0.2966860822610134
+    },
+    "walk_phase480_stand_right_left": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        5.6882819808685445,
+        5.6882819808685445
+      ],
+      "yaw_degrees_range": [
+        -1.259478178820855,
+        -1.259478178820855
+      ],
+      "minimum_height_metres": 0.2966860822610134
+    },
+    "walk_phase840_direct_right_left": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        6.958007664823865,
+        6.958007664823865
+      ],
+      "yaw_degrees_range": [
+        -3.1131759815979962,
+        -3.1131759815979962
+      ],
+      "minimum_height_metres": 0.30382258907433046
+    },
+    "walk_phase840_stand_right_left": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        5.658200709245513,
+        5.658200709245513
+      ],
+      "yaw_degrees_range": [
+        0.08504127302347435,
+        0.08504127302347435
+      ],
+      "minimum_height_metres": 0.30343067325366807
+    },
+    "walk_only": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        5.619477558082161,
+        5.61947755808294
+      ],
+      "yaw_degrees_range": [
+        0.8133527615223171,
+        0.8133527615323422
+      ],
+      "minimum_height_metres": 0.30339354368811555
+    },
+    "right_only": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        5.61947755808294,
+        5.61947755808294
+      ],
+      "yaw_degrees_range": [
+        -4.892768692706469,
+        -4.892768692648964
+      ],
+      "minimum_height_metres": 0.3047486541896658
+    },
+    "left_only": {
+      "measurement_count": 3,
+      "low_tilted_observed_count": 0,
+      "maximum_torso_tilt_degrees_range": [
+        5.61947755808294,
+        5.61947755808294
+      ],
+      "yaw_degrees_range": [
+        5.854118941506235,
+        5.854118941648215
+      ],
+      "minimum_height_metres": 0.3049639605732745
+    }
+  },
+  "limitations": [
+    "Low tilted observation requires at least three samples with torso height < 0.20 m and up < 0.5; samples need not be consecutive.",
+    "Cases replay motor commands; tactical decisions and automatic recovery are disabled.",
+    "Identical-condition repeats demonstrate repeatability, not a general success probability.",
+    "Stand transitions add time and change subsequent physical state.",
+    "Torso tilt uses acos of model up-axis; it is not identical to per-axis IMU thresholds."
+  ]
+}

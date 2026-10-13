@@ -1,0 +1,14 @@
+{
+  "transition_fresh_direct_01": {
+    "samples": 1203,
+    "through_simulation_time": 49.72,
+    "max_imu_difference_rad": 0,
+    "max_reference_position_difference_metres": 0
+  },
+  "transition_fresh_stand_01": {
+    "samples": 1161,
+    "through_simulation_time": 48.04,
+    "max_imu_difference_rad": 0,
+    "max_reference_position_difference_metres": 0
+  }
+}

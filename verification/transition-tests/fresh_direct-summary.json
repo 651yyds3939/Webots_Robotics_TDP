@@ -1,0 +1,25 @@
+{
+  "measurement_count": 1,
+  "cases": {
+    "replay_ball_present_direct": {
+      "measurement_count": 1,
+      "low_tilted_observed_count": 1,
+      "maximum_torso_tilt_degrees_range": [
+        90.89086226079152,
+        90.89086226079152
+      ],
+      "yaw_degrees_range": [
+        23.94314141564144,
+        23.94314141564144
+      ],
+      "minimum_height_metres": 0.1078484573801678
+    }
+  },
+  "limitations": [
+    "Low tilted observation requires at least three samples with torso height < 0.20 m and up < 0.5; samples need not be consecutive.",
+    "Cases replay motor commands; tactical decisions and automatic recovery are disabled.",
+    "Identical-condition repeats demonstrate repeatability, not a general success probability.",
+    "Stand transitions add time and change subsequent physical state.",
+    "Torso tilt uses acos of model up-axis; it is not identical to per-axis IMU thresholds."
+  ]
+}

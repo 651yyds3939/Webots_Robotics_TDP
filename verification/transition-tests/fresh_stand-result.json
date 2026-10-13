@@ -1,0 +1,187 @@
+[
+  {
+    "case": "replay_ball_present_stand",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "hold",
+        "frames": 1
+      },
+      {
+        "action": "walk",
+        "frames": 24,
+        "recorded_time": 1.68
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "recorded_time": 2.64
+      },
+      {
+        "action": "walk",
+        "frames": 24,
+        "recorded_time": 4.2
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "recorded_time": 5.16
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "recorded_time": 6.72
+      },
+      {
+        "action": "walk",
+        "frames": 24,
+        "recorded_time": 8.28
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "recorded_time": 9.24
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "recorded_time": 10.8
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "recorded_time": 12.36
+      },
+      {
+        "action": "walk",
+        "frames": 24,
+        "recorded_time": 13.92
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "recorded_time": 14.88
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "recorded_time": 16.44
+      },
+      {
+        "action": "walk",
+        "frames": 24,
+        "recorded_time": 18.0
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "recorded_time": 18.96
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "recorded_time": 20.52
+      },
+      {
+        "action": "walk",
+        "frames": 25,
+        "recorded_time": 22.08
+      },
+      {
+        "action": "left20",
+        "frames": 22,
+        "recorded_time": 23.08
+      },
+      {
+        "action": "walk",
+        "frames": 220,
+        "recorded_time": 23.96
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "recorded_time": 32.76
+      },
+      {
+        "action": "walk",
+        "frames": 25,
+        "recorded_time": 34.32
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "recorded_time": 35.32
+      },
+      {
+        "action": "walk",
+        "frames": 100,
+        "recorded_time": 36.88
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "recorded_time": 40.88
+      },
+      {
+        "action": "walk",
+        "frames": 76,
+        "recorded_time": 42.44
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "recorded_time": 45.48
+      },
+      {
+        "action": "walk",
+        "frames": 25,
+        "recorded_time": 47.04
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "recorded_time": 48.04
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "recorded_time": 49.6
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "profile": "replay",
+    "ball_present": true,
+    "initial_ball": [
+      1.2,
+      0,
+      0.07
+    ],
+    "end_ball": [
+      2.7361928008103735,
+      -0.055272146818997364,
+      0.06959779182510048
+    ],
+    "probe_started_time": 1.6400000000000001,
+    "probe_completed_time": 53.36,
+    "minimum_up": 0.9866589334207819,
+    "minimum_height": 0.3028943637867131,
+    "maximum_torso_tilt_rad": 0.1635288144438698,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      1.9275384007345757,
+      0.0637062370357503,
+      -0.015402357636149
+    ],
+    "yaw_degrees": 18.56271042555732
+  }
+]

@@ -1,0 +1,1355 @@
+[
+  {
+    "case": "right_left_direct",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 33.68,
+    "probe_completed_time": 37.800000000000004,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.30432317628926037,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.0075530803317332695,
+      -0.03752071059996807,
+      -0.015497745079474767
+    ],
+    "yaw_degrees": 0.478613932849571
+  },
+  {
+    "case": "right_stand_left",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 39.480000000000004,
+    "probe_completed_time": 44.800000000000004,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.3044886708457986,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.007882185206387074,
+      -0.041479172713895326,
+      -0.01549771315928583
+    ],
+    "yaw_degrees": 1.214352817488411
+  },
+  {
+    "case": "walk_phase0_direct_right_left",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 0
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 46.480000000000004,
+    "probe_completed_time": 51.6,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.30339354368811555,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.08624274977997233,
+      -0.044794329573041164,
+      -0.01549739505028963
+    ],
+    "yaw_degrees": 10.11471094825956
+  },
+  {
+    "case": "walk_phase0_stand_right_left",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 0
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 53.28,
+    "probe_completed_time": 59.6,
+    "minimum_up": 0.9950575574580619,
+    "minimum_height": 0.3033935436881237,
+    "maximum_torso_tilt_rad": 0.0994637542634346,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.07754951019060456,
+      -0.03986066193853719,
+      -0.015497629505428379
+    ],
+    "yaw_degrees": 2.7004500921234262
+  },
+  {
+    "case": "walk_phase480_direct_right_left",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 480
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 61.28,
+    "probe_completed_time": 66.4,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.2966860822610134,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.06472986296914293,
+      -0.032679696392357356,
+      -0.015498100081610788
+    ],
+    "yaw_degrees": -8.448500442703295
+  },
+  {
+    "case": "walk_phase480_stand_right_left",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 480
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 68.08,
+    "probe_completed_time": 74.4,
+    "minimum_up": 0.9950758618288152,
+    "minimum_height": 0.2966860822610134,
+    "maximum_torso_tilt_rad": 0.0992792493480212,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.06142152889527577,
+      -0.039881539728547175,
+      -0.015497856765314455
+    ],
+    "yaw_degrees": -1.259478178820855
+  },
+  {
+    "case": "walk_phase840_direct_right_left",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 840
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 76.08,
+    "probe_completed_time": 81.2,
+    "minimum_up": 0.9926352036520837,
+    "minimum_height": 0.30382258907433046,
+    "maximum_torso_tilt_rad": 0.12144014313017847,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.057728925908659884,
+      -0.03144120857356517,
+      -0.015497880555817911
+    ],
+    "yaw_degrees": -3.1131759815979962
+  },
+  {
+    "case": "walk_phase840_stand_right_left",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 840
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 82.88,
+    "probe_completed_time": 89.2,
+    "minimum_up": 0.9951277624180642,
+    "minimum_height": 0.30343067325366807,
+    "maximum_torso_tilt_rad": 0.09875423211501255,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.06285422771807939,
+      -0.04198067486835816,
+      -0.015497799493036146
+    ],
+    "yaw_degrees": 0.08504127302347435
+  },
+  {
+    "case": "right_left_direct",
+    "repeat": 2,
+    "segments": [
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 122.92,
+    "probe_completed_time": 127.04,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.30432317628926037,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.0075530803317332695,
+      -0.03752071059996807,
+      -0.015497745079474767
+    ],
+    "yaw_degrees": 0.478613932849571
+  },
+  {
+    "case": "right_stand_left",
+    "repeat": 2,
+    "segments": [
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 128.72,
+    "probe_completed_time": 134.04,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.3044886708457986,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.007882185206387074,
+      -0.041479172713895326,
+      -0.01549771315928583
+    ],
+    "yaw_degrees": 1.214352817488411
+  },
+  {
+    "case": "walk_phase0_direct_right_left",
+    "repeat": 2,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 0
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 135.72,
+    "probe_completed_time": 140.84,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.30339354368811555,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.08624274977994098,
+      -0.0447943295732092,
+      -0.01549739505028963
+    ],
+    "yaw_degrees": 10.114710948227373
+  },
+  {
+    "case": "walk_phase0_stand_right_left",
+    "repeat": 2,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 0
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 142.52,
+    "probe_completed_time": 148.84,
+    "minimum_up": 0.9950575574580328,
+    "minimum_height": 0.3033935436881298,
+    "maximum_torso_tilt_rad": 0.09946375426372751,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.07754951019046016,
+      -0.03986066193852781,
+      -0.015497629505426824
+    ],
+    "yaw_degrees": 2.700450091967452
+  },
+  {
+    "case": "walk_phase480_direct_right_left",
+    "repeat": 2,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 480
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 150.52,
+    "probe_completed_time": 155.64000000000001,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.2966860822610134,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.06472986296914293,
+      -0.032679696392357356,
+      -0.015498100081610788
+    ],
+    "yaw_degrees": -8.448500442703295
+  },
+  {
+    "case": "walk_phase480_stand_right_left",
+    "repeat": 2,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 480
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 157.32,
+    "probe_completed_time": 163.64000000000001,
+    "minimum_up": 0.9950758618288152,
+    "minimum_height": 0.2966860822610134,
+    "maximum_torso_tilt_rad": 0.0992792493480212,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.06142152889527577,
+      -0.039881539728547175,
+      -0.015497856765314455
+    ],
+    "yaw_degrees": -1.259478178820855
+  },
+  {
+    "case": "walk_phase840_direct_right_left",
+    "repeat": 2,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 840
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 165.32,
+    "probe_completed_time": 170.44,
+    "minimum_up": 0.9926352036520837,
+    "minimum_height": 0.30382258907433046,
+    "maximum_torso_tilt_rad": 0.12144014313017847,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.057728925908659884,
+      -0.03144120857356517,
+      -0.015497880555817911
+    ],
+    "yaw_degrees": -3.1131759815979962
+  },
+  {
+    "case": "walk_phase840_stand_right_left",
+    "repeat": 2,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 840
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 172.12,
+    "probe_completed_time": 178.44,
+    "minimum_up": 0.9951277624180642,
+    "minimum_height": 0.30343067325366807,
+    "maximum_torso_tilt_rad": 0.09875423211501255,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.06285422771807939,
+      -0.04198067486835816,
+      -0.015497799493036146
+    ],
+    "yaw_degrees": 0.08504127302347435
+  },
+  {
+    "case": "right_left_direct",
+    "repeat": 3,
+    "segments": [
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 212.16,
+    "probe_completed_time": 216.28,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.30432317628926037,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.0075530803317332695,
+      -0.03752071059996807,
+      -0.015497745079474767
+    ],
+    "yaw_degrees": 0.478613932849571
+  },
+  {
+    "case": "right_stand_left",
+    "repeat": 3,
+    "segments": [
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 217.96,
+    "probe_completed_time": 223.28,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.3044886708457986,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.007882185206387074,
+      -0.041479172713895326,
+      -0.01549771315928583
+    ],
+    "yaw_degrees": 1.214352817488411
+  },
+  {
+    "case": "walk_phase0_direct_right_left",
+    "repeat": 3,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 0
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 224.96,
+    "probe_completed_time": 230.08,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.30339354368811555,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.08624274977995988,
+      -0.04479432957301444,
+      -0.015497395050285634
+    ],
+    "yaw_degrees": 10.114710948257601
+  },
+  {
+    "case": "walk_phase0_stand_right_left",
+    "repeat": 3,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 0
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 231.76,
+    "probe_completed_time": 238.08,
+    "minimum_up": 0.9950575574580306,
+    "minimum_height": 0.30339354368813487,
+    "maximum_torso_tilt_rad": 0.09946375426374988,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.07754951019025634,
+      -0.039860661938636174,
+      -0.01549762950542749
+    ],
+    "yaw_degrees": 2.700450092136225
+  },
+  {
+    "case": "walk_phase480_direct_right_left",
+    "repeat": 3,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 480
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 239.76,
+    "probe_completed_time": 244.88,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.2966860822610134,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.06472986296914293,
+      -0.032679696392357356,
+      -0.015498100081610788
+    ],
+    "yaw_degrees": -8.448500442703295
+  },
+  {
+    "case": "walk_phase480_stand_right_left",
+    "repeat": 3,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 480
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 246.56,
+    "probe_completed_time": 252.88,
+    "minimum_up": 0.9950758618288152,
+    "minimum_height": 0.2966860822610134,
+    "maximum_torso_tilt_rad": 0.0992792493480212,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.06142152889527577,
+      -0.039881539728547175,
+      -0.015497856765314455
+    ],
+    "yaw_degrees": -1.259478178820855
+  },
+  {
+    "case": "walk_phase840_direct_right_left",
+    "repeat": 3,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 840
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 254.56,
+    "probe_completed_time": 259.68,
+    "minimum_up": 0.9926352036520837,
+    "minimum_height": 0.30382258907433046,
+    "maximum_torso_tilt_rad": 0.12144014313017847,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.057728925908659884,
+      -0.03144120857356517,
+      -0.015497880555817911
+    ],
+    "yaw_degrees": -3.1131759815979962
+  },
+  {
+    "case": "walk_phase840_stand_right_left",
+    "repeat": 3,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 25,
+        "repeat": false,
+        "phase_ms": 840
+      },
+      {
+        "action": "stand",
+        "frames": 30,
+        "repeat": false
+      },
+      {
+        "action": "step_right",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "step_left",
+        "frames": 39,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "probe_started_time": 261.36,
+    "probe_completed_time": 267.68,
+    "minimum_up": 0.9951277624180642,
+    "minimum_height": 0.30343067325366807,
+    "maximum_torso_tilt_rad": 0.09875423211501255,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.06285422771807939,
+      -0.04198067486835816,
+      -0.015497799493036146
+    ],
+    "yaw_degrees": 0.08504127302347435
+  },
+  {
+    "case": "walk_only",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 200,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "profile": "isolated",
+    "ball_present": false,
+    "initial_ball": [
+      -4.4,
+      -2.8,
+      0.07
+    ],
+    "end_ball": [
+      -4.400005358974514,
+      -2.8018404571165694,
+      0.06959778999919088
+    ],
+    "probe_started_time": 1.6400000000000001,
+    "probe_completed_time": 10.64,
+    "minimum_up": 0.9951941694114353,
+    "minimum_height": 0.30339354368812926,
+    "maximum_torso_tilt_rad": 0.09807838563046459,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.6913086047495239,
+      0.016462446329595336,
+      -0.014504769467064693
+    ],
+    "yaw_degrees": 0.8133527615223171
+  },
+  {
+    "case": "right_only",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "step_right",
+        "frames": 200,
+        "repeat": true
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "profile": "isolated",
+    "ball_present": false,
+    "initial_ball": [
+      -4.4,
+      -2.8,
+      0.07
+    ],
+    "end_ball": [
+      -4.40000183405735,
+      -2.800629878583406,
+      0.06959778999990525
+    ],
+    "probe_started_time": 12.32,
+    "probe_completed_time": 21.32,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.3047486541896658,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.015019791646718066,
+      -0.14863189704576685,
+      -0.014931390839250658
+    ],
+    "yaw_degrees": -4.892768692648964
+  },
+  {
+    "case": "left_only",
+    "repeat": 1,
+    "segments": [
+      {
+        "action": "step_left",
+        "frames": 200,
+        "repeat": true
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "profile": "isolated",
+    "ball_present": false,
+    "initial_ball": [
+      -4.4,
+      -2.8,
+      0.07
+    ],
+    "end_ball": [
+      -4.400000627570636,
+      -2.800215529457229,
+      0.0695977899999889
+    ],
+    "probe_started_time": 23.0,
+    "probe_completed_time": 32.0,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.30496396057327807,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.012673830904578184,
+      0.09808026391513922,
+      -0.013684108768499126
+    ],
+    "yaw_degrees": 5.854118941648215
+  },
+  {
+    "case": "walk_only",
+    "repeat": 2,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 200,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "profile": "isolated",
+    "ball_present": false,
+    "initial_ball": [
+      -4.4,
+      -2.8,
+      0.07
+    ],
+    "end_ball": [
+      -4.4000002147350825,
+      -2.8000737474319406,
+      0.0695977899999987
+    ],
+    "probe_started_time": 33.68,
+    "probe_completed_time": 42.68,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.30339354368811555,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.6913086047495233,
+      0.01646244632978876,
+      -0.014504769467062861
+    ],
+    "yaw_degrees": 0.8133527615323422
+  },
+  {
+    "case": "right_only",
+    "repeat": 2,
+    "segments": [
+      {
+        "action": "step_right",
+        "frames": 200,
+        "repeat": true
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "profile": "isolated",
+    "ball_present": false,
+    "initial_ball": [
+      -4.4,
+      -2.8,
+      0.07
+    ],
+    "end_ball": [
+      -4.400000073475382,
+      -2.8000252339972778,
+      0.06959778999999985
+    ],
+    "probe_started_time": 44.36,
+    "probe_completed_time": 53.36,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.30474865418967034,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.015019791646829072,
+      -0.14863189704574004,
+      -0.014931390839247771
+    ],
+    "yaw_degrees": -4.892768692706469
+  },
+  {
+    "case": "left_only",
+    "repeat": 2,
+    "segments": [
+      {
+        "action": "step_left",
+        "frames": 200,
+        "repeat": true
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "profile": "isolated",
+    "ball_present": false,
+    "initial_ball": [
+      -4.4,
+      -2.8,
+      0.07
+    ],
+    "end_ball": [
+      -4.400000025141005,
+      -2.800008634259175,
+      0.06959778999999999
+    ],
+    "probe_started_time": 55.04,
+    "probe_completed_time": 64.04,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.30496396057327807,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.012673830904578184,
+      0.09808026391513922,
+      -0.013684108768499126
+    ],
+    "yaw_degrees": 5.854118941648215
+  },
+  {
+    "case": "walk_only",
+    "repeat": 3,
+    "segments": [
+      {
+        "action": "walk",
+        "frames": 200,
+        "repeat": false
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "profile": "isolated",
+    "ball_present": false,
+    "initial_ball": [
+      -4.4,
+      -2.8,
+      0.07
+    ],
+    "end_ball": [
+      -4.400000008602285,
+      -2.8000029543645506,
+      0.06959778999999999
+    ],
+    "probe_started_time": 65.72,
+    "probe_completed_time": 74.72,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.30339354368811555,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      0.6913086047495233,
+      0.01646244632978876,
+      -0.014504769467062861
+    ],
+    "yaw_degrees": 0.8133527615323422
+  },
+  {
+    "case": "right_only",
+    "repeat": 3,
+    "segments": [
+      {
+        "action": "step_right",
+        "frames": 200,
+        "repeat": true
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "profile": "isolated",
+    "ball_present": false,
+    "initial_ball": [
+      -4.4,
+      -2.8,
+      0.07
+    ],
+    "end_ball": [
+      -4.400000002943496,
+      -2.800001010888049,
+      0.06959779
+    ],
+    "probe_started_time": 76.4,
+    "probe_completed_time": 85.4,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.3047486541896658,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.015019791646718066,
+      -0.14863189704576685,
+      -0.014931390839250658
+    ],
+    "yaw_degrees": -4.892768692648964
+  },
+  {
+    "case": "left_only",
+    "repeat": 3,
+    "segments": [
+      {
+        "action": "step_left",
+        "frames": 200,
+        "repeat": true
+      },
+      {
+        "action": "hold",
+        "frames": 25
+      }
+    ],
+    "profile": "isolated",
+    "ball_present": false,
+    "initial_ball": [
+      -4.4,
+      -2.8,
+      0.07
+    ],
+    "end_ball": [
+      -4.400000001006919,
+      -2.8000003458932414,
+      0.06959779000000002
+    ],
+    "probe_started_time": 87.08,
+    "probe_completed_time": 96.08,
+    "minimum_up": 0.995194169411434,
+    "minimum_height": 0.3049639605732745,
+    "maximum_torso_tilt_rad": 0.09807838563047819,
+    "low_tilted_frames": 0,
+    "low_tilted_observed": false,
+    "first_low_tilted_seconds": null,
+    "displacement": [
+      -0.012673830904652943,
+      0.09808026391474453,
+      -0.013684108768494851
+    ],
+    "yaw_degrees": 5.854118941506235
+  }
+]
