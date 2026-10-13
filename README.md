@@ -65,7 +65,7 @@ bash install.sh --env-name webots-tdp-clean    # 使用另一个独立环境
 
 完整参数、安装目录、重复执行行为和验证范围见 [docs/INSTALL.md](docs/INSTALL.md)。安装日志与启动路径存放在被 Git 忽略的 `.setup/`，不随公开源码上传。
 
-入口：[安装](docs/INSTALL.md) · [运行](docs/RUN.md) · [验证状态](docs/VALIDATION.md) · [发布清理](docs/PUBLICATION_AUDIT.md) · [来源与许可](THIRD_PARTY_NOTICES.md)。
+入口：[安装](docs/INSTALL.md) · [运行](docs/RUN.md) · [验证状态](docs/VALIDATION.md) · [发布清理](docs/PUBLICATION_AUDIT.md) · [推送与分支排障](docs/GIT_PUSH_TROUBLESHOOTING.md) · [来源与许可](THIRD_PARTY_NOTICES.md)。
 
 ## 仓库导览
 
