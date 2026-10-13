@@ -1,0 +1,54 @@
+{
+  "robot": "RedForwardA",
+  "sample_count": 3719,
+  "tilt_threshold_rad": 0.8,
+  "tilt_episodes": [
+    {
+      "start_time": 49.72,
+      "end_time": 55.28,
+      "action_at_threshold": "step_left",
+      "imu_rpy_at_threshold": [
+        0.8571932334874115,
+        -0.005177988059679635,
+        0.3283402954690532
+      ],
+      "motion_time_ms": 120,
+      "motion_duration_ms": 1536,
+      "preceding_transition": {
+        "time": 49.6,
+        "action": "step_right",
+        "requested_action": "step_left",
+        "motion_time_ms": 1560,
+        "motion_duration_ms": 1536
+      },
+      "reference_position": [
+        2.5175893834613357,
+        -0.32912566190518844,
+        0.27019582025706046
+      ],
+      "foot_force_local": {
+        "LFsr": [
+          0.004367843282314807,
+          0.8113712207975259,
+          -0.7597602273435902
+        ],
+        "RFsr": [
+          -0.5215846554701838,
+          -22.024380434143204,
+          33.86212891941498
+        ]
+      },
+      "largest_joint_error": {
+        "joint": "RHipRoll",
+        "radians": 0.021058613617576688
+      }
+    }
+  ],
+  "transition_count": 81,
+  "limitations": [
+    "Tilt episodes are threshold crossings, not a validated count of physical falls.",
+    "Foot forces use sensor-local axes; no support-state calibration is applied.",
+    "Joint tracking error and adjacent transitions do not establish causation.",
+    "Reference positions come from referee localization."
+  ]
+}

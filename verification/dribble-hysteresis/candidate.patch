@@ -1,0 +1,97 @@
+diff --git a/Wenao/controllers/Utils/Navigation.py b/Wenao/controllers/Utils/Navigation.py
+index 4453a6b..e8bab6f 100644
+--- a/Wenao/controllers/Utils/Navigation.py
++++ b/Wenao/controllers/Utils/Navigation.py
+@@ -20,6 +20,7 @@ class Navigator:
+     def __init__(self):
+         self.arrived = False
+         self.aligned = False
++        self.dribble_lateral_active = False
+ 
+     def choose(self, decision, own, yaw, ball, robots=()):
+         if decision.behaviour in ATTACK:
+@@ -37,6 +38,7 @@ class Navigator:
+                     target = (ball[0]-.36*forward[0]-.45*side*forward[1],
+                               ball[1]-.36*forward[1]+.45*side*forward[0])
+                 self.aligned = False
++                self.dribble_lateral_active = False
+                 return self.travel(own, yaw, target, robots, 'APPROACH_BEHIND_BALL')
+             # Face the intended ball trajectory, not a centimetre-scale target
+             # underneath the torso. This is the old source of 180-degree oscillations.
+@@ -45,6 +47,7 @@ class Navigator:
+             limit = 20 if decision.kick else 25
+             if abs(angle) > (limit if self.aligned else 12):
+                 self.aligned = False
++                self.dribble_lateral_active = False
+                 return turn_action(angle), 'FACE_KICK_DIRECTION'
+             self.aligned = True
+             dx, dy = ball[0]-own[0], ball[1]-own[1]
+@@ -52,7 +55,17 @@ class Navigator:
+             left = -dx*math.sin(yaw)+dy*math.cos(yaw)
+             lateral_target = .05 if decision.kick else 0
+             lateral_limit = .055 if decision.kick else .10
+-            if abs(left-lateral_target) > lateral_limit:
++            lateral_error = abs(left-lateral_target)
++            if decision.behaviour == 'DRIBBLE' and not decision.kick:
++                # Keep the original entry tolerance; release lateral correction
++                # inside a narrower band to avoid threshold chatter during gait sway.
++                threshold = .08 if self.dribble_lateral_active else .10
++                self.dribble_lateral_active = lateral_error > threshold
++                adjust_laterally = self.dribble_lateral_active
++            else:
++                self.dribble_lateral_active = False
++                adjust_laterally = lateral_error > lateral_limit
++            if adjust_laterally:
+                 return ('step_left' if left > lateral_target else 'step_right'), 'ALIGN_FOOT_LATERALLY'
+             if front < .12:
+                 return 'back', 'MAKE_FOOT_SPACE'
+@@ -60,6 +73,7 @@ class Navigator:
+                 return 'walk', 'CLOSE_BALL_DISTANCE'
+             return (decision.kick if decision.kick else 'walk'), ('EXECUTE_KICK' if decision.kick else 'DRIBBLE_TOWARD_GOAL')
+         self.aligned = False
++        self.dribble_lateral_active = False
+         separation = distance(own, decision.target)
+         if separation < .15:
+             self.arrived = True
+diff --git a/tests/test_navigation.py b/tests/test_navigation.py
+index b3309ce..e68c4d4 100644
+--- a/tests/test_navigation.py
++++ b/tests/test_navigation.py
+@@ -31,6 +31,37 @@ class NavigationTests(unittest.TestCase):
+         self.assertEqual(stage, 'APPROACH_BEHIND_BALL')
+         self.assertNotEqual(action, 'walk')
+ 
++    def test_dribble_lateral_correction_has_separate_entry_and_exit(self):
++        d = Decision('DRIBBLE', (-.19, 0), (1, 0))
++        for side, action in ((1, 'step_left'), (-1, 'step_right')):
++            with self.subTest(side=side):
++                nav = Navigator()
++                errors = (.09, .11, .09, .07, .09)
++                actions = [nav.choose(d, [-.19, -side*error], 0, [0, 0])[0]
++                           for error in errors]
++                self.assertEqual(actions, ['walk', action, action, 'walk', 'walk'])
++
++    def test_dribble_lateral_state_resets_during_other_navigation(self):
++        d = Decision('DRIBBLE', (-.19, 0), (1, 0))
++        cases = ((d, [-1, 0], 0), (d, [-.19, -.09], math.pi/2),
++                 (Decision('SUPPORT', (0, 0), (1, 0)), [-.19, -.09], 0))
++        for decision, own, yaw in cases:
++            with self.subTest(behaviour=decision.behaviour, own=own, yaw=yaw):
++                nav = Navigator()
++                self.assertEqual(nav.choose(d, [-.19, -.11], 0, [0, 0])[0], 'step_left')
++                nav.choose(decision, own, yaw, [0, 0])
++                self.assertFalse(nav.dribble_lateral_active)
++                self.assertEqual(nav.choose(d, [-.19, -.09], 0, [0, 0])[0], 'walk')
++
++    def test_shoot_alignment_does_not_inherit_dribble_tolerance(self):
++        nav = Navigator()
++        dribble = Decision('DRIBBLE', (-.19, 0), (1, 0))
++        nav.choose(dribble, [-.19, -.11], 0, [0, 0])
++        shoot = Decision('SHOOT', (-.17, -.05), (1, 0), 'shoot')
++        self.assertEqual(nav.choose(shoot, [-.18, -.09], 0, [0, 0])[0], 'shoot')
++        self.assertFalse(nav.dribble_lateral_active)
++        self.assertEqual(nav.choose(shoot, [-.18, -.11], 0, [0, 0])[0], 'step_left')
++
+     def test_role_position_hysteresis_ignores_small_pose_sway(self):
+         d = Decision('SUPPORT', (0, 0), (4, 0))
+         nav = Navigator()

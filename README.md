@@ -1,8 +1,220 @@
 # Webots Robotics TDP
 
-Webots机器人足球开发工程。当前实现包含几何配置、部分裁判规则、共享角色策略、近球导航、关节动作、相机估球实验和测试工具。稳定四对四和真实硬件验证尚未完成。
+Webots 机器人足球开发工程。当前实现包含几何配置、部分裁判规则、共享角色策略、近球导航、关节动作、相机估球实验和测试工具。稳定四对四和真实硬件验证尚未完成。
 
-入口：[运行](docs/RUN.md) · [验证状态](docs/VALIDATION.md) · [发布清理](docs/PUBLICATION_AUDIT.md) · [来源与许可](THIRD_PARTY_NOTICES.md)。
+## 环境要求与平台兼容性
+
+**已验证的完整组合：Ubuntu 20.04.6 LTS（x86-64）＋Webots R2023b＋独立 Conda Python 3.10.22。** 当前世界入口为 `Wenao/worlds/naotdp.wbt`，足球仿真主流程不需要 ROS。
+
+### 操作系统
+
+下表区分 Webots R2023b 的官方系统支持和本项目的实际测试范围。仿真器支持某个平台，不代表本项目的依赖、控制器和测试工具已经在该平台验证。
+
+| 操作系统 | Webots R2023b 官方支持 | 本项目状态 |
+|---|---|---|
+| Ubuntu 20.04 LTS，Intel/AMD 64 位 | 支持 | 已在 20.04.6 验证环境、世界加载、逻辑测试和相机检测；复现现有结果的基准平台 |
+| Ubuntu 22.04 LTS，Intel/AMD 64 位 | 支持，同一版本提供对应安装包 | 本项目尚未实测，可作为后续兼容性测试平台 |
+| Ubuntu 18.04 及更早版本 | 不在 R2023b 支持范围内 | 不作为本项目的运行环境 |
+| Ubuntu 24.04、26.04 等更高版本 | R2023b 发布资料没有列为目标 Ubuntu 版本 | 尚未验证，不宣称兼容；新版 Webots 的系统支持不能直接套用于 R2023b |
+| Windows 10 / 11，64 位 | 支持 | 可以安装原生 Webots 并尝试打开世界；本项目控制器、视觉依赖和自动测试尚未验证 |
+| macOS 11 Big Sur / 12 Monterey | 支持；发布包覆盖 Intel 和 Apple Silicon | 可以安装原生 Webots并尝试打开世界；本项目尚未验证，Python 与依赖需匹配运行架构 |
+| 更新的 macOS 版本 | R2023b 的固定版本系统说明未列出 | 尚未验证，不宣称兼容 |
+
+系统范围依据 [R2023b 官方系统要求](https://github.com/cyberbotics/webots/blob/R2023b/docs/guide/system-requirements.md)；安装包与处理器架构依据 [R2023b 官方发布页](https://github.com/cyberbotics/webots/releases/tag/R2023b)。
+
+### 软件与图形要求
+
+- **Webots：R2023b。** 现有模型与实验结果以此版本为基准，其他版本需重新验证。
+- **Python：独立 Conda Python 3.10 环境。** 已验证补丁版本为 3.10.22；Webots 的 Python command 指向该环境的解释器。
+- **依赖：** NumPy 1.26.4、OpenCV 4.9.0.80、Ultralytics 8.1.4，见 `requirements-tested.txt`。视觉检测已验证组合另包含 PyTorch 2.2.2+cpu 和 torchvision 0.17.2+cpu；其他系统需使用对应平台的安装包，Ubuntu 的 CPU 安装命令不代表 macOS 安装方案。
+- **图形：** Webots 3D 渲染要求支持 OpenGL 3.3 的图形设备与驱动；官方列出的最低图形内存为 512 MB。[官方硬件要求](https://github.com/cyberbotics/webots/blob/R2023b/docs/guide/system-requirements.md)
+- **工程建议：** 四核 CPU、至少 8 GB 内存；同时运行八个控制器、视觉检测和开发工具时可采用 16 GB。此为配置建议，不是已测得的最低门槛，也不保证实时运行。
+- **GPU 与 CUDA：** 已验证的视觉模型使用 CPU 推理，不要求 CUDA；Webots 的图形渲染仍需要正常工作的图形设备与驱动。
+
+### Windows 与 macOS 的使用边界
+
+当前文档中的 `env -u`、`dpkg-query`、Ubuntu 安装命令和 Linux 路径按 Ubuntu 编写，不能原样复制到 Windows。自动集成脚本 `tests/run_webots_check.py` 使用符号链接和 POSIX 进程组信号，在 Windows 上需要适配；macOS 的 Webots 可执行文件发现与依赖安装也尚未验证。
+
+跨平台尝试可先通过原生 Webots 界面打开 `Wenao/worlds/naotdp.wbt`，设置独立环境的 Python command，再检查控制台是否有导入或控制器错误。WSL、虚拟机、容器和 Linux ARM64 均不在当前已验证范围。完整安装步骤见下方“安装复现步骤”，已执行的验证范围见 [验证状态](docs/VALIDATION.md)。
+
+## Ubuntu 自动安装与启动
+
+安装脚本适配 **原生 Ubuntu 20.04/22.04、Intel/AMD x86-64**；22.04 分支尚未实际验证。Windows、macOS、WSL、容器和其他 Ubuntu 版本不在脚本适配范围。
+
+克隆后在项目根目录运行：
+
+```bash
+bash install.sh
+```
+
+脚本会检查或安装 Webots R2023b、独立 Conda Python 3.10 环境与固定 CPU 依赖，并执行逻辑测试。系统软件缺失时使用 sudo，整个脚本以普通账户运行。安装结束后，在 Webots 的 **Tools → Preferences → General → Python command** 中设置安装输出的解释器路径。
+
+配置解释器后，在项目根目录启动：
+
+```bash
+bash launch.sh
+```
+
+启动器读取本机安装配置、设置环境 PATH，并打开 `Wenao/worlds/naotdp.wbt`，不要求提前手动激活 Conda。其他常用模式：
+
+```bash
+bash install.sh --dry-run                     # 预览安装计划
+bash install.sh --check                       # 检查已有环境，不生成启动配置
+bash install.sh --env-name webots-tdp-clean    # 使用另一个独立环境
+```
+
+完整参数、安装目录、重复执行行为和验证范围见 [docs/INSTALL.md](docs/INSTALL.md)。安装日志与启动路径存放在被 Git 忽略的 `.setup/`，不随公开源码上传。
+
+入口：[安装](docs/INSTALL.md) · [运行](docs/RUN.md) · [验证状态](docs/VALIDATION.md) · [发布清理](docs/PUBLICATION_AUDIT.md) · [来源与许可](THIRD_PARTY_NOTICES.md)。
+
+## 仓库导览
+
+### 目录与文件用途
+
+| 路径 | 作用 |
+|---|---|
+| [Wenao/worlds/naotdp.wbt](Wenao/worlds/naotdp.wbt) | **主仿真入口**：球场、足球、八个 NAO 模型、初始位置、控制器名称、视角与 40 ms 仿真步长 |
+| [Wenao/protos/](Wenao/protos/) | Webots 场景与机器人模型；`CourseSoccerField.proto` 定义球场，`CourseGoal.proto` 定义球门，`NaoV6.proto` 为世界实际加载的机器人模型 |
+| [Wenao/protos/meshes/](Wenao/protos/meshes/) / [textures/](Wenao/protos/textures/) | 模型网格、球衣、球网等外观资产；几何外观和碰撞/动力学配置需分别检查 |
+| [Wenao/controllers/](Wenao/controllers/) | 球员、裁判、共享执行器、决策与视觉程序，详细职责见下方 |
+| [Wenao/motions/](Wenao/motions/) | 预设关节角度与时间序列；包含行走、转向、侧移、踢球、传球和起身动作 |
+| [tests/](tests/) | Python 逻辑检查、安装脚本检查，以及实际 Webots 几何、比赛、动作、视觉与连续进攻测试夹具 |
+| [tools/evaluate_run.py](tools/evaluate_run.py) | 从单次实验的 JSONL 日志生成统计指标，用于分析动作尝试、策略变化、触球、球轨迹和恢复行为 |
+| [verification/](verification/) | 脱敏后的历史实验结果、日志、图像和清单；`development/` 为开发试验，`publication/` 为发布整理后复测 |
+| [docs/](docs/) | 安装、运行、验证缺口、部署状态和发布清理说明 |
+| [ball_distance_results/visualisations.ipynb](ball_distance_results/visualisations.ipynb) | 历史测距数据分析、线性/多项式回归和随机森林实验；当前足球控制器不调用此 Notebook。所需 `data/final*.csv` 未随公开仓库提供，运行还需分析依赖，如 scikit-learn |
+| [nao_ws/](nao_ws/) | 保留的 ROS/Gazebo 工作区；`src/nao` 为机器人相关包，`src/ros_gz` 为 ROS/Gazebo 桥接包，`src/sdformat_urdf` 为模型转换相关包。当前 Webots 足球主流程不依赖此目录，也未完成其独立运行验证 |
+| [imgs/](imgs/) | 历史图片目录占位，目前仅有 `.gitignore`；实际验证图像位于 `verification/` |
+| [install.sh](install.sh) / [launch.sh](launch.sh) | Ubuntu 环境安装与启动入口，使用方法见上方及 [安装说明](docs/INSTALL.md) |
+| [requirements-tested.txt](requirements-tested.txt) / [requirements.txt](requirements.txt) | 前者固定已验证的直接依赖；后者保留原来的最低版本声明。自动安装优先采用前者，PyTorch CPU 版本由安装脚本另外固定 |
+| [PROJECT_HISTORY.md](PROJECT_HISTORY.md) | 环境复现、修改、排障、失败实验和结果的独立技术记录 |
+| [IMPLEMENTATION_NOTES.md](IMPLEMENTATION_NOTES.md) | 几何约定和实现变更的阶段性记录；当前验证范围以 `docs/VALIDATION.md` 为准 |
+| [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) / [LICENSE](LICENSE) | 原项目出处、第三方作者与资产条款，以及仓库根许可证；不同资产的文件内条款保留 |
+| [.gitignore](.gitignore) | 排除本机安装状态、运行数据、视觉日志、缓存和 Webots UI 偏好等生成文件 |
+
+`Nao.proto`、`NaoH25V60.proto` 和 `NAOH25V60.urdf` 是保留的其他模型描述；当前世界引用 `NaoV6.proto`。场景中的部分背景和足球 PROTO 引用官方 R2023b 资源，首次加载需要可访问相应资源或已有 Webots 缓存。
+
+### 八个球员入口
+
+每队包含一个守门员、一个后卫和两个前锋。下列文件是 Webots 按控制器名称启动的入口，均转入共享的 `Base/SoccerController.py`；角色根据机器人名称确定，并非八套独立战术程序。
+
+| 角色 | 红队入口 | 蓝队入口 |
+|---|---|---|
+| 守门员 | [RedGoalkeeper.py](Wenao/controllers/RedGoalkeeper/RedGoalkeeper.py) | [BlueGoalkeeper.py](Wenao/controllers/BlueGoalkeeper/BlueGoalkeeper.py) |
+| 后卫 | [RedDefender.py](Wenao/controllers/RedDefender/RedDefender.py) | [BlueDefender.py](Wenao/controllers/BlueDefender/BlueDefender.py) |
+| 前锋 A | [RedForwardA.py](Wenao/controllers/RedForwardA/RedForwardA.py) | [BlueForwardA.py](Wenao/controllers/BlueForwardA/BlueForwardA.py) |
+| 前锋 B | [RedForwardB.py](Wenao/controllers/RedForwardB/RedForwardB.py) | [BlueForwardB.py](Wenao/controllers/BlueForwardB/BlueForwardB.py) |
+
+### 决策、导航与动作执行
+
+| 程序 | 负责的内容 |
+|---|---|
+| [Base/SoccerController.py](Wenao/controllers/Base/SoccerController.py) | **球员运行主循环**：创建设备、接收观测、检查比赛阶段和跌倒状态、调用决策与导航、播放动作、发送传球意图并记录日志 |
+| [Utils/TeamPolicy.py](Wenao/controllers/Utils/TeamPolicy.py) | **战术决策**：`TeamPolicy.decide()` 根据比赛、机器人和球的状态选择追球者、阵型、支援、防守、守门、拦截、带球、传球或射门；`attack()` 选择目标球路与脚位目标 |
+| [Utils/Navigation.py](Wenao/controllers/Utils/Navigation.py) | **移动与近球对齐**：`Navigator.choose()` 把战术目标转成动作名称；包含从预定球路后方接近、面向踢球方向、身体坐标下的侧移/后退、脚位对齐与到达位置滞回 |
+| [Utils/HeadingFilter.py](Wenao/controllers/Utils/HeadingFilter.py) | 平滑 IMU 朝向，减少步态摇摆引起的反复转向，处理角度跨越 ±π 的情况 |
+| [Utils/MotionDiagnostics.py](Wenao/controllers/Utils/MotionDiagnostics.py) | 可选运动诊断：记录 IMU、动作实际播放时间、腿部目标/实测角和左右脚力；默认关闭，不选择动作或调整关节目标 |
+| `SoccerController.py` 中的 `MOTION_FILES` / `MotionLibrary` | 把 `walk`、`shoot`、`pass` 等动作名映射到 `.motion` 文件；过滤模型中不存在的关节通道、按实际电机限位裁剪角度，并生成临时动作副本 |
+| [Utils/ProcessSupervisor.py](Wenao/controllers/Utils/ProcessSupervisor.py) | 解析并验证裁判广播的 V2 JSON 观测，检查版本、数值、比赛状态与时间戳，保存最近有效观测；不是战术决策器 |
+
+当前战术由规则、阈值和状态判断组成。YOLO 用于视觉检测，Notebook 用于历史测距实验；现有足球决策没有接入强化学习或已训练的战术模型。
+
+`TeamPolicy` 返回 `Decision`：`behaviour` 是行为标签，`target` 是站位/对齐目标，`face` 是观察或预定球路目标，`kick` 指定踢球动作，`receiver` 指定接球者。`Navigation` 结合当前位置、朝向和球位置选择动作；`SoccerController` 再处理站稳、首段最短行走时长、比赛停止和恢复动作的优先级。
+
+典型执行关系为 `SHOOT → 脚位对齐与站稳 → Shoot.motion`、`PASS → 传球对齐 → LongPass.motion`。`DRIBBLE` 当前主要通过面向球门的连续 `ForwardLoop.motion` 推进，不等于直接播放名为 dribble 的动作。`Sprint` 配置保留兼容用途，当前导航不会据此自动切换为更快步态。
+
+### 裁判、几何与配置
+
+| 程序或文件 | 负责的内容 |
+|---|---|
+| [Supervisor/Supervisor.py](Wenao/controllers/Supervisor/Supervisor.py) | 裁判入口；每个时间步更新比赛、广播观测、更新比分显示 |
+| [Base/SupervisorBase.py](Wenao/controllers/Base/SupervisorBase.py) | Webots 裁判适配：读取球和机器人位置、估计球速与接触归属、执行放球/处罚/重置、记录比赛轨迹并广播观测 |
+| [Utils/MatchEngine.py](Wenao/controllers/Utils/MatchEngine.py) | 独立于 Webots API 的比赛状态与部分规则逻辑：计时、半场换边、整球进球/出界、重启归属与限制等 |
+| [Utils/CourseSpecs.py](Wenao/controllers/Utils/CourseSpecs.py) | 场地、球门、足球尺寸和时间步常量，以及整球穿越球门的几何判定 |
+| [Utils/globalconfig.ini](Wenao/controllers/Utils/globalconfig.ini) | `[Match]` 配置比赛时间与种子，`[Controller]` 配置观测来源和视觉显示；旧的队伍/球员参数段保留给历史实现，不直接决定当前共享策略的站位 |
+| [CourseSoccerField.proto](Wenao/protos/CourseSoccerField.proto) / [CourseGoal.proto](Wenao/protos/CourseGoal.proto) | 实际球场和球门的场景几何。尺寸调整需要同时核对 `CourseSpecs.py` 与场景模型 |
+
+默认 `Observation=supervisor` 使用仿真真值开发战术。裁判具有场景重置与处罚摆放权限；球员控制器通过关节动作运动。裁判与测试夹具的摆放不作为自主走位能力的证据。完整 RoboCup 规则和行为性能仍未全部验证，具体缺口见 [VALIDATION.md](docs/VALIDATION.md)。
+
+### 视觉与历史工具
+
+| 程序或资产 | 作用与当前使用范围 |
+|---|---|
+| [Utils/ImageServer.py](Wenao/controllers/Utils/ImageServer.py) | 相机缓冲转换、异步 YOLO 检测、根据球框和相机 FOV 估计光轴深度/视线角、发布带采集信息的检测结果并保存视觉 CSV |
+| [Utils/best.pt](Wenao/controllers/Utils/best.pt) | 随仓库保留的检测模型权重；用于球检测，不包含当前足球战术策略 |
+| [Utils/VisionGeometry.py](Wenao/controllers/Utils/VisionGeometry.py) | 将相机估计结合采集时的机器人位姿、头部角度和假定外参转换为世界坐标；依赖直立姿态等假设，尚未完成多场景或真机标定 |
+| [controllers/legacy/](Wenao/controllers/legacy/) | 原八个球员实现，供历史比较；当前世界不加载这些文件，它们不是可直接切换运行的新版入口 |
+| [Utils/pathPlanning.py](Wenao/controllers/Utils/pathPlanning.py) / [Heuristics.py](Wenao/controllers/Utils/Heuristics.py) | 保留的 A* 网格规划与参考实现；当前共享控制器没有调用这两套 A*，现用导航采用局部目标避让 |
+| [Utils/Functions.py](Wenao/controllers/Utils/Functions.py) / [Consts.py](Wenao/controllers/Utils/Consts.py) | 距离/角度辅助函数、时间步导出和旧动作封装；当前动作加载由 `SoccerController.MotionLibrary` 负责 |
+
+`Observation=vision` 当前启用底部相机估球，但机器人定位仍来自 Supervisor，是混合实验模式。过期检测或丢球会停止移动；该模式不能作为独立视觉定位或真实机器人自主部署的证明。
+
+### 运行时调用关系
+
+```mermaid
+flowchart TD
+    W["naotdp.wbt：加载世界"] --> P["八个球员入口"]
+    W --> S["Supervisor.py"]
+    S --> SB["SupervisorBase.py：裁判适配"]
+    SB --> ME["MatchEngine.py：比赛规则与状态"]
+    ME --> SB
+    SB --> PD["ProcessSupervisor.py：观测广播解析"]
+    P --> C["SoccerController.py：设备与执行循环"]
+    PD --> C
+    V["ImageServer.py + VisionGeometry.py：可选相机估球"] --> C
+    C --> T["TeamPolicy.decide：战术目标"]
+    T --> N["Navigator.choose：动作建议"]
+    N --> M["SoccerController.play / MotionLibrary"]
+    M --> A["motions/*.motion：关节时间序列"]
+    A --> B["Webots 物理仿真：机器人与球运动"]
+    B --> SB
+```
+
+图中的决策与导航调用由 `SoccerController.act()` 组织。IMU、比赛状态和数据时效检查可优先中止普通动作；图示不表示策略模块直接调用 Webots 电机。
+
+### 测试、日志与指标
+
+| 入口 | 检查内容 |
+|---|---|
+| `python -m unittest discover -s tests -v` | 几何/A* 边界、消息与比赛逻辑、角色决策、导航、朝向过滤、视觉投影/CSV，以及安装脚本保护与启动环境隔离 |
+| [tests/run_webots_check.py](tests/run_webots_check.py)，不加模式参数 | 世界加载、球门净尺寸、计分/重置和部分裁判执行检查，夹具为 `webots_course_check.py` |
+| 同一入口 `--match` | 两个可配置半场的集成检查，夹具为 `webots_match_check.py`；默认 60 秒半场仅用于快速检查生命周期 |
+| 同一入口 `--skills` | 独立的近距射门、带球、传球/接球物理夹具，使用 `webots_skill_check.py` |
+| 同一入口 `--motions` | 隔离场景测量动作位移与实际转角，使用 `webots_motion_check.py` 和 `webots_motion_probe.py` |
+| 同一入口 `--attack` | 一个实际球员控制器完成无对手的接近、推进和射门，使用 `webots_attack_check.py`；其他机器人使用旁站测试入口 |
+| 同一入口 `--transitions` | 固定动作衔接测量，每种三次；可用 `--transition-profile replay` 回放首次跌倒前的动作历史，比较有球/无球与站姿过渡；见 [TRANSITION_TESTS.md](docs/TRANSITION_TESTS.md) |
+| 同一入口 `--vision` | 实际相机和随包检测模型的单场景检查，使用 `webots_vision_check.py` 和 `webots_vision_player.py`；必须指定新的 `--output` 目录 |
+| [tools/evaluate_run.py](tools/evaluate_run.py) | 读取某次运行目录的日志，生成指标 JSON；动作计数是尝试次数，不能直接当作成功率 |
+| `--attack --diagnostics` / `--match --diagnostics` | 在常规测试基础上每个时间步记录运动诊断，必须指定独立 `--output` 目录；操作见 [MOTION_STABILITY.md](docs/MOTION_STABILITY.md) |
+| [tools/analyze_motion_diagnostics.py](tools/analyze_motion_diagnostics.py) | 汇总倾角超过 0.8 rad 的连续区间及其前一动作切换，辅助定位失稳；阈值区间不等于已验证的独立跌倒次数 |
+| [tools/analyze_transition_run.py](tools/analyze_transition_run.py) | 按衔接测试组合汇总最大躯干倾角、偏航和低位倾倒观测；测试完成标记不代表稳定性通过 |
+
+单人进攻对照操作见 [DRIBBLE_OPTIMIZATION.md](docs/DRIBBLE_OPTIMIZATION.md)，中途跌倒的日志与实现限制见 [MOTION_STABILITY.md](docs/MOTION_STABILITY.md)。0.10/0.08 m 带球横向滞回候选的三次测试均退化，已撤回；当前代码恢复为基线。实际结果见 [实验记录](verification/dribble-hysteresis/README.md)。
+
+自动 Webots 检查在临时项目中运行；部分模式用测试夹具替换裁判或球员入口，测量条件与正式比赛不同。具体命令、时长和成功标记见 [RUN.md](docs/RUN.md)。
+
+以下目录在运行后生成，不属于公开源码的固定内容：
+
+| 路径 | 生成内容 |
+|---|---|
+| `runs/` | `match-*.jsonl` 比赛状态、轨迹与裁判事件，`player-*.jsonl` 策略/导航变化、动作尝试和加载修正；自动测试另保存 `webots.log`、清单和结果 JSON。`TDP_RUN_DIR` 可选择其他输出目录 |
+| `Wenao/controllers/Utils/vision_logs/` | 相机检测和距离/角度估计的 CSV |
+| `.setup/` | 安装日志、环境解释器与 Webots 可执行文件的本机路径 |
+| `Wenao/worlds/.naotdp.wbproj` | 本机视角、叠加显示等 Webots UI 偏好 |
+
+这些生成文件已被 Git 忽略；公开测试快照集中于 `verification/`。保存日志与统计有助于定位失败，但不自动证明规则完整性、行为成功率或真机能力。
+
+### 常见问题对应的代码位置
+
+| 检查或修改目标 | 主要入口 |
+|---|---|
+| 仿真场景、初始位置、模型或 controller 名称 | `naotdp.wbt` 与 `protos/` |
+| 选择追球、射门、传球、支援或守门策略 | `TeamPolicy.py` |
+| 接近球、绕到球后、转向振荡、侧移和脚位对齐 | `Navigation.py`、`HeadingFilter.py`，以及 `SoccerController.act()` |
+| 步行/踢球动作本身缓慢、偏航或不稳定 | `.motion` 资产、`MOTION_FILES` / `MotionLibrary`、`--motions` 测量；播放速度与 Webots 快进倍率不同 |
+| 比赛计时、换边、出界重启或计分 | `globalconfig.ini`、`MatchEngine.py`、`SupervisorBase.py`、`CourseSpecs.py` |
+| 球检测、相机测距、估计过期 | `ImageServer.py`、`VisionGeometry.py`、`SoccerController.visual_world()` |
+| 实验是否实际有效、指标如何解释 | `tests/`、`evaluate_run.py`、`verification/` 与 `docs/VALIDATION.md` |
 
 下方为完整技术过程记录，独立副本见 [PROJECT_HISTORY.md](PROJECT_HISTORY.md)。
 
@@ -34,6 +246,8 @@ Webots_Robotics_TDP/
 ├── LICENSE
 ├── requirements.txt
 ├── requirements-tested.txt
+├── install.sh
+├── launch.sh
 ├── Wenao/
 │   ├── worlds/naotdp.wbt
 │   ├── protos/
@@ -256,7 +470,7 @@ max_displacement可包含裁判摆放，不能当真实行走能力。
 
 ## 16. 导航改写与配对复测
 
-近球导航改为从球后方接近、面向预计球路、身体坐标侧移/后退、射门前站稳和持续带球。角色站位采用滞回，行走保留完整周期，安全与停止条件优先。共同last_touch暂保追球权，CLEAR朝前。
+近球导航改为从球后方接近、面向预计球路、身体坐标侧移/后退、射门前站稳和持续带球。角色站位采用滞回，行走启动后设置0.96秒最小时长，安全与停止条件优先；后续循环尚未按支撑相位保护切换。共同last_touch暂保追球权，CLEAR朝前。
 
 | 指标 | 基准 | 导航版本 |
 |---|---:|---:|

@@ -1,0 +1,149 @@
+{
+  "date": "2026-10-13",
+  "mode": "attack",
+  "seed": 27,
+  "simulation_limit_seconds": 180,
+  "candidate": {
+    "dribble_enter_metres": 0.1,
+    "dribble_exit_metres": 0.08,
+    "kick_alignment_unchanged": true
+  },
+  "changed_simulation_sources": [
+    "controllers/Utils/Navigation.py"
+  ],
+  "navigation_sha256": {
+    "baseline": "2f47b1499bd3db445b591879330fde3212176868a14b9b320cc47f27a04450dc",
+    "hysteresis": "32d109170fa56cbbdde276ded4ee3cb1f080f74b07c3ea03c4175310153fdbb4"
+  },
+  "trials": [
+    {
+      "group": "baseline",
+      "trial": 1,
+      "output_directory": "runs/dribble_baseline_01",
+      "scored": true,
+      "seconds_to_end": 147.16,
+      "lateral_attempts": 39,
+      "lateral_command_intervals_seconds": 59.28,
+      "recovery_attempts": 2,
+      "lateral_attempts_by_behaviour": {
+        "INTERCEPT": 2,
+        "DRIBBLE": 35,
+        "SHOOT": 2
+      },
+      "lateral_intervals_by_behaviour_seconds": {
+        "INTERCEPT": 3.0,
+        "DRIBBLE": 53.16,
+        "SHOOT": 3.12
+      }
+    },
+    {
+      "group": "baseline",
+      "trial": 2,
+      "output_directory": "runs/dribble_baseline_02",
+      "scored": true,
+      "seconds_to_end": 147.16,
+      "lateral_attempts": 39,
+      "lateral_command_intervals_seconds": 59.28,
+      "recovery_attempts": 2,
+      "lateral_attempts_by_behaviour": {
+        "INTERCEPT": 2,
+        "DRIBBLE": 35,
+        "SHOOT": 2
+      },
+      "lateral_intervals_by_behaviour_seconds": {
+        "INTERCEPT": 3.0,
+        "DRIBBLE": 53.16,
+        "SHOOT": 3.12
+      }
+    },
+    {
+      "group": "baseline",
+      "trial": 3,
+      "output_directory": "runs/dribble_baseline_03",
+      "scored": true,
+      "seconds_to_end": 147.16,
+      "lateral_attempts": 39,
+      "lateral_command_intervals_seconds": 59.28,
+      "recovery_attempts": 2,
+      "lateral_attempts_by_behaviour": {
+        "INTERCEPT": 2,
+        "DRIBBLE": 35,
+        "SHOOT": 2
+      },
+      "lateral_intervals_by_behaviour_seconds": {
+        "INTERCEPT": 3.0,
+        "DRIBBLE": 53.16,
+        "SHOOT": 3.12
+      }
+    },
+    {
+      "group": "hysteresis",
+      "trial": 1,
+      "output_directory": "runs/dribble_hysteresis_01",
+      "scored": false,
+      "seconds_to_end": 180.0,
+      "lateral_attempts": 47,
+      "lateral_command_intervals_seconds": 71.76,
+      "recovery_attempts": 7,
+      "lateral_attempts_by_behaviour": {
+        "INTERCEPT": 4,
+        "DRIBBLE": 34,
+        "SHOOT": 9
+      },
+      "lateral_intervals_by_behaviour_seconds": {
+        "INTERCEPT": 6.12,
+        "DRIBBLE": 51.6,
+        "SHOOT": 14.04
+      }
+    },
+    {
+      "group": "hysteresis",
+      "trial": 2,
+      "output_directory": "runs/dribble_hysteresis_02",
+      "scored": false,
+      "seconds_to_end": 180.0,
+      "lateral_attempts": 47,
+      "lateral_command_intervals_seconds": 71.76,
+      "recovery_attempts": 7,
+      "lateral_attempts_by_behaviour": {
+        "INTERCEPT": 4,
+        "DRIBBLE": 34,
+        "SHOOT": 9
+      },
+      "lateral_intervals_by_behaviour_seconds": {
+        "INTERCEPT": 6.12,
+        "DRIBBLE": 51.6,
+        "SHOOT": 14.04
+      }
+    },
+    {
+      "group": "hysteresis",
+      "trial": 3,
+      "output_directory": "runs/dribble_hysteresis_03",
+      "scored": false,
+      "seconds_to_end": 180.0,
+      "lateral_attempts": 47,
+      "lateral_command_intervals_seconds": 71.76,
+      "recovery_attempts": 7,
+      "lateral_attempts_by_behaviour": {
+        "INTERCEPT": 4,
+        "DRIBBLE": 34,
+        "SHOOT": 9
+      },
+      "lateral_intervals_by_behaviour_seconds": {
+        "INTERCEPT": 6.12,
+        "DRIBBLE": 51.6,
+        "SHOOT": 14.04
+      }
+    }
+  ],
+  "candidate_unit_tests_passed": 44,
+  "decision": "reject_and_restore_baseline",
+  "limitations": [
+    "Three repeats of one fixed unopposed fixture; no multi-scenario or match success rate.",
+    "Command intervals are approximate and omit the final command interval.",
+    "Recovery commands are attempts, not a validated fall count.",
+    "Dribble-only changes alter later arrival posture; unchanged shooting thresholds do not imply unchanged physical shooting performance."
+  ],
+  "restored_baseline_unit_tests_passed": 41
+}

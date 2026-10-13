@@ -115,6 +115,11 @@ class SoccerController:
         directory = Path(os.environ.get("TDP_RUN_DIR", str(Path(__file__).resolve().parents[3] / "runs")))
         directory.mkdir(parents=True, exist_ok=True)
         self.log = (directory / f"player-{self.name}-{os.getpid()}.jsonl").open("w", buffering=1)
+        self.diagnostics = None
+        if os.environ.get('TDP_MOTION_DIAGNOSTICS') == '1':
+            from Utils.MotionDiagnostics import MotionDiagnostics
+            self.diagnostics = MotionDiagnostics(self.robot, self.library.devices, self.imu,
+                                                 directory, self.time_step)
         self.play("stand", "INITIALIZE")
 
     def play(self, action, behaviour):
@@ -129,12 +134,18 @@ class SoccerController:
             if (self.current_action not in ("walk", "sprint", "stand")
                     and not action.startswith("recover") and behaviour not in ("WAIT", "PENALIZED", "BALL_LOST", "STALE_DATA")):
                 return
+        if self.diagnostics:
+            self.diagnostics.snapshot(self, 'motion_transition_before', requested_action=action,
+                                      requested_behaviour=behaviour)
+        if self.current and not self.current.isOver():
             self.current.stop()
         self.current = self.library.get(action)
         self.current.setLoop(action == "walk")
         self.current.play()
         self.current_action = action
         self.action_started = self.robot.getTime()
+        if self.diagnostics:
+            self.diagnostics.snapshot(self, 'motion_transition_after', requested_behaviour=behaviour)
         self.log.write(json.dumps({"event": "command", "robot": self.name, "time": self.robot.getTime(),
                                    "action": action, "behaviour": behaviour, "source": self.source,
                                    "motion_preparation": self.library.audit[action]})+"\n")
@@ -258,12 +269,17 @@ class SoccerController:
         try:
             while self.robot.step(self.time_step) != -1:
                 self.receive()
+                if self.diagnostics:
+                    self.diagnostics.ready = True
+                    self.diagnostics.snapshot(self)
                 if self.observation.world:
                     self.act(self.observation.world)
         finally:
             if self.vision:
                 self.vision.stop()
             self.log.close()
+            if self.diagnostics:
+                self.diagnostics.close()
             self.library.directory.cleanup()
 
 

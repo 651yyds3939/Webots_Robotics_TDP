@@ -2,6 +2,8 @@
 
 环境：Ubuntu 20.04、Webots R2023b、Conda Python 3.10（本机 robotics-tdp）。仿真入口仍是 Wenao/worlds/naotdp.wbt。
 
+首次安装可运行根目录的 `bash install.sh`，系统范围与参数见 [INSTALL.md](INSTALL.md)。安装通过并核对 Python command 后，可通过 `bash launch.sh` 启动；已有环境也可继续使用下列手动命令。
+
 ```bash
 cd Webots_Robotics_TDP
 conda activate robotics-tdp
@@ -46,7 +48,7 @@ python tools/evaluate_run.py runs/behaviour_27_01 --output runs/behaviour_27_01/
 
 比较 playing_seconds_sampled、setup_removals、contact_transitions、ball_path_metres_sampled 以及画面。机器人轨迹长度包含身体摆动，不等于标定过的步行速度；commands 只是动作尝试，不能当作成功率。若只有几厘米球位移且没有触球，不应因为 MATCH_CHECK_OK 而认定行为已通过。先修正一个具体问题，再用相同种子和时长复测。
 
-当前导航先从预定踢球方向的后方接近球，再面向踢球方向，用侧移/后退调整脚位；射门前先站稳，带球保持面向目标连续推进。角色站位采用到达/离开阈值，减少在目标附近反复转身。navigation 日志记录这些阶段。连续步行保留一个完整步态周期，安全与比赛停止仍优先处理。没有缩短动作时间或调整球摩擦/机器人质量来人为加速，仍需验证稳定性。
+当前导航先从预定踢球方向的后方接近球，再面向踢球方向，用侧移/后退调整脚位；射门前先站稳，带球保持面向目标连续推进。角色站位采用到达/离开阈值，减少在目标附近反复转身。navigation 日志记录这些阶段。连续步行启动后有0.96秒最小时长保护，安全与比赛停止仍优先处理；后续循环未按播放相位或脚底支撑状态限制切换。失稳诊断见 [MOTION_STABILITY.md](MOTION_STABILITY.md)。没有缩短动作时间或调整球摩擦/机器人质量来人为加速，仍需验证稳定性。
 
 可用 `python tests/run_webots_check.py --motions --output runs/motion_01` 在隔离场景测量动作。一次 8 秒试验中，ForwardLoop 约 0.085 m/s，Forwards50 约 0.054 m/s，Sprint 约 0.037 m/s 且朝向漂移约 -61°；不是硬件校准，也不是多次测量均值。左转 20/40 动作约 17/39°，右转 20 动作约 -17°；旧左转 10 和右转 40 分别只有约 4/-16°，新版导航避免根据文件名推断转角。右转大角度分段执行已测量的右转 20。原始动作本身仍慢，后续要单独开发并校准更快且稳定的步态。
 
