@@ -1,0 +1,46 @@
+INFO: RedGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u RedGoalkeeper.py
+INFO: RedDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u RedDefender.py
+INFO: RedForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardB.py
+INFO: RedForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardA.py
+INFO: BlueGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueGoalkeeper.py
+INFO: BlueDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueDefender.py
+INFO: BlueForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardB.py
+INFO: BlueForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardA.py
+INFO: CourseCheck: Starting controller: ${CONDA_PREFIX}/bin/python -u CourseCheck.py
+INFO: RedGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u RedGoalkeeper.py
+INFO: RedDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u RedDefender.py
+INFO: RedForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardB.py
+INFO: RedForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardA.py
+INFO: BlueGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueGoalkeeper.py
+INFO: BlueDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueDefender.py
+INFO: BlueForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardB.py
+INFO: BlueForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardA.py
+SKILL_MEASUREMENT {"fixture": "shoot", "start_ball": [4.199999229927804, -0.0002644694147739969, 0.06959785632996597], "end_ball": [4.606001992258463, -0.0008977338527708462, 0.06959778915768251], "max_ball_displacement": 0.406003256198733, "physical_contacts": ["RedForwardA"], "goal_crossed": true, "receiver_contact": false, "success_rate_validated": false}
+INFO: RedGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u RedGoalkeeper.py
+INFO: RedDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u RedDefender.py
+INFO: RedForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardB.py
+INFO: RedForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardA.py
+INFO: BlueGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueGoalkeeper.py
+INFO: BlueDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueDefender.py
+INFO: BlueForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardB.py
+INFO: BlueForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardA.py
+SKILL_MEASUREMENT {"fixture": "dribble", "start_ball": [0.006179799973619139, 0.0004345274025415052, 0.06959785566328512], "end_ball": [1.0496400649101358, -0.05457147733011477, 0.0695977441481105], "max_ball_displacement": 1.0449090798045708, "physical_contacts": ["RedForwardA"], "goal_crossed": false, "receiver_contact": false, "success_rate_validated": false}
+INFO: RedGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u RedGoalkeeper.py
+INFO: RedDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u RedDefender.py
+INFO: RedForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardB.py
+INFO: RedForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardA.py
+INFO: BlueGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueGoalkeeper.py
+INFO: BlueDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueDefender.py
+INFO: BlueForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardB.py
+INFO: BlueForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardA.py
+SKILL_MEASUREMENT {"fixture": "pass", "start_ball": [1.9970099442176232, -0.002240130486768217, 0.06959785573203257], "end_ball": [1.8857688109697224, 0.12039236827741089, 0.0695977899707717], "max_ball_displacement": 0.3051396105104535, "physical_contacts": ["RedForwardA", "RedForwardB"], "goal_crossed": false, "receiver_contact": true, "success_rate_validated": false}
+SKILL_CHECK_OK: close-range goal, physical dribble, receiver contact; fixture outcomes only
+INFO: CourseCheck: Terminating.
+INFO: RedGoalkeeper: Terminating.
+INFO: RedDefender: Terminating.
+INFO: RedForwardB: Terminating.
+INFO: RedForwardA: Terminating.
+INFO: BlueGoalkeeper: Terminating.
+INFO: BlueDefender: Terminating.
+INFO: BlueForwardB: Terminating.
+INFO: BlueForwardA: Terminating.

@@ -1,0 +1,9 @@
+......<python-environment>/lib/python/site-packages/thop/profile.py:12: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(torch.__version__) < LooseVersion("1.0.0"):
+<python-environment>/lib/python/site-packages/thop/profile.py:68: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(torch.__version__) >= LooseVersion("1.1.0"):
+...........................
+----------------------------------------------------------------------
+Ran 33 tests in 2.272s
+
+OK

@@ -1,0 +1,31 @@
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: RedForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardA.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: CourseCheck: Starting controller: ${CONDA_PREFIX}/bin/python -u CourseCheck.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: RedForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardA.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+Traceback (most recent call last):
+  File "<temporary-project>/controllers/CourseCheck/CourseCheck.py", line 54, in <module>
+    assert scored and 'RedForwardA' in contacts, result
+AssertionError: {'scored': False, 'seconds_to_end': 180.0, 'start_ball': [1.1999992299277753, -0.00026446941477399703, 0.06959785632996597], 'end_ball': [3.5462850129941037, 0.02790846411140514, 0.06944390626693127], 'contacts': ['RedForwardA'], 'opponents_active': False, 'success_rate_validated': False}
+ATTACK_MEASUREMENT {"scored": false, "seconds_to_end": 180.0, "start_ball": [1.1999992299277753, -0.00026446941477399703, 0.06959785632996597], "end_ball": [3.5462850129941037, 0.02790846411140514, 0.06944390626693127], "contacts": ["RedForwardA"], "opponents_active": false, "success_rate_validated": false}
+INFO: CourseCheck: Terminating.
+INFO: MotionProbe: Terminating.
+INFO: MotionProbe: Terminating.
+INFO: MotionProbe: Terminating.
+INFO: RedForwardA: Terminating.
+INFO: MotionProbe: Terminating.
+INFO: MotionProbe: Terminating.
+INFO: MotionProbe: Terminating.
+INFO: MotionProbe: Terminating.

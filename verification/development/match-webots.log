@@ -1,0 +1,51 @@
+INFO: RedGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u RedGoalkeeper.py
+INFO: RedDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u RedDefender.py
+INFO: RedForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardB.py
+INFO: RedForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardA.py
+INFO: BlueGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueGoalkeeper.py
+INFO: BlueDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueDefender.py
+INFO: BlueForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardB.py
+INFO: BlueForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardA.py
+INFO: CourseCheck: Starting controller: ${CONDA_PREFIX}/bin/python -u CourseCheck.py
+MATCH: READY half=1
+MATCH: SET half=1
+MATCH: PLAYING half=1
+MATCH_CHECK_PROGRESS 20.0 PLAYING
+MATCH: READY half=1
+MATCH: SET half=1
+INFO: RedForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardB.py
+INFO: RedForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardA.py
+INFO: BlueForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardB.py
+INFO: BlueForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardA.py
+MATCH: PLAYING half=1
+MATCH_CHECK_PROGRESS 40.0 PLAYING
+MATCH_CHECK_PROGRESS 60.0 PLAYING
+MATCH: HALFTIME half=2
+MATCH: READY half=2
+MATCH: SET half=2
+INFO: RedGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u RedGoalkeeper.py
+INFO: RedDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u RedDefender.py
+INFO: RedForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardB.py
+INFO: RedForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardA.py
+INFO: BlueGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueGoalkeeper.py
+INFO: BlueDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueDefender.py
+INFO: BlueForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardB.py
+INFO: BlueForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardA.py
+MATCH: PLAYING half=2
+MATCH_CHECK_PROGRESS 80.0 PLAYING
+MATCH_CHECK_PROGRESS 100.0 PLAYING
+MATCH: READY half=2
+MATCH: SET half=2
+MATCH: PLAYING half=2
+MATCH_CHECK_PROGRESS 120.0 PLAYING
+MATCH: FINISHED half=2
+MATCH_CHECK_OK {"simulated_seconds": 121.04, "shortened_clock": true, "phases": ["FINISHED", "HALFTIME", "PLAYING", "READY", "SET"], "score": [0, 0], "max_displacement": {"RedGoalkeeper": 8.652776478079648, "RedDefender": 6.13603603456853, "RedForwardB": 5.7521382677064885, "RedForwardA": 2.9409503099824152, "BlueGoalkeeper": 8.626992523469578, "BlueDefender": 6.1365541017521865, "BlueForwardB": 3.564037279344725, "BlueForwardA": 5.336312704873113}, "behaviour_success_validated": false}
+INFO: CourseCheck: Terminating.
+INFO: RedGoalkeeper: Terminating.
+INFO: RedDefender: Terminating.
+INFO: RedForwardB: Terminating.
+INFO: RedForwardA: Terminating.
+INFO: BlueGoalkeeper: Terminating.
+INFO: BlueDefender: Terminating.
+INFO: BlueForwardB: Terminating.
+INFO: BlueForwardA: Terminating.

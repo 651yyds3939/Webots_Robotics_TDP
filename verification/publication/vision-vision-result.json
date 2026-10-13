@@ -1,0 +1,17 @@
+{
+  "detected": true,
+  "confidence": 0.9257022142410278,
+  "estimated_ball": [
+    0.6600151872695418,
+    -0.0008642384198933326,
+    0.07
+  ],
+  "reference_ball": [
+    0.6499959360370545,
+    -0.001395705321765086,
+    0.06959778999826567
+  ],
+  "planar_error_metres": 0.010033337048434215,
+  "fixture_only": true,
+  "calibration_validated": false
+}

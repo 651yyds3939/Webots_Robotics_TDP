@@ -1,0 +1,73 @@
+{
+  "sample_count": 2713,
+  "last_time": 601.08,
+  "last_phase": "FINISHED",
+  "playing_seconds_sampled": 507.55999999999995,
+  "setup_removals": {},
+  "fixture_formation_count": 2,
+  "robot_path_metres_sampled": {
+    "RedGoalkeeper": 4.750866397077817,
+    "RedDefender": 52.02330931829454,
+    "RedForwardB": 41.57828772799617,
+    "RedForwardA": 41.76146511365072,
+    "BlueGoalkeeper": 4.602356410670382,
+    "BlueDefender": 22.947883819577388,
+    "BlueForwardB": 43.82428492279017,
+    "BlueForwardA": 59.095333609553734
+  },
+  "command_seconds_all_phases": {
+    "stand": 2461.5999999999985,
+    "walk": 706.7200000000013,
+    "step_right": 213.11999999999992,
+    "pass": 39.839999999999996,
+    "recover_back": 54.2,
+    "left40": 578.7599999999999,
+    "right20": 402.19999999999976,
+    "left20": 104.71999999999962,
+    "step_left": 209.35999999999999,
+    "back": 20.80000000000001
+  },
+  "median_walk_bout_seconds": 1.3600000000000136,
+  "commands": {
+    "stand": 142,
+    "walk": 298,
+    "right20": 458,
+    "left40": 204,
+    "left20": 120,
+    "step_right": 138,
+    "pass": 12,
+    "recover_back": 16,
+    "step_left": 136,
+    "back": 8
+  },
+  "decision_transitions": {
+    "FORMATION": 16,
+    "DEFEND": 12,
+    "INTERCEPT": 45,
+    "CLEAR": 8,
+    "RESTART": 2,
+    "DRIBBLE": 34,
+    "SUPPORT": 26,
+    "SHOOT": 1,
+    "PASS": 18,
+    "GUARD": 5,
+    "GUARD_INTERCEPT": 1
+  },
+  "goals": {},
+  "fallen_removal_penalties": {},
+  "contact_transitions": {
+    "BlueForwardA": 11,
+    "RedDefender": 10,
+    "RedForwardA": 8,
+    "BlueDefender": 7
+  },
+  "ball_path_metres_sampled": 14.756896036870465,
+  "limitations": [
+    "Commands are attempts, not successful behaviours.",
+    "Ball path excludes logged referee placements; unlogged fixture movements are not match performance.",
+    "Contact attribution uses Webots contact-location approximation.",
+    "Robot path includes torso sway; it is not calibrated forward speed.",
+    "Command durations include READY and recovery; they are not skill success times.",
+    "No hardware or calibrated-vision accuracy demonstrated."
+  ]
+}

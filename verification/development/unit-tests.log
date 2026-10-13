@@ -1,0 +1,32 @@
+test_ball_must_cross_wholly_and_only_once (test_course_specs.GoalTests) ... ok
+test_ball_must_fit_between_posts_and_under_bar (test_course_specs.GoalTests) ... ok
+test_both_ends_and_wider_goal (test_course_specs.GoalTests) ... ok
+test_uses_crossing_location_not_end_of_step (test_course_specs.GoalTests) ... ok
+test_outside_grid_and_no_path (test_course_specs.PlanningTests) ... ok
+test_rectangular_grid_and_path_order (test_course_specs.PlanningTests) ... ok
+test_camera_calibration_and_mixed_csv_records (test_course_specs.VisionTests) ... <python-environment>/lib/python/site-packages/thop/profile.py:12: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(torch.__version__) < LooseVersion("1.0.0"):
+<python-environment>/lib/python/site-packages/thop/profile.py:68: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(torch.__version__) >= LooseVersion("1.1.0"):
+ok
+test_projection_uses_capture_pose_not_latest_pose (test_match_behaviours.PacketTests) ... ok
+test_zero_is_numeric_and_bad_packet_preserves_last_observation (test_match_behaviours.PacketTests) ... ok
+test_clock_half_swap_and_finish_including_stoppages (test_match_behaviours.RefereeTests) ... ok
+test_hl_goal_kick_and_corner_placement (test_match_behaviours.RefereeTests) ... ok
+test_indirect_restart_cannot_score_without_second_player_touch (test_match_behaviours.RefereeTests) ... ok
+test_partial_crossing_not_out_and_first_diagonal_boundary (test_match_behaviours.RefereeTests) ... ok
+test_scoring_changes_with_ends_and_conceding_kickoff (test_match_behaviours.RefereeTests) ... ok
+test_stuck_ball_and_invalid_clock (test_match_behaviours.RefereeTests) ... ok
+test_throw_in_awarded_to_other_team_at_crossing (test_match_behaviours.RefereeTests) ... ok
+test_unknown_touch_is_not_invented (test_match_behaviours.RefereeTests) ... ok
+test_goalkeeper_predicts_crossing (test_match_behaviours.RoleTests) ... ok
+test_match_stop_penalty_and_restart_exclusion (test_match_behaviours.RoleTests) ... ok
+test_one_chaser_per_team_and_support (test_match_behaviours.RoleTests) ... ok
+test_pass_receiver_approaches_ball_and_sender_yields (test_match_behaviours.RoleTests) ... ok
+test_pass_when_shot_lane_blocked (test_match_behaviours.RoleTests) ... ok
+test_shoot_and_dribble_are_distinct (test_match_behaviours.RoleTests) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 2.378s
+
+OK

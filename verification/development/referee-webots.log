@@ -1,0 +1,36 @@
+INFO: RedGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u RedGoalkeeper.py
+INFO: RedDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u RedDefender.py
+INFO: RedForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardB.py
+INFO: RedForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardA.py
+INFO: BlueGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueGoalkeeper.py
+INFO: BlueDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueDefender.py
+INFO: BlueForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardB.py
+INFO: BlueForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardA.py
+INFO: CourseCheck: Starting controller: ${CONDA_PREFIX}/bin/python -u CourseCheck.py
+COURSE_GEOMETRY_OK: clear opening 2.6 x 1.2 m
+MATCH: READY half=1
+MATCH: SET half=1
+MATCH: PLAYING half=1
+SCORER_SAMPLE [4.56, 1, 0.07] [4.58, 1.0, 0.07]
+RED GOAL!
+MATCH: READY half=1
+MATCH: SET half=1
+MATCH: PLAYING half=1
+MATCH: SET half=1
+INFO: RedDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u RedDefender.py
+MATCH: PLAYING half=1
+COURSE_RESTART_ENFORCEMENT_OK
+INFO: BlueDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueDefender.py
+COURSE_CHECK_STEP 0
+COURSE_CHECK_STEP 25
+COURSE_CHECK_STEP 50
+COURSE_CHECK_OK: geometry loaded, 8 players, scorer/reset, 3 simulated seconds
+INFO: RedGoalkeeper: Terminating.
+INFO: RedForwardB: Terminating.
+INFO: RedForwardA: Terminating.
+INFO: BlueGoalkeeper: Terminating.
+INFO: BlueForwardB: Terminating.
+INFO: BlueForwardA: Terminating.
+INFO: CourseCheck: Terminating.
+INFO: RedDefender: Terminating.
+INFO: BlueDefender: Terminating.

@@ -1,0 +1,43 @@
+INFO: RedGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u RedGoalkeeper.py
+INFO: RedDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u RedDefender.py
+INFO: RedForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u RedForwardB.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+INFO: BlueGoalkeeper: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueGoalkeeper.py
+INFO: BlueDefender: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueDefender.py
+INFO: BlueForwardB: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardB.py
+INFO: BlueForwardA: Starting controller: ${CONDA_PREFIX}/bin/python -u BlueForwardA.py
+INFO: CourseCheck: Starting controller: ${CONDA_PREFIX}/bin/python -u CourseCheck.py
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "walk", "seconds": 8, "displacement": [0.6820192870186825, 0.03608942498661202, -0.014399526649349514], "forward_metres_per_second": 0.08525241087733532, "yaw_degrees": 1.8018728706865512, "minimum_up": 0.9951941694114353, "end_height": 0.30558685735573504}
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "dribble", "seconds": 8, "displacement": [0.43540550768808683, 0.02682361051041577, -0.017229223202715194], "forward_metres_per_second": 0.054425688461010854, "yaw_degrees": -0.31968220271511566, "minimum_up": 0.9951941694114311, "end_height": 0.3027571608023701}
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "sprint", "seconds": 8, "displacement": [0.2980214227069924, -0.08970044067973654, -0.01647656976342521], "forward_metres_per_second": 0.03725267783837405, "yaw_degrees": -61.45593976153885, "minimum_up": 0.9951941694114311, "end_height": 0.30350981424166007}
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "back", "seconds": 8, "displacement": [-0.27321457476991884, 0.001715208698502922, -0.014666259345897548], "forward_metres_per_second": -0.034151821846239855, "yaw_degrees": -1.6284961368287423, "minimum_up": 0.9951941694114311, "end_height": 0.30532012465918773}
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "step_left", "seconds": 8, "displacement": [-0.012224897280897262, 0.10168005367289845, -0.012449687588913072], "forward_metres_per_second": -0.0015281121601121578, "yaw_degrees": 5.852931305943564, "minimum_up": 0.9951941694114311, "end_height": 0.3075366964161722}
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "step_right", "seconds": 8, "displacement": [-0.016461779813940713, -0.17837628882174217, -0.014383421594265033], "forward_metres_per_second": -0.002057722476742589, "yaw_degrees": -4.889110732553439, "minimum_up": 0.9951941694114311, "end_height": 0.30560296241082024}
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "left10", "seconds": 4, "displacement": [-0.006848084571611445, 0.011842500470477425, -0.014995221528974978], "forward_metres_per_second": -0.0017120211429028612, "yaw_degrees": 4.449392028484148, "minimum_up": 0.9948739453001905, "end_height": 0.3049911624761103}
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "right10", "seconds": 4, "displacement": [0.03051946425594803, -0.041646965958750476, -2.1029439406627937e-05], "forward_metres_per_second": 0.0076298660639870074, "yaw_degrees": -16.190295093915758, "minimum_up": 0.9748506331283968, "end_height": 0.31996535456567865}
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "left20", "seconds": 4, "displacement": [-0.010774699463286502, 0.01035016461077849, -0.0150451791966007], "forward_metres_per_second": -0.0026936748658216254, "yaw_degrees": 16.873355846361836, "minimum_up": 0.9951941694114311, "end_height": 0.3049412048084846}
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "right20", "seconds": 4, "displacement": [-0.010347992559208779, -0.0075437703791458866, -0.015006243802846875], "forward_metres_per_second": -0.0025869981398021946, "yaw_degrees": -17.348436344702577, "minimum_up": 0.9951941694114311, "end_height": 0.3049801402022384}
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "left40", "seconds": 4, "displacement": [-0.010207911802422762, 0.004628899535675714, -0.015034898653693396], "forward_metres_per_second": -0.0025519779506056905, "yaw_degrees": 38.8322585477636, "minimum_up": 0.9951941694114311, "end_height": 0.3049514853513919}
+INFO: MotionProbe: Starting controller: ${CONDA_PREFIX}/bin/python -u MotionProbe.py
+MOTION_MEASUREMENT {"action": "right40", "seconds": 4, "displacement": [-0.005180092321515988, -0.00700383177324367, -0.015006241497957318], "forward_metres_per_second": -0.001295023080378997, "yaw_degrees": -16.40179117097151, "minimum_up": 0.9951941694114311, "end_height": 0.30498014250712796}
+MOTION_CHECK_OK: measurements only; no hardware calibration
+INFO: RedGoalkeeper: Terminating.
+INFO: RedDefender: Terminating.
+INFO: RedForwardB: Terminating.
+INFO: BlueGoalkeeper: Terminating.
+INFO: BlueDefender: Terminating.
+INFO: BlueForwardB: Terminating.
+INFO: BlueForwardA: Terminating.
+INFO: CourseCheck: Terminating.
+INFO: MotionProbe: Terminating.

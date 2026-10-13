@@ -1,0 +1,26 @@
+{
+  "simulated_seconds": 121.04,
+  "shortened_clock": true,
+  "phases": [
+    "FINISHED",
+    "HALFTIME",
+    "PLAYING",
+    "READY",
+    "SET"
+  ],
+  "score": [
+    0,
+    0
+  ],
+  "max_displacement": {
+    "RedGoalkeeper": 8.652776478079648,
+    "RedDefender": 6.13603603456853,
+    "RedForwardB": 5.7521382677064885,
+    "RedForwardA": 2.9409503099824152,
+    "BlueGoalkeeper": 8.626992523469578,
+    "BlueDefender": 6.1365541017521865,
+    "BlueForwardB": 3.564037279344725,
+    "BlueForwardA": 5.336312704873113
+  },
+  "behaviour_success_validated": false
+}

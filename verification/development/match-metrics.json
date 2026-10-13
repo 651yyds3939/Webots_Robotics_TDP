@@ -1,0 +1,38 @@
+{
+  "sample_count": 552,
+  "last_time": 121.04,
+  "last_phase": "FINISHED",
+  "commands": {
+    "stand": 58,
+    "walk": 144,
+    "right10": 58,
+    "right20": 40,
+    "left20": 21,
+    "left10": 89,
+    "left40": 13,
+    "left180": 7,
+    "right40": 10,
+    "left60": 1,
+    "right60": 1
+  },
+  "decision_transitions": {
+    "FORMATION": 44,
+    "DEFEND": 6,
+    "INTERCEPT": 13,
+    "CLEAR": 2,
+    "RESTART": 7,
+    "SUPPORT": 15,
+    "DRIBBLE": 3,
+    "GUARD": 8
+  },
+  "goals": {},
+  "fallen_removal_penalties": {},
+  "contact_transitions": {},
+  "ball_path_metres_sampled": 0.07565776765009266,
+  "limitations": [
+    "Commands are attempts, not successful behaviours.",
+    "Ball path excludes logged referee placements; unlogged fixture movements are not match performance.",
+    "Contact attribution uses Webots contact-location approximation.",
+    "No hardware or calibrated-vision accuracy demonstrated."
+  ]
+}

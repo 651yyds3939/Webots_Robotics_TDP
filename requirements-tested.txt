@@ -1,0 +1,9 @@
+# Direct dependencies verified locally with Conda Python 3.10 / Webots R2023b.
+# Pure match/role logic uses the standard library; the Supervisor also uses NumPy.
+# These are required for legacy utilities and optional vision.
+numpy==1.26.4
+opencv-python==4.9.0.80
+ultralytics==8.1.4
+# The verified vision runtime additionally uses torch 2.2.2+cpu and
+# torchvision 0.17.2+cpu. Obtain compatible wheels from the official PyTorch
+# CPU index if needed; do not mix CUDA/CPU wheels during environment reproduction.

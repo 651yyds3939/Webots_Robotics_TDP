@@ -1,0 +1,132 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "../protos/CourseSoccerField.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/balls/protos/RobocupSoccerBall.proto"
+EXTERNPROTO "../protos/NaoV6.proto"
+EXTERNPROTO "../protos/NaoJersey.proto"
+
+WorldInfo {
+  basicTimeStep 40
+  optimalThreadCount 8
+  gpsCoordinateSystem "WGS84"
+}
+Viewpoint {
+  orientation -0.24374122770383327 0.24527136720711723 0.9383134712588217 1.6281895084173221
+  position -0.13822713151077515 -14.77816869988081 7.129375153925527
+}
+TexturedBackground {
+  texture "stadium"
+}
+TexturedBackgroundLight {
+  castShadows FALSE
+}
+DEF PITCH CourseSoccerField {
+  frame1Color 1 1 1
+  frame2Color 1 1 1
+}
+DEF RedGoalkeeper NaoV6 {
+  translation -4.15 0 0.334
+  rotation 0 0 1 0
+  name "RedGoalkeeper"
+  controller "RedGoalkeeper"
+  jersey NaoJersey {
+    jerseyColor 1 0 0
+  }
+}
+DEF RedDefender NaoV6 {
+  translation -2.1 0 0.334
+  rotation 0 0 1 0
+  name "RedDefender"
+  controller "RedDefender"
+  jersey NaoJersey {
+    jerseyTexture [
+      "../protos/textures/nao_jersey_dark_2.png"
+    ]
+    jerseyColor 1 0 0
+  }
+}
+DEF RedForwardB NaoV6 {
+  translation -0.8 1.5 0.334
+  rotation 0 0 1 0
+  name "RedForwardB"
+  controller "RedForwardB"
+  jersey NaoJersey {
+    jerseyTexture [
+      "../protos/textures/nao_jersey_dark_3.png"
+    ]
+    jerseyColor 1 0 0
+  }
+}
+DEF RedForwardA NaoV6 {
+  translation -0.8 -1.5 0.334
+  rotation 0 0 1 0
+  name "RedForwardA"
+  controller "RedForwardA"
+  jersey NaoJersey {
+    jerseyTexture [
+      "../protos/textures/nao_jersey_dark_4.png"
+    ]
+    jerseyColor 1 0 0
+  }
+}
+DEF BlueGoalkeeper NaoV6 {
+  translation 4.15 0 0.334
+  rotation 0 0 1 3.14159
+  name "BlueGoalkeeper"
+  controller "BlueGoalkeeper"
+  jersey NaoJersey {
+    jerseyColor 0 0 1
+  }
+}
+DEF BlueDefender NaoV6 {
+  translation 2.1 0 0.334
+  rotation 0 0 1 3.14159
+  name "BlueDefender"
+  controller "BlueDefender"
+  jersey NaoJersey {
+    jerseyTexture [
+      "../protos/textures/nao_jersey_dark_2.png"
+    ]
+    jerseyColor 0 0 1
+  }
+}
+DEF BlueForwardB NaoV6 {
+  translation 0.8 -1.5 0.334
+  rotation 0 0 1 3.14159
+  name "BlueForwardB"
+  controller "BlueForwardB"
+  jersey NaoJersey {
+    jerseyTexture [
+      "../protos/textures/nao_jersey_dark_3.png"
+    ]
+    jerseyColor 0 0 1
+  }
+}
+DEF BlueForwardA NaoV6 {
+  translation 0.8 1.5 0.334
+  rotation 0 0 1 3.14159
+  name "BlueForwardA"
+  controller "BlueForwardA"
+  jersey NaoJersey {
+    jerseyTexture [
+      "../protos/textures/nao_jersey_dark_4.png"
+    ]
+    jerseyColor 0 0 1
+  }
+}
+DEF BALL RobocupSoccerBall {
+  translation 0 0 0.07
+  rotation 0.7061171684562897 0.08214359694419121 0.7033142781803466 -3.0337383834214533
+  name "RobocupSoccerBall"
+}
+DEF SUPERVISOR Robot {
+  children [
+    DEF EMITTER Emitter {
+    }
+  ]
+  name "supervisor"
+  controller "Supervisor"
+  supervisor TRUE
+}
