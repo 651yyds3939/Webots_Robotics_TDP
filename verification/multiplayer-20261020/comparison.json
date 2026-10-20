@@ -1,0 +1,45 @@
+{
+  "baseline": {
+    "score": [
+      0,
+      0
+    ],
+    "simulated_seconds": 601.08,
+    "playing_seconds": 508.0400000001123,
+    "recovery_commands": 5,
+    "tilt_episodes": 4,
+    "ball_path_metres_sampled": 12.067701185312888,
+    "shoot_decision_transitions": 10,
+    "shoot_commands": 1,
+    "pass_commands": 4,
+    "pass_intents_received": 0
+  },
+  "candidate": {
+    "score": [
+      0,
+      1
+    ],
+    "simulated_seconds": 601.08,
+    "playing_seconds": 470.320000000093,
+    "recovery_commands": 12,
+    "tilt_episodes": 8,
+    "ball_path_metres_sampled": 10.442822263665558,
+    "shoot_decision_transitions": 2,
+    "shoot_commands": 1,
+    "pass_commands": 4,
+    "pass_intents_received": 0
+  },
+  "candidate_default_enabled": false,
+  "first_position_divergence_seconds": 219.32,
+  "first_goal_seconds": 262.32,
+  "decision_replay_equivalence_counts": {
+    "baseline_default": 21704,
+    "candidate_opt_in": 21704
+  },
+  "limitations": [
+    "One fixed-seed comparison, not success-rate validation.",
+    "Goal was preceded by dribbling; shoot command count did not increase.",
+    "Playing time changed after the goal; recovery differences cannot be attributed to one mechanism alone.",
+    "Candidate remains opt-in because overall multiplayer stability was not demonstrated."
+  ]
+}

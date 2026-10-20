@@ -56,3 +56,43 @@ class NavigationTests(unittest.TestCase):
         d = TeamPolicy('RedForwardA').attack([3.2, 2.5], [3.5, 2.5], 1, {}, [])
         self.assertEqual(d.behaviour, 'DRIBBLE')
         self.assertEqual(d.face, (4.5, .9))
+
+    def test_finishing_aims_beyond_line_even_when_ball_is_partly_across(self):
+        for direction in (1, -1):
+            policy = TeamPolicy('RedForwardA', goal_depth=.30)
+            d = policy.attack([direction*4.35, .9], [direction*4.55, .9], direction, {}, [])
+            self.assertEqual(d.behaviour, 'SHOOT')
+            self.assertGreater(direction*(d.face[0]-direction*4.55), .2)
+
+    def test_finishing_distance_is_still_measured_to_goal_line(self):
+        policy = TeamPolicy('RedForwardA', goal_depth=.30)
+        self.assertEqual(policy.attack([3.85, 0], [4.05, 0], 1, {}, []).behaviour, 'SHOOT')
+        self.assertEqual(policy.attack([3.75, 0], [3.95, 0], 1, {}, []).behaviour, 'DRIBBLE')
+
+    def test_blocked_finishing_lane_does_not_reset_aim_to_goal_centre(self):
+        for direction in (1, -1):
+            for side in (1, -1):
+                with self.subTest(direction=direction, side=side):
+                    policy = TeamPolicy('RedForwardA', goal_depth=.30, finishing_nearest=True)
+                    own, ball = [direction*4.06, side*1.0], [direction*4.55, side*1.06]
+                    blocked = policy.attack(own, ball, direction, {}, [[direction*4.45, side*1.0]])
+                    clear = policy.attack(own, ball, direction, {}, [[direction*4.0, -side*1.0]])
+                    # A closing defender still prevents the shot. It must not
+                    # swing the fallback dribble aim towards the goal centre.
+                    self.assertEqual(blocked.behaviour, 'DRIBBLE')
+                    self.assertEqual(clear.behaviour, 'SHOOT')
+                    self.assertEqual(blocked.face, clear.face)
+                    self.assertEqual(blocked.face, (direction*4.8, side*.9))
+
+    def test_default_keeps_baseline_blocked_goal_aim(self):
+        policy = TeamPolicy('RedForwardA', goal_depth=.30)
+        decision = policy.attack([4.06, 1.0], [4.55, 1.06], 1, {}, [[4.45, 1.0]])
+        self.assertEqual((decision.behaviour, decision.face), ('DRIBBLE', (4.8, 0)))
+
+    def test_finishing_candidate_requires_player_fixture_and_output(self):
+        import subprocess
+        runner = Path(__file__).with_name('run_webots_check.py')
+        for options in (['--match'], ['--motions', '--output', 'unused']):
+            result = subprocess.run([sys.executable, str(runner), '--finishing-aim', 'nearest', *options],
+                                    capture_output=True, text=True, timeout=5)
+            self.assertEqual(result.returncode, 2, result.stderr)

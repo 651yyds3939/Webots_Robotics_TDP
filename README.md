@@ -65,9 +65,22 @@ bash install.sh --env-name webots-tdp-clean    # 使用另一个独立环境
 
 完整参数、安装目录、重复执行行为和验证范围见 [docs/INSTALL.md](docs/INSTALL.md)。安装日志与启动路径存放在被 Git 忽略的 `.setup/`，不随公开源码上传。
 
-入口：[安装](docs/INSTALL.md) · [运行](docs/RUN.md) · [验证状态](docs/VALIDATION.md) · [发布清理](docs/PUBLICATION_AUDIT.md) · [推送与分支排障](docs/GIT_PUSH_TROUBLESHOOTING.md) · [来源与许可](THIRD_PARTY_NOTICES.md)。
+入口：[安装](docs/INSTALL.md) · [运行](docs/RUN.md) · [系统架构与通信](docs/SYSTEM_ARCHITECTURE.md) · [验证状态](docs/VALIDATION.md) · [发布清理](docs/PUBLICATION_AUDIT.md) · [推送与分支排障](docs/GIT_PUSH_TROUBLESHOOTING.md) · [来源与许可](THIRD_PARTY_NOTICES.md)。
+
+## 单人无摔倒进攻
+
+激活环境后，在仓库根目录执行：
+
+```bash
+conda activate robotics-tdp
+python tests/run_webots_check.py --attack --visible --diagnostics --seed 27 --output runs/single_player_next_01
+```
+
+该入口默认使用 guarded 调度，要求进球、无倾倒与恢复，并继续检查进球后停止的稳定性。标准站位已在约 76.24 仿真秒完成；镜像站位与球偏移场景也已完成严格验收。每次更换新的输出目录。具体方法与范围见 [单人稳定性说明](docs/SINGLE_PLAYER_STABILITY.md)。普通八人世界和四对四开发测试不属于本阶段单人验收范围。
 
 ## 仓库导览
+
+首次四对四基线、门前瞄准目标调整和多人失稳排查见 [四对四调试记录](docs/MULTIPLAYER_DEBUGGING.md)，包含复现命令、结果与轨迹图。多人测试需显式记录执行模式；单人进球结果不代替对抗验证。
 
 ### 目录与文件用途
 
@@ -80,6 +93,7 @@ bash install.sh --env-name webots-tdp-clean    # 使用另一个独立环境
 | [Wenao/motions/](Wenao/motions/) | 预设关节角度与时间序列；包含行走、转向、侧移、踢球、传球和起身动作 |
 | [tests/](tests/) | Python 逻辑检查、安装脚本检查，以及实际 Webots 几何、比赛、动作、视觉与连续进攻测试夹具 |
 | [tools/evaluate_run.py](tools/evaluate_run.py) | 从单次实验的 JSONL 日志生成统计指标，用于分析动作尝试、策略变化、触球、球轨迹和恢复行为 |
+| [tools/analyze_multiplayer_run.py](tools/analyze_multiplayer_run.py) | 关联各球员失稳过程、恢复命令与最近其他机器人位置；根节点接近不等于实际碰撞 |
 | [verification/](verification/) | 脱敏后的历史实验结果、日志、图像和清单；`development/` 为开发试验，`publication/` 为发布整理后复测 |
 | [docs/](docs/) | 安装、运行、验证缺口、部署状态和发布清理说明 |
 | [ball_distance_results/visualisations.ipynb](ball_distance_results/visualisations.ipynb) | 历史测距数据分析、线性/多项式回归和随机森林实验；当前足球控制器不调用此 Notebook。所需 `data/final*.csv` 未随公开仓库提供，运行还需分析依赖，如 scikit-learn |
@@ -113,6 +127,7 @@ bash install.sh --env-name webots-tdp-clean    # 使用另一个独立环境
 | [Utils/TeamPolicy.py](Wenao/controllers/Utils/TeamPolicy.py) | **战术决策**：`TeamPolicy.decide()` 根据比赛、机器人和球的状态选择追球者、阵型、支援、防守、守门、拦截、带球、传球或射门；`attack()` 选择目标球路与脚位目标 |
 | [Utils/Navigation.py](Wenao/controllers/Utils/Navigation.py) | **移动与近球对齐**：`Navigator.choose()` 把战术目标转成动作名称；包含从预定球路后方接近、面向踢球方向、身体坐标下的侧移/后退、脚位对齐与到达位置滞回 |
 | [Utils/HeadingFilter.py](Wenao/controllers/Utils/HeadingFilter.py) | 平滑 IMU 朝向，减少步态摇摆引起的反复转向，处理角度跨越 ±π 的情况 |
+| [Utils/GuardedLocomotion.py](Wenao/controllers/Utils/GuardedLocomotion.py) | 单人 guarded 调度：直行周期末停步、非直行动作后收稳、IMU 与双脚受力的站姿稳定门槛；与 SoccerController 配合避免动态摇摆中反复对齐 |
 | [Utils/MotionDiagnostics.py](Wenao/controllers/Utils/MotionDiagnostics.py) | 可选运动诊断：记录 IMU、动作实际播放时间、腿部目标/实测角和左右脚力；默认关闭，不选择动作或调整关节目标 |
 | `SoccerController.py` 中的 `MOTION_FILES` / `MotionLibrary` | 把 `walk`、`shoot`、`pass` 等动作名映射到 `.motion` 文件；过滤模型中不存在的关节通道、按实际电机限位裁剪角度，并生成临时动作副本 |
 | [Utils/ProcessSupervisor.py](Wenao/controllers/Utils/ProcessSupervisor.py) | 解析并验证裁判广播的 V2 JSON 观测，检查版本、数值、比赛状态与时间戳，保存最近有效观测；不是战术决策器 |
@@ -151,6 +166,8 @@ bash install.sh --env-name webots-tdp-clean    # 使用另一个独立环境
 
 ### 运行时调用关系
 
+完整的[系统架构与通信说明](docs/SYSTEM_ARCHITECTURE.md)包含纯文本整体架构图、单个球员调用链、视觉线程图和测试结构图。当前采用 Webots Controller API 连接仿真器、Emitter/Receiver 广播 UTF-8 JSON、普通 Python 函数连接决策与导航；可选视觉使用同进程线程、队列和锁，不依赖 ROS，也不运行独立图像网络服务器。
+
 ```mermaid
 flowchart TD
     W["naotdp.wbt：加载世界"] --> P["八个球员入口"]
@@ -182,6 +199,8 @@ flowchart TD
 | 同一入口 `--skills` | 独立的近距射门、带球、传球/接球物理夹具，使用 `webots_skill_check.py` |
 | 同一入口 `--motions` | 隔离场景测量动作位移与实际转角，使用 `webots_motion_check.py` 和 `webots_motion_probe.py` |
 | 同一入口 `--attack` | 一个实际球员控制器完成无对手的接近、推进和射门，使用 `webots_attack_check.py`；其他机器人使用旁站测试入口 |
+| `--attack` 单人稳定性入口 | 默认 guarded 调度并执行无摔倒与进球后停止检查；用法、空间布局和验收条件见 [SINGLE_PLAYER_STABILITY.md](docs/SINGLE_PLAYER_STABILITY.md) |
+| `--attack --side-transition phase` | 三次完整进攻均退化的实验候选，默认关闭、未采纳；保留复现入口，操作见 [ATTACK_TRANSITION_EXPERIMENT.md](docs/ATTACK_TRANSITION_EXPERIMENT.md) |
 | 同一入口 `--transitions` | 固定动作衔接测量，每种三次；可用 `--transition-profile replay` 回放首次跌倒前的动作历史，比较有球/无球与站姿过渡；见 [TRANSITION_TESTS.md](docs/TRANSITION_TESTS.md) |
 | 同一入口 `--vision` | 实际相机和随包检测模型的单场景检查，使用 `webots_vision_check.py` 和 `webots_vision_player.py`；必须指定新的 `--output` 目录 |
 | [tools/evaluate_run.py](tools/evaluate_run.py) | 读取某次运行目录的日志，生成指标 JSON；动作计数是尝试次数，不能直接当作成功率 |
@@ -189,7 +208,7 @@ flowchart TD
 | [tools/analyze_motion_diagnostics.py](tools/analyze_motion_diagnostics.py) | 汇总倾角超过 0.8 rad 的连续区间及其前一动作切换，辅助定位失稳；阈值区间不等于已验证的独立跌倒次数 |
 | [tools/analyze_transition_run.py](tools/analyze_transition_run.py) | 按衔接测试组合汇总最大躯干倾角、偏航和低位倾倒观测；测试完成标记不代表稳定性通过 |
 
-单人进攻对照操作见 [DRIBBLE_OPTIMIZATION.md](docs/DRIBBLE_OPTIMIZATION.md)，中途跌倒的日志与实现限制见 [MOTION_STABILITY.md](docs/MOTION_STABILITY.md)。0.10/0.08 m 带球横向滞回候选的三次测试均退化，已撤回；当前代码恢复为基线。实际结果见 [实验记录](verification/dribble-hysteresis/README.md)。
+当前单人无摔倒进攻入口见 [SINGLE_PLAYER_STABILITY.md](docs/SINGLE_PLAYER_STABILITY.md)。早期带球滞回对照见 [DRIBBLE_OPTIMIZATION.md](docs/DRIBBLE_OPTIMIZATION.md)，中途跌倒的日志与实现限制见 [MOTION_STABILITY.md](docs/MOTION_STABILITY.md)。0.10/0.08 m 横向滞回候选已因退化撤回，导航仍保留原阈值；历史基线需显式使用 `--locomotion legacy` 复现。
 
 自动 Webots 检查在临时项目中运行；部分模式用测试夹具替换裁判或球员入口，测量条件与正式比赛不同。具体命令、时长和成功标记见 [RUN.md](docs/RUN.md)。
 
@@ -220,7 +239,7 @@ flowchart TD
 
 ## 配置、实现与调试记录
 
-记录日期：2026-10-13。项目目录名称：`Webots_Robotics_TDP`。
+历史记录日期：2026-10-13；单人稳定性更新：2026-10-20。项目目录名称：`Webots_Robotics_TDP`。
 
 本文记录环境配置、场景复现、模型与控制修改、失败实验、验证结果和待完成事项。早期完整安装终端记录未全部保存，安装命令属于按已确认环境重建的复现步骤。测试结果依据保存的 JSON、日志与场景图像。
 
@@ -230,7 +249,7 @@ flowchart TD
 - 运行环境：Ubuntu 20.04.6、Webots R2023b、Conda Python 3.10.22。
 - 主流程：Webots Controller API、共享 Python 策略、预设关节动作与 Supervisor 裁判。
 - 默认观测：Supervisor 真值；可选相机估球模式仍依赖 Supervisor 定位。
-- 无对手连续进攻场景曾在147.16秒完成整球入门。
+- 无对手连续进攻的旧基线为 147.16 秒且发生恢复；guarded 单人入口已在 76.24 秒完成无倾倒、无恢复的严格验收，详见上方单人稳定性说明。
 - 可靠四对四、快速稳定步态、完整比赛规则、独立定位和真实硬件部署尚未完成。
 
 本文陈述实现与实验事实，不将单次夹具成功等同于总体性能验收。

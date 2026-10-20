@@ -17,7 +17,7 @@
 
 ```bash
 conda activate robotics-tdp
-python tests/run_webots_check.py --attack --visible --seed 27 --output runs/dribble_baseline_new_01
+python tests/run_webots_check.py --attack --visible --locomotion legacy --seed 27 --output runs/dribble_baseline_new_01
 python tools/evaluate_run.py runs/dribble_baseline_new_01 --output runs/dribble_baseline_new_01/metrics.json
 cat runs/dribble_baseline_new_01/attack-result.json
 ```
@@ -37,11 +37,11 @@ python -m unittest discover -s tests -v
 随后以同样的模式、种子和初始条件运行三次，每次使用新的候选目录，例如：
 
 ```bash
-python tests/run_webots_check.py --attack --visible --seed 27 --output runs/dribble_candidate_next_01
+python tests/run_webots_check.py --attack --visible --locomotion legacy --seed 27 --output runs/dribble_candidate_next_01
 python tools/evaluate_run.py runs/dribble_candidate_next_01 --output runs/dribble_candidate_next_01/metrics.json
 ```
 
-第二、三次分别使用 `_02`、`_03`。当前 `--attack` 的初始场景固定，改变种子不能替代位置、朝向和球速覆盖。
+第二、三次分别使用 `_02`、`_03`。本历史实验使用标准初始场景和 legacy 调度，改变种子不能替代位置、朝向和球速覆盖。当前稳定模式与布局变化见 [SINGLE_PLAYER_STABILITY.md](SINGLE_PLAYER_STABILITY.md)。
 
 | 判定项 | 数据来源 |
 |---|---|

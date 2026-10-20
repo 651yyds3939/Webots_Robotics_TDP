@@ -1,0 +1,9 @@
+python -m unittest discover -s tests -v
+
+----------------------------------------------------------------------
+Ran 66 tests in 2.977s
+
+OK
+
+Default and candidate policy replay equivalence: 21704 decisions each.
+Default and candidate single-player strict regressions: scored, 76.24 s, zero recovery.

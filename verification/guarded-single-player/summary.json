@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-20",
+  "unit_tests_passed": 63,
+  "final_runs": [
+    {
+      "layout": "standard",
+      "trial": "01",
+      "seconds_to_goal": 76.24000000000001,
+      "no_fall_passed": true,
+      "recovery_attempts": 0,
+      "side_motion_attempts": 2,
+      "maximum_tilt_degrees": 22.23451042226918,
+      "minimum_torso_height": 0.2876571413499831
+    },
+    {
+      "layout": "standard",
+      "trial": "02",
+      "seconds_to_goal": 76.24000000000001,
+      "no_fall_passed": true,
+      "recovery_attempts": 0,
+      "side_motion_attempts": 2,
+      "maximum_tilt_degrees": 22.23451042226918,
+      "minimum_torso_height": 0.2876571413499831
+    },
+    {
+      "layout": "standard",
+      "trial": "03",
+      "seconds_to_goal": 76.24000000000001,
+      "no_fall_passed": true,
+      "recovery_attempts": 0,
+      "side_motion_attempts": 2,
+      "maximum_tilt_degrees": 22.23451042226918,
+      "minimum_torso_height": 0.2876571413499831
+    },
+    {
+      "layout": "mirrored",
+      "trial": "01",
+      "seconds_to_goal": 129.04000000000002,
+      "no_fall_passed": true,
+      "recovery_attempts": 0,
+      "side_motion_attempts": 12,
+      "maximum_tilt_degrees": 22.234509278345435,
+      "minimum_torso_height": 0.28765873324317176
+    },
+    {
+      "layout": "offset",
+      "trial": "01",
+      "seconds_to_goal": 161.16,
+      "no_fall_passed": true,
+      "recovery_attempts": 0,
+      "side_motion_attempts": 28,
+      "maximum_tilt_degrees": 22.23449394927443,
+      "minimum_torso_height": 0.2876584148825575
+    }
+  ],
+  "scope": "One active player, no opponent; referee localization; fixed seed 27; gravity and motor playback remain active.",
+  "legacy_negative": {
+    "scored": true,
+    "no_fall_passed": false,
+    "seconds_to_end": 147.16,
+    "recovery_attempts": 2
+  },
+  "development_mirrored_line_target": {
+    "scored": false,
+    "no_fall_passed": true,
+    "seconds_to_end": 180.0,
+    "recovery_attempts": 0
+  }
+}

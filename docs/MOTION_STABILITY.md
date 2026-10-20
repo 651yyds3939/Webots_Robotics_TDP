@@ -42,7 +42,7 @@ NAOqi 1.12 的[厂商步行控制文档归档](https://www.cs.cmu.edu/~cga/nao/d
 在仓库根目录、已激活 `robotics-tdp` 的终端执行：
 
 ```bash
-python tests/run_webots_check.py --attack --visible --diagnostics --seed 27 --output runs/motion_debug_03
+python tests/run_webots_check.py --attack --visible --diagnostics --locomotion legacy --seed 27 --output runs/motion_debug_03
 python tools/analyze_motion_diagnostics.py runs/motion_debug_03 --robot RedForwardA --output runs/motion_debug_03/motion-summary.json
 python tools/evaluate_run.py runs/motion_debug_03 --output runs/motion_debug_03/metrics.json
 ```
@@ -80,3 +80,7 @@ python tools/evaluate_run.py runs/motion_debug_03 --output runs/motion_debug_03/
 ## 衔接与历史回放进展
 
 后续已完成短组合、完整历史、有球/球移远处、站姿过渡与全新世界复核。短组合本身稳定，完整历史能够复现原失稳；关键侧移前的站姿过渡改善了所测夹具。重复重置与全新世界的结果需区分，尚未接入比赛球员或验证整体进攻性能。操作见 [TRANSITION_TESTS.md](TRANSITION_TESTS.md)，完整测量与曲线见 [实验记录](../verification/transition-tests/README.md)。
+
+## 当前单人稳定模式
+
+后续完整进攻的固定站姿过渡候选因退化未采纳；新的 guarded 调度则结合动作周期、重新起播、站姿收稳与双脚受力进行决策。标准初始条件的三次严格测试均无倾倒与恢复并完成进球。当前 `--attack` 默认采用 guarded 调度，复现本文历史失稳需显式指定 `--locomotion legacy`。方法、验收与范围见 [SINGLE_PLAYER_STABILITY.md](SINGLE_PLAYER_STABILITY.md)。

@@ -1,0 +1,13 @@
+{
+  "robot": "RedForwardA",
+  "sample_count": 3306,
+  "tilt_threshold_rad": 0.8,
+  "tilt_episodes": [],
+  "transition_count": 86,
+  "limitations": [
+    "Tilt episodes are threshold crossings, not a validated count of physical falls.",
+    "Foot forces use sensor-local axes; no support-state calibration is applied.",
+    "Joint tracking error and adjacent transitions do not establish causation.",
+    "Reference positions come from referee localization."
+  ]
+}

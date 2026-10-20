@@ -1,0 +1,62 @@
+{
+  "sample_count": 748,
+  "last_time": 164.44,
+  "last_phase": "PLAYING",
+  "playing_seconds_sampled": 162.72,
+  "setup_removals": {},
+  "fixture_formation_count": 0,
+  "robot_path_metres_sampled": {
+    "RedGoalkeeper": 3.441878168568618e-06,
+    "RedDefender": 3.4418782188167587e-06,
+    "RedForwardB": 3.4418781087515493e-06,
+    "RedForwardA": 20.55977588730834,
+    "BlueGoalkeeper": 3.441878167122485e-06,
+    "BlueDefender": 3.4418780709860826e-06,
+    "BlueForwardB": 3.4418780512525904e-06,
+    "BlueForwardA": 3.441878133843969e-06
+  },
+  "command_seconds_all_phases": {
+    "stand": 23.879999999999974,
+    "walk": 51.840000000000074,
+    "step_left": 17.16,
+    "left20": 2.63999999999999,
+    "step_right": 29.639999999999993,
+    "back": 2.6000000000000014,
+    "shoot": 14.399999999999991,
+    "recover_back": 10.199999999999989,
+    "left40": 8.639999999999986,
+    "right20": 3.5200000000000102
+  },
+  "median_walk_bout_seconds": 0.960000000000008,
+  "commands": {
+    "stand": 21,
+    "walk": 32,
+    "step_left": 12,
+    "left20": 3,
+    "step_right": 20,
+    "back": 1,
+    "shoot": 3,
+    "recover_back": 3,
+    "left40": 3,
+    "right20": 5
+  },
+  "decision_transitions": {
+    "INTERCEPT": 3,
+    "DRIBBLE": 1,
+    "SHOOT": 3
+  },
+  "goals": {},
+  "fallen_removal_penalties": {},
+  "contact_transitions": {
+    "RedForwardA": 1
+  },
+  "ball_path_metres_sampled": 3.924830974894433,
+  "limitations": [
+    "Commands are attempts, not successful behaviours.",
+    "Ball path excludes logged referee placements; unlogged fixture movements are not match performance.",
+    "Contact attribution uses Webots contact-location approximation.",
+    "Robot path includes torso sway; it is not calibrated forward speed.",
+    "Command durations include READY and recovery; they are not skill success times.",
+    "No hardware or calibrated-vision accuracy demonstrated."
+  ]
+}

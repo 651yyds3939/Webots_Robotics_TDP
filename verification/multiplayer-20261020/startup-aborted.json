@@ -1,0 +1,5 @@
+{
+  "status": "startup_aborted",
+  "reason": "Webots consumed CPU before any controller or referee log appeared; no match samples obtained. Cause unconfirmed.",
+  "controller_logs_present": false
+}

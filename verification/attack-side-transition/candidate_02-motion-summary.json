@@ -1,0 +1,94 @@
+{
+  "robot": "RedForwardA",
+  "sample_count": 4113,
+  "tilt_threshold_rad": 0.8,
+  "tilt_episodes": [
+    {
+      "start_time": 114.88,
+      "end_time": 120.48,
+      "action_at_threshold": "step_left",
+      "imu_rpy_at_threshold": [
+        0.8232831316780234,
+        -0.005955928500342137,
+        -0.05143927073397553
+      ],
+      "motion_time_ms": 440,
+      "motion_duration_ms": 1536,
+      "preceding_transition": {
+        "time": 114.44,
+        "action": "step_right",
+        "requested_action": "step_left",
+        "motion_time_ms": 1560,
+        "motion_duration_ms": 1536
+      },
+      "reference_position": [
+        4.151919010932753,
+        -1.1200357108681795,
+        0.2744359955315744
+      ],
+      "foot_force_local": {
+        "LFsr": [
+          0.00720750108451481,
+          0.3877891104757447,
+          -0.7007601268122328
+        ],
+        "RFsr": [
+          -0.6623172261113843,
+          -17.194312068630545,
+          37.25633042963599
+        ]
+      },
+      "largest_joint_error": {
+        "joint": "LKneePitch",
+        "radians": 0.08338969016656961
+      }
+    },
+    {
+      "start_time": 132.36,
+      "end_time": 134.52,
+      "action_at_threshold": "step_right",
+      "imu_rpy_at_threshold": [
+        -0.8247649585724085,
+        -0.00904640522868346,
+        0.013374200901095807
+      ],
+      "motion_time_ms": 40,
+      "motion_duration_ms": 1536,
+      "preceding_transition": {
+        "time": 132.32,
+        "action": "step_left",
+        "requested_action": "step_right",
+        "motion_time_ms": 1560,
+        "motion_duration_ms": 1536
+      },
+      "reference_position": [
+        3.750434693798839,
+        -0.858477718114724,
+        0.31019969359890387
+      ],
+      "foot_force_local": {
+        "LFsr": [
+          -0.6271623695762923,
+          23.531626943769865,
+          34.61595834598541
+        ],
+        "RFsr": [
+          0.007406647007500588,
+          -0.5504580786072296,
+          -0.5831763685185994
+        ]
+      },
+      "largest_joint_error": {
+        "joint": "LAnkleRoll",
+        "radians": 0.04959224413245325
+      }
+    }
+  ],
+  "transition_count": 103,
+  "limitations": [
+    "Tilt episodes are threshold crossings, not a validated count of physical falls.",
+    "Foot forces use sensor-local axes; no support-state calibration is applied.",
+    "Joint tracking error and adjacent transitions do not establish causation.",
+    "Reference positions come from referee localization."
+  ]
+}

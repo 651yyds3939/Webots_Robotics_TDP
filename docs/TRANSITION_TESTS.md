@@ -55,4 +55,4 @@ python tests/run_webots_check.py --transitions --transition-profile replay --tra
 
 2026-10-13 完成 47 项有效对照。短组合未复现原侧倒；完整历史回放在有球和球移远处时均能复现。关键切换前加入站姿过渡的六项重置对照均未出现低位倾倒；全新进程的单独复核同样改善。但有球直接切换的重置重复结果存在差异，尚未验证进攻成功与整体耗时。证据与方法修正见 [verification/transition-tests](../verification/transition-tests/README.md)。
 
-下一项为完整进攻中的选择性过渡候选：记录过渡增加的时间，比较侧移、跌倒、恢复与进球；每种条件使用独立输出目录。当前比赛控制器尚未接入该候选。固定插入 1.2 秒的安排仅用于机制对照，不能据此保证所有动作衔接均安全。
+完整进攻的选择性过渡实验已增加默认关闭的入口，记录额外耗时并比较侧移、失稳、恢复与进球；三次均出现退化，未采纳为默认行为。操作及结果见 [ATTACK_TRANSITION_EXPERIMENT.md](ATTACK_TRANSITION_EXPERIMENT.md)。固定插入 1.2 秒的安排仅用于机制对照，不能据此保证所有动作衔接均安全。

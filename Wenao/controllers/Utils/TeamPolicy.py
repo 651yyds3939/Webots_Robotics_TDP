@@ -34,12 +34,14 @@ class Decision:
 
 
 class TeamPolicy:
-    def __init__(self, name):
+    def __init__(self, name, goal_depth=0, finishing_nearest=False):
         self.name = name
         self.team = "RED" if name.startswith("Red") else "BLUE"
         self.prefix = "Red" if self.team == "RED" else "Blue"
         self.role = "goalkeeper" if "Goalkeeper" in name else "defender" if "Defender" in name else "striker"
         self.active_chaser = None
+        self.goal_depth = goal_depth
+        self.finishing_nearest = finishing_nearest
 
     def home(self, direction):
         x = -4.15 if self.role == "goalkeeper" else -2.1 if self.role == "defender" else -.8
@@ -116,11 +118,16 @@ class TeamPolicy:
         return Decision("SUPPORT", target, tuple(ball))
 
     def attack(self, own, ball, direction, teammates, opponents, context=""):
-        goal = (direction*4.5, 0)
         # Prefer the nearest safe aperture point, especially when close to goal.
         nearest_y = max(-.9, min(.9, ball[1]))
+        # Opt-in experiment: a closing defender can block every candidate.
+        # Keep the near-goal fallback aim at the nearest aperture; blocked shots
+        # remain forbidden. Multiplayer stability did not improve, so this
+        # candidate is disabled by default.
+        finishing = distance(ball, (direction*4.5, nearest_y)) < .50
+        goal = (direction*(4.5+self.goal_depth), nearest_y if self.finishing_nearest and finishing else 0)
         for goal_y in (nearest_y, 0, -.9, .9):
-            candidate_goal = (direction*4.5, goal_y)
+            candidate_goal = (direction*(4.5+self.goal_depth), goal_y)
             if lane_clear(ball, candidate_goal, opponents):
                 goal = candidate_goal
                 break
@@ -139,7 +146,7 @@ class TeamPolicy:
                 behaviour, kick = "PASS", "pass"
             # The bundled shot moved ~0.4 m in the physical fixture. A midfield
             # shot wastes setup time; carry into a close finishing range first.
-            elif distance(ball, goal) < .50 and lane_clear(ball, goal, opponents):
+            elif distance(ball, (direction*4.5, goal[1])) < .50 and lane_clear(ball, goal, opponents):
                 aim, behaviour, kick = goal, "SHOOT", "shoot"
             else:
                 aim, behaviour = goal, "DRIBBLE"

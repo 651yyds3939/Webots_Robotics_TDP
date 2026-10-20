@@ -14,6 +14,8 @@ from Utils.ProcessSupervisor import SupervisorData
 from Utils.TeamPolicy import TeamPolicy
 from Utils.HeadingFilter import HeadingFilter
 from Utils.Navigation import Navigator
+from Utils.SideTransition import SideTransition
+from Utils.GuardedLocomotion import GuardedLocomotion
 
 MOTION_FILES = {
     "stand": "StandInit.motion", "walk": "ForwardLoop.motion",
@@ -78,7 +80,6 @@ class SoccerController:
         self.robot = Robot()
         self.name = self.robot.getName()
         self.time_step = int(self.robot.getBasicTimeStep())
-        self.policy = TeamPolicy(self.name)
         self.observation = SupervisorData(self.name)
         self.receiver = self.robot.getDevice("receiver")
         self.receiver.enable(self.time_step)
@@ -94,6 +95,23 @@ class SoccerController:
         self.navigator = Navigator()
         self.navigation_stage = ''
         self.action_started = 0
+        self.side_transition = SideTransition(os.environ.get('TDP_SIDE_TRANSITION', 'off'))
+        self.locomotion_mode = os.environ.get('TDP_LOCOMOTION', 'legacy')
+        if self.locomotion_mode not in ('legacy', 'guarded'):
+            raise ValueError('Locomotion mode must be legacy or guarded')
+        self.guarded = GuardedLocomotion(self.locomotion_mode == 'guarded')
+        # Aim through the whole-ball goal plane; a target on the line can point
+        # backwards when the ball is partly across but not yet a legal goal.
+        self.finishing_aim = os.environ.get('TDP_FINISHING_AIM', 'centre')
+        if self.finishing_aim not in ('centre', 'nearest'):
+            raise ValueError('Finishing aim must be centre or nearest')
+        self.policy = TeamPolicy(self.name, goal_depth=.30 if self.guarded.enabled else 0,
+                                 finishing_nearest=self.finishing_aim == 'nearest')
+        self.feet = []
+        if self.guarded.enabled:
+            self.feet = [self.robot.getDevice(name) for name in ('LFsr', 'RFsr')]
+            for foot in self.feet:
+                foot.enable(self.time_step)
         settings = configparser.ConfigParser()
         settings.read(Path(__file__).resolve().parents[1] / "Utils/globalconfig.ini")
         self.source = settings.get("Controller", "Observation", fallback="supervisor")
@@ -123,6 +141,9 @@ class SoccerController:
         self.play("stand", "INITIALIZE")
 
     def play(self, action, behaviour):
+        if action.startswith('recover') or behaviour in ('WAIT', 'PENALIZED', 'STALE_DATA', 'BALL_LOST'):
+            self.side_transition.cancel()
+            self.guarded.reset()
         if action == "stand" and self.current_action == "stand" and self.current and self.current.isOver():
             return
         if self.current and not self.current.isOver():
@@ -141,6 +162,9 @@ class SoccerController:
             self.current.stop()
         self.current = self.library.get(action)
         self.current.setLoop(action == "walk")
+        if self.guarded.enabled:
+            self.current.setTime(0)
+            self.guarded.reset()
         self.current.play()
         self.current_action = action
         self.action_started = self.robot.getTime()
@@ -148,6 +172,7 @@ class SoccerController:
             self.diagnostics.snapshot(self, 'motion_transition_after', requested_behaviour=behaviour)
         self.log.write(json.dumps({"event": "command", "robot": self.name, "time": self.robot.getTime(),
                                    "action": action, "behaviour": behaviour, "source": self.source,
+                                   "finishing_aim": self.finishing_aim,
                                    "motion_preparation": self.library.audit[action]})+"\n")
         return True
 
@@ -224,6 +249,23 @@ class SoccerController:
             if world is None:
                 self.play("stand", "BALL_LOST")
                 return
+        if self.guarded.enabled and self.current:
+            foot_z = [foot.getValues()[2] for foot in self.feet]
+            state = self.guarded.before_decision(self.robot.getTime(), self.current_action,
+                                                  self.current.isOver(), self.current.getTime(),
+                                                  self.current.getDuration(), roll, pitch, foot_z)
+            if state == 'settle':
+                self.log.write(json.dumps({'event': 'locomotion_settle', 'robot': self.name,
+                                           'time': self.robot.getTime(), 'after_action': self.current_action})+'\n')
+                self.play('stand', 'SETTLE_AFTER_MOTION')
+                return
+            if state == 'wait':
+                return
+            if self.current_action == 'stand' and not self.guarded.ready_reported:
+                self.guarded.ready_reported = True
+                self.log.write(json.dumps({'event': 'standing_ready', 'robot': self.name,
+                                           'time': self.robot.getTime(), 'roll': roll, 'pitch': pitch,
+                                           'angular_rate': self.guarded.angular_rate, 'foot_z': foot_z})+'\n')
         if self.pass_intent:
             if self.pass_intent["expires"] <= self.robot.getTime() or world["match"]["last_touch"] == self.pass_intent["receiver"]:
                 self.pass_intent = None
@@ -249,11 +291,35 @@ class SoccerController:
             self.log.write(json.dumps({'event': 'navigation', 'robot': self.name, 'time': self.robot.getTime(),
                                        'stage': stage, 'behaviour': decision.behaviour,
                                        'position': own, 'ball': ball, 'yaw': yaw, 'action': action})+'\n')
-        # Preserve a complete walking cycle. Safety/phase/recovery checks above
-        # still stop it immediately; ordinary tracking does not restart every half-step.
+        if self.guarded.enabled and self.current_action == 'walk' and action != 'walk':
+            self.guarded.stop_requested = True
+            if self.current.getTime() >= self.current.getDuration():
+                self.play('stand', 'SETTLE_AFTER_MOTION')
+            return
+        # Protect only the first .96 seconds after starting walk; subsequent
+        # cycles are not synchronized to a safe support phase by this condition.
         if (self.current_action == 'walk' and self.current and not self.current.isOver()
                 and self.robot.getTime()-self.action_started < .96 and action != 'walk'):
             return
+        if self.side_transition.mode != 'off' and self.current:
+            now = self.robot.getTime()
+            started_at = self.side_transition.started
+            gate = self.side_transition.request(now, action, decision.behaviour, self.current_action,
+                                                self.current.getTime(), self.current.getDuration(), self.current.isOver())
+            if gate == 'begin':
+                self.log.write(json.dumps({'event': 'side_transition', 'stage': 'begin', 'robot': self.name,
+                                           'time': now, 'requested_action': action, 'mode': self.side_transition.mode,
+                                           'motion_time_ms': self.current.getTime(),
+                                           'motion_duration_ms': self.current.getDuration()})+'\n')
+                if not self.play('stand', 'SETTLE_BEFORE_SIDE'):
+                    self.side_transition.cancel()
+                return
+            if gate == 'wait':
+                return
+            if gate == 'release':
+                self.log.write(json.dumps({'event': 'side_transition', 'stage': 'release', 'robot': self.name,
+                                           'time': now, 'elapsed_seconds': now-started_at,
+                                           'requested_action': action})+'\n')
         if action in ('shoot', 'pass') and self.current_action not in ('stand', 'shoot', 'pass'):
             self.play('stand', 'SETTLE_BEFORE_KICK')
             return

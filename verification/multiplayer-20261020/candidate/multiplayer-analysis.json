@@ -1,0 +1,908 @@
+{
+  "run": "match_guarded_20261020_aim_candidate_02",
+  "finished": true,
+  "last_time": 601.08,
+  "score": [
+    0,
+    1
+  ],
+  "locomotion_mode": "guarded",
+  "test_config": {
+    "half_seconds": 300.0,
+    "ready_seconds": 45.0,
+    "stuck_seconds": 120.0,
+    "reset_formation": true
+  },
+  "sample_count": 2713,
+  "players": {
+    "RedGoalkeeper": {
+      "commands": {
+        "stand": 47,
+        "right20": 25,
+        "walk": 9,
+        "left40": 10
+      },
+      "recovery_commands": [],
+      "decision_transitions": {
+        "FORMATION": 3,
+        "GUARD": 4,
+        "GUARD_INTERCEPT": 3,
+        "INTERCEPT": 1,
+        "CLEAR": 1
+      },
+      "pass_intents_received": 0,
+      "motion": {
+        "robot": "RedGoalkeeper",
+        "sample_count": 15026,
+        "tilt_threshold_rad": 0.8,
+        "tilt_episodes": [],
+        "transition_count": 91,
+        "limitations": [
+          "Tilt episodes are threshold crossings, not a validated count of physical falls.",
+          "Foot forces use sensor-local axes; no support-state calibration is applied.",
+          "Joint tracking error and adjacent transitions do not establish causation.",
+          "Reference positions come from referee localization."
+        ]
+      }
+    },
+    "RedDefender": {
+      "commands": {
+        "stand": 79,
+        "walk": 20,
+        "step_right": 2,
+        "pass": 1,
+        "right20": 26,
+        "step_left": 12,
+        "left20": 4,
+        "recover_back": 2,
+        "left40": 10
+      },
+      "recovery_commands": [
+        {
+          "time": 117.36,
+          "action": "recover_back",
+          "phase": "PLAYING"
+        },
+        {
+          "time": 120.76,
+          "action": "recover_back",
+          "phase": "PLAYING"
+        }
+      ],
+      "decision_transitions": {
+        "FORMATION": 3,
+        "DEFEND": 4,
+        "INTERCEPT": 4,
+        "CLEAR": 2
+      },
+      "pass_intents_received": 0,
+      "motion": {
+        "robot": "RedDefender",
+        "sample_count": 15026,
+        "tilt_threshold_rad": 0.8,
+        "tilt_episodes": [
+          {
+            "start_time": 117.36,
+            "end_time": 122.96000000000001,
+            "action_at_threshold": "stand",
+            "imu_rpy_at_threshold": [
+              -0.10906749355861613,
+              -0.8083806933400959,
+              -0.07508640042701041
+            ],
+            "motion_time_ms": 1000,
+            "motion_duration_ms": 1000,
+            "preceding_transition": {
+              "time": 113.04,
+              "action": "left20",
+              "requested_action": "stand",
+              "motion_time_ms": 880,
+              "motion_duration_ms": 852
+            },
+            "reference_position": [
+              -1.5244199363521689,
+              0.28911521878452123,
+              0.25486627297761905
+            ],
+            "foot_force_local": {
+              "LFsr": [
+                -14.477220912316515,
+                -4.336432216269426,
+                15.832244205641999
+              ],
+              "RFsr": [
+                0.6683287816989149,
+                -0.029770852158577714,
+                -0.5101366889128863
+              ]
+            },
+            "largest_joint_error": {
+              "joint": "LHipYawPitch",
+              "radians": 5.117729737141096e-06
+            },
+            "phase": "PLAYING",
+            "half": 1,
+            "reference_sample_age_seconds": 0.11999999999999034,
+            "nearest_robots": [
+              {
+                "robot": "BlueForwardB",
+                "root_distance_metres": 0.2555672944858132
+              },
+              {
+                "robot": "BlueForwardA",
+                "root_distance_metres": 0.26169971062827546
+              }
+            ]
+          }
+        ],
+        "transition_count": 156,
+        "limitations": [
+          "Tilt episodes are threshold crossings, not a validated count of physical falls.",
+          "Foot forces use sensor-local axes; no support-state calibration is applied.",
+          "Joint tracking error and adjacent transitions do not establish causation.",
+          "Reference positions come from referee localization."
+        ]
+      }
+    },
+    "RedForwardB": {
+      "commands": {
+        "stand": 99,
+        "right20": 40,
+        "walk": 33,
+        "left40": 20,
+        "left20": 3
+      },
+      "recovery_commands": [],
+      "decision_transitions": {
+        "FORMATION": 3,
+        "INTERCEPT": 1,
+        "SUPPORT": 2
+      },
+      "pass_intents_received": 0,
+      "motion": {
+        "robot": "RedForwardB",
+        "sample_count": 15026,
+        "tilt_threshold_rad": 0.8,
+        "tilt_episodes": [],
+        "transition_count": 195,
+        "limitations": [
+          "Tilt episodes are threshold crossings, not a validated count of physical falls.",
+          "Foot forces use sensor-local axes; no support-state calibration is applied.",
+          "Joint tracking error and adjacent transitions do not establish causation.",
+          "Reference positions come from referee localization."
+        ]
+      }
+    },
+    "RedForwardA": {
+      "commands": {
+        "stand": 135,
+        "left40": 32,
+        "right20": 38,
+        "walk": 25,
+        "left20": 8,
+        "pass": 1,
+        "step_right": 8,
+        "back": 12,
+        "step_left": 7,
+        "recover_back": 2
+      },
+      "recovery_commands": [
+        {
+          "time": 527.48,
+          "action": "recover_back",
+          "phase": "PLAYING"
+        },
+        {
+          "time": 530.88,
+          "action": "recover_back",
+          "phase": "PLAYING"
+        }
+      ],
+      "decision_transitions": {
+        "FORMATION": 3,
+        "SUPPORT": 2,
+        "INTERCEPT": 1,
+        "RESTART": 1,
+        "DRIBBLE": 5,
+        "PASS": 4
+      },
+      "pass_intents_received": 0,
+      "motion": {
+        "robot": "RedForwardA",
+        "sample_count": 15026,
+        "tilt_threshold_rad": 0.8,
+        "tilt_episodes": [
+          {
+            "start_time": 527.48,
+            "end_time": 533.04,
+            "action_at_threshold": "stand",
+            "imu_rpy_at_threshold": [
+              -0.0013137332045519352,
+              -0.8089559281726085,
+              -1.5900960647788265
+            ],
+            "motion_time_ms": 920,
+            "motion_duration_ms": 1000,
+            "preceding_transition": {
+              "time": 526.5600000000001,
+              "action": "left40",
+              "requested_action": "stand",
+              "motion_time_ms": 2880,
+              "motion_duration_ms": 2880
+            },
+            "reference_position": [
+              -0.3810549533827323,
+              0.37627661487209024,
+              0.2709970911590357
+            ],
+            "foot_force_local": {
+              "LFsr": [
+                -10.228065830043274,
+                -12.716494723135805,
+                14.281920004927933
+              ],
+              "RFsr": [
+                -8.065646394928727,
+                12.720264894404714,
+                16.70674293131079
+              ]
+            },
+            "largest_joint_error": {
+              "joint": "RKneePitch",
+              "radians": 0.021551724133218264
+            },
+            "phase": "PLAYING",
+            "half": 2,
+            "reference_sample_age_seconds": 0.03999999999996362,
+            "nearest_robots": [
+              {
+                "robot": "BlueDefender",
+                "root_distance_metres": 0.47056366382616105
+              },
+              {
+                "robot": "RedForwardB",
+                "root_distance_metres": 1.0888248497248898
+              }
+            ]
+          }
+        ],
+        "transition_count": 268,
+        "limitations": [
+          "Tilt episodes are threshold crossings, not a validated count of physical falls.",
+          "Foot forces use sensor-local axes; no support-state calibration is applied.",
+          "Joint tracking error and adjacent transitions do not establish causation.",
+          "Reference positions come from referee localization."
+        ]
+      }
+    },
+    "BlueGoalkeeper": {
+      "commands": {
+        "stand": 19,
+        "left40": 4,
+        "walk": 1,
+        "right20": 10,
+        "left20": 1
+      },
+      "recovery_commands": [],
+      "decision_transitions": {
+        "FORMATION": 3,
+        "GUARD": 2
+      },
+      "pass_intents_received": 0,
+      "motion": {
+        "robot": "BlueGoalkeeper",
+        "sample_count": 15026,
+        "tilt_threshold_rad": 0.8,
+        "tilt_episodes": [],
+        "transition_count": 35,
+        "limitations": [
+          "Tilt episodes are threshold crossings, not a validated count of physical falls.",
+          "Foot forces use sensor-local axes; no support-state calibration is applied.",
+          "Joint tracking error and adjacent transitions do not establish causation.",
+          "Reference positions come from referee localization."
+        ]
+      }
+    },
+    "BlueDefender": {
+      "commands": {
+        "stand": 155,
+        "walk": 36,
+        "right20": 77,
+        "left40": 15,
+        "left20": 2,
+        "pass": 1,
+        "recover_back": 4,
+        "recover_front": 2,
+        "step_right": 14,
+        "step_left": 5
+      },
+      "recovery_commands": [
+        {
+          "time": 376.56,
+          "action": "recover_back",
+          "phase": "PLAYING"
+        },
+        {
+          "time": 379.96,
+          "action": "recover_back",
+          "phase": "PLAYING"
+        },
+        {
+          "time": 397.2,
+          "action": "recover_front",
+          "phase": "PLAYING"
+        },
+        {
+          "time": 438.12,
+          "action": "recover_back",
+          "phase": "PLAYING"
+        },
+        {
+          "time": 528.8,
+          "action": "recover_front",
+          "phase": "PLAYING"
+        },
+        {
+          "time": 532.52,
+          "action": "recover_back",
+          "phase": "PLAYING"
+        }
+      ],
+      "decision_transitions": {
+        "FORMATION": 3,
+        "DEFEND": 4,
+        "INTERCEPT": 5,
+        "CLEAR": 3
+      },
+      "pass_intents_received": 0,
+      "motion": {
+        "robot": "BlueDefender",
+        "sample_count": 15026,
+        "tilt_threshold_rad": 0.8,
+        "tilt_episodes": [
+          {
+            "start_time": 376.56,
+            "end_time": 382.16,
+            "action_at_threshold": "pass",
+            "imu_rpy_at_threshold": [
+              -0.8977535016719691,
+              -0.8818923408084999,
+              0.472822999093454
+            ],
+            "motion_time_ms": 2600,
+            "motion_duration_ms": 3299,
+            "preceding_transition": {
+              "time": 373.96,
+              "action": "stand",
+              "requested_action": "pass",
+              "motion_time_ms": 1000,
+              "motion_duration_ms": 1000
+            },
+            "reference_position": [
+              -1.661197016154991,
+              0.07447391132564997,
+              0.19767034446887874
+            ],
+            "foot_force_local": {
+              "LFsr": [
+                -0.4107823282382328,
+                -2.3783663838715983,
+                -1.1234809474542726
+              ],
+              "RFsr": [
+                -15.154064355197038,
+                9.487181903044473,
+                6.982693325424717
+              ]
+            },
+            "largest_joint_error": {
+              "joint": "LKneePitch",
+              "radians": 0.03761810603646998
+            },
+            "phase": "PLAYING",
+            "half": 2,
+            "reference_sample_age_seconds": 0.040000000000020464,
+            "nearest_robots": [
+              {
+                "robot": "RedForwardA",
+                "root_distance_metres": 0.5693913992515445
+              },
+              {
+                "robot": "RedForwardB",
+                "root_distance_metres": 1.3029453036973349
+              }
+            ]
+          },
+          {
+            "start_time": 397.2,
+            "end_time": 400.36,
+            "action_at_threshold": "stand",
+            "imu_rpy_at_threshold": [
+              -0.0013552521091985813,
+              0.8173419590655663,
+              1.7149318061854666
+            ],
+            "motion_time_ms": 240,
+            "motion_duration_ms": 1000,
+            "preceding_transition": {
+              "time": 396.96000000000004,
+              "action": "right20",
+              "requested_action": "stand",
+              "motion_time_ms": 880,
+              "motion_duration_ms": 852
+            },
+            "reference_position": [
+              -1.3914650857712438,
+              0.40903872008476905,
+              0.2949353000040198
+            ],
+            "foot_force_local": {
+              "LFsr": [
+                8.95526488436104,
+                -14.357285276242724,
+                18.978641695997233
+              ],
+              "RFsr": [
+                9.998150574298183,
+                14.955333675804898,
+                15.709321252114465
+              ]
+            },
+            "largest_joint_error": {
+              "joint": "LKneePitch",
+              "radians": 0.01938763522552578
+            },
+            "phase": "PLAYING",
+            "half": 2,
+            "reference_sample_age_seconds": 0.0,
+            "nearest_robots": [
+              {
+                "robot": "RedForwardA",
+                "root_distance_metres": 0.3565630956331884
+              },
+              {
+                "robot": "RedForwardB",
+                "root_distance_metres": 0.7311017836841204
+              }
+            ]
+          },
+          {
+            "start_time": 438.12,
+            "end_time": 440.28000000000003,
+            "action_at_threshold": "walk",
+            "imu_rpy_at_threshold": [
+              -0.10945365458582801,
+              -0.8506104082925762,
+              0.11347171528333232
+            ],
+            "motion_time_ms": 760,
+            "motion_duration_ms": 960,
+            "preceding_transition": {
+              "time": 437.36,
+              "action": "stand",
+              "requested_action": "walk",
+              "motion_time_ms": 1000,
+              "motion_duration_ms": 1000
+            },
+            "reference_position": [
+              -0.9209084159868144,
+              0.21922237553095839,
+              0.2735763137902122
+            ],
+            "foot_force_local": {
+              "LFsr": [
+                -19.674341701966732,
+                9.723121388532585,
+                33.593116124889825
+              ],
+              "RFsr": [
+                0.6670251416037913,
+                -0.1162429956837867,
+                -0.4234602827884006
+              ]
+            },
+            "largest_joint_error": {
+              "joint": "RHipPitch",
+              "radians": 0.22008270971618293
+            },
+            "phase": "PLAYING",
+            "half": 2,
+            "reference_sample_age_seconds": 0.040000000000020464,
+            "nearest_robots": [
+              {
+                "robot": "RedForwardA",
+                "root_distance_metres": 0.3673563205569522
+              },
+              {
+                "robot": "RedForwardB",
+                "root_distance_metres": 1.0656809118184796
+              }
+            ]
+          },
+          {
+            "start_time": 528.8,
+            "end_time": 534.72,
+            "action_at_threshold": "stand",
+            "imu_rpy_at_threshold": [
+              0.885183328767818,
+              0.06434526125367034,
+              0.47573368192642645
+            ],
+            "motion_time_ms": 1000,
+            "motion_duration_ms": 1000,
+            "preceding_transition": {
+              "time": 527.32,
+              "action": "step_left",
+              "requested_action": "stand",
+              "motion_time_ms": 1560,
+              "motion_duration_ms": 1536
+            },
+            "reference_position": [
+              -0.38169134979731345,
+              -0.3425081305015177,
+              0.29819174121369535
+            ],
+            "foot_force_local": {
+              "LFsr": [
+                -0.002150518932590701,
+                0.5574247316469856,
+                -0.645563272690981
+              ],
+              "RFsr": [
+                0.2066312764280817,
+                -22.326708772370168,
+                33.01332201134647
+              ]
+            },
+            "largest_joint_error": {
+              "joint": "LKneePitch",
+              "radians": 6.317678885847666e-05
+            },
+            "phase": "PLAYING",
+            "half": 2,
+            "reference_sample_age_seconds": 0.0,
+            "nearest_robots": [
+              {
+                "robot": "RedForwardA",
+                "root_distance_metres": 0.9246041010804861
+              },
+              {
+                "robot": "BlueForwardA",
+                "root_distance_metres": 1.5407878964988673
+              }
+            ]
+          }
+        ],
+        "transition_count": 311,
+        "limitations": [
+          "Tilt episodes are threshold crossings, not a validated count of physical falls.",
+          "Foot forces use sensor-local axes; no support-state calibration is applied.",
+          "Joint tracking error and adjacent transitions do not establish causation.",
+          "Reference positions come from referee localization."
+        ]
+      }
+    },
+    "BlueForwardB": {
+      "commands": {
+        "stand": 124,
+        "right20": 49,
+        "walk": 36,
+        "left20": 2,
+        "step_left": 5,
+        "recover_front": 1,
+        "left40": 20,
+        "step_right": 8
+      },
+      "recovery_commands": [
+        {
+          "time": 118.52,
+          "action": "recover_front",
+          "phase": "PLAYING"
+        }
+      ],
+      "decision_transitions": {
+        "FORMATION": 3,
+        "SUPPORT": 8,
+        "DRIBBLE": 5,
+        "INTERCEPT": 4
+      },
+      "pass_intents_received": 0,
+      "motion": {
+        "robot": "BlueForwardB",
+        "sample_count": 15026,
+        "tilt_threshold_rad": 0.8,
+        "tilt_episodes": [
+          {
+            "start_time": 118.52,
+            "end_time": 121.68,
+            "action_at_threshold": "stand",
+            "imu_rpy_at_threshold": [
+              -0.6574055727646417,
+              0.8082293775531988,
+              1.9882040450365588
+            ],
+            "motion_time_ms": 280,
+            "motion_duration_ms": 1000,
+            "preceding_transition": {
+              "time": 118.24000000000001,
+              "action": "walk",
+              "requested_action": "stand",
+              "motion_time_ms": 960,
+              "motion_duration_ms": 960
+            },
+            "reference_position": [
+              -2.072236986395849,
+              0.49128367597327693,
+              0.2622694200595549
+            ],
+            "foot_force_local": {
+              "LFsr": [
+                33.27276932548742,
+                24.37455776480271,
+                41.928146551630185
+              ],
+              "RFsr": [
+                -0.27454264851627186,
+                -0.34425757321691663,
+                -0.6372990874056248
+              ]
+            },
+            "largest_joint_error": {
+              "joint": "LAnklePitch",
+              "radians": 0.05015898407466124
+            },
+            "phase": "PLAYING",
+            "half": 1,
+            "reference_sample_age_seconds": 0.19999999999998863,
+            "nearest_robots": [
+              {
+                "robot": "BlueForwardA",
+                "root_distance_metres": 0.33474169559677813
+              },
+              {
+                "robot": "RedDefender",
+                "root_distance_metres": 0.5716674788020221
+              }
+            ]
+          }
+        ],
+        "transition_count": 245,
+        "limitations": [
+          "Tilt episodes are threshold crossings, not a validated count of physical falls.",
+          "Foot forces use sensor-local axes; no support-state calibration is applied.",
+          "Joint tracking error and adjacent transitions do not establish causation.",
+          "Reference positions come from referee localization."
+        ]
+      }
+    },
+    "BlueForwardA": {
+      "commands": {
+        "stand": 149,
+        "walk": 37,
+        "pass": 1,
+        "step_right": 9,
+        "left40": 20,
+        "recover_front": 1,
+        "right20": 57,
+        "step_left": 20,
+        "shoot": 1
+      },
+      "recovery_commands": [
+        {
+          "time": 117.88,
+          "action": "recover_front",
+          "phase": "PLAYING"
+        }
+      ],
+      "decision_transitions": {
+        "FORMATION": 3,
+        "RESTART": 1,
+        "DRIBBLE": 4,
+        "SUPPORT": 2,
+        "SHOOT": 2
+      },
+      "pass_intents_received": 0,
+      "motion": {
+        "robot": "BlueForwardA",
+        "sample_count": 15026,
+        "tilt_threshold_rad": 0.8,
+        "tilt_episodes": [
+          {
+            "start_time": 117.88,
+            "end_time": 121.04,
+            "action_at_threshold": "stand",
+            "imu_rpy_at_threshold": [
+              0.5059045034518078,
+              0.8700595862942437,
+              3.0667762756699877
+            ],
+            "motion_time_ms": 1000,
+            "motion_duration_ms": 1000,
+            "preceding_transition": {
+              "time": 116.12,
+              "action": "left40",
+              "requested_action": "stand",
+              "motion_time_ms": 2880,
+              "motion_duration_ms": 2880
+            },
+            "reference_position": [
+              -1.5682818257438125,
+              0.18552262677633585,
+              0.3064943163672144
+            ],
+            "foot_force_local": {
+              "LFsr": [
+                -0.47665985278819617,
+                -0.19773944983754346,
+                -0.6206176113381485
+              ],
+              "RFsr": [
+                -1.12625670863709,
+                -1.0382256299222399,
+                -0.920247391488423
+              ]
+            },
+            "largest_joint_error": {
+              "joint": "RAnklePitch",
+              "radians": 0.005748102762656249
+            },
+            "phase": "PLAYING",
+            "half": 1,
+            "reference_sample_age_seconds": 0.19999999999998863,
+            "nearest_robots": [
+              {
+                "robot": "RedDefender",
+                "root_distance_metres": 0.17950944739905156
+              },
+              {
+                "robot": "BlueForwardB",
+                "root_distance_metres": 0.4297226519760336
+              }
+            ]
+          }
+        ],
+        "transition_count": 295,
+        "limitations": [
+          "Tilt episodes are threshold crossings, not a validated count of physical falls.",
+          "Foot forces use sensor-local axes; no support-state calibration is applied.",
+          "Joint tracking error and adjacent transitions do not establish causation.",
+          "Reference positions come from referee localization."
+        ]
+      }
+    }
+  },
+  "close_pair_threshold_metres": 0.3,
+  "close_pair_seconds_sampled": {
+    "RedForwardA/BlueDefender": 66.1999999999997,
+    "RedDefender/BlueForwardA": 30.840000000000003,
+    "RedDefender/BlueForwardB": 3.8400000000000034,
+    "RedForwardA/BlueForwardB": 1.1199999999998909,
+    "RedGoalkeeper/BlueForwardA": 0.8800000000000523
+  },
+  "referee_events": [
+    {
+      "event": "restart",
+      "kind": "KICKOFF",
+      "team": "BLUE",
+      "point": [
+        0,
+        0,
+        0.07
+      ],
+      "time": 0.04
+    },
+    {
+      "event": "fixture_formation",
+      "time": 0.04,
+      "half": 1,
+      "positions": {
+        "RedGoalkeeper": [
+          -4.15,
+          0
+        ],
+        "RedDefender": [
+          -2.1,
+          0
+        ],
+        "RedForwardB": [
+          -0.8,
+          1.5
+        ],
+        "RedForwardA": [
+          -0.8,
+          -1.5
+        ],
+        "BlueGoalkeeper": [
+          4.15,
+          0
+        ],
+        "BlueDefender": [
+          2.1,
+          0
+        ],
+        "BlueForwardB": [
+          0.8,
+          -1.5
+        ],
+        "BlueForwardA": [
+          0.3,
+          0
+        ]
+      }
+    },
+    {
+      "event": "goal",
+      "team": "BLUE",
+      "time": 262.32
+    },
+    {
+      "event": "restart",
+      "kind": "KICKOFF",
+      "team": "RED",
+      "point": [
+        0,
+        0,
+        0.07
+      ],
+      "time": 262.32
+    },
+    {
+      "event": "restart",
+      "kind": "KICKOFF",
+      "team": "RED",
+      "point": [
+        0,
+        0,
+        0.07
+      ],
+      "time": 301.04
+    },
+    {
+      "event": "fixture_formation",
+      "time": 301.04,
+      "half": 2,
+      "positions": {
+        "RedGoalkeeper": [
+          4.15,
+          0
+        ],
+        "RedDefender": [
+          2.1,
+          0
+        ],
+        "RedForwardB": [
+          0.8,
+          -1.5
+        ],
+        "RedForwardA": [
+          0.3,
+          0
+        ],
+        "BlueGoalkeeper": [
+          -4.15,
+          0
+        ],
+        "BlueDefender": [
+          -2.1,
+          0
+        ],
+        "BlueForwardB": [
+          -0.8,
+          1.5
+        ],
+        "BlueForwardA": [
+          -0.8,
+          -1.5
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Tilt threshold crossings and recovery commands are not validated physical fall counts.",
+    "Root-node proximity and adjacent motion transitions do not prove collision or causation.",
+    "Neighbour positions use the latest preceding referee sample, not an exact contact frame.",
+    "Close-pair durations are sampled approximations, not contact durations.",
+    "Command and pass-intent counts are attempts, not successful shots or passes.",
+    "Referee and fixture placements are not autonomous locomotion."
+  ]
+}

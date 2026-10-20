@@ -1,0 +1,32 @@
+{
+  "scored": true,
+  "seconds_to_end": 76.24000000000001,
+  "layout": "standard",
+  "initial_robot": [
+    0.5,
+    -0.15,
+    0.334
+  ],
+  "start_ball": [
+    1.1999992299277753,
+    -0.00026446941477399703,
+    0.06959785632996597
+  ],
+  "end_ball": [
+    4.5723175459309635,
+    0.5453128081361255,
+    0.06960300768081604
+  ],
+  "contacts": [
+    "RedForwardA"
+  ],
+  "minimum_up": 0.9256428356257844,
+  "maximum_torso_tilt_radians": 0.38806541443759196,
+  "minimum_torso_height": 0.2876571413499831,
+  "recovery_attempts": 0,
+  "no_fall_criterion_passed": true,
+  "strict_no_fall_required": true,
+  "post_goal_seconds": 1.6,
+  "opponents_active": false,
+  "success_rate_validated": false
+}

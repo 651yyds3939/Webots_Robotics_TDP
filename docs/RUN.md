@@ -29,7 +29,7 @@ Webots 的 Python command 应设置为通过 `python -c "import sys; print(sys.e
 
 停止仿真可以按暂停；退出 Webots 可以关界面。仅改变运行状态时不必保存世界；若保存世界，会记录场景编辑。再次复现实验应重新加载磁盘世界，而不是保存比赛中机器人姿态作为初始条件。
 
-验收状态见 [VALIDATION.md](VALIDATION.md)。
+验收状态见 [VALIDATION.md](VALIDATION.md)。进程划分、模拟无线 JSON 协议、视觉线程和测试夹具关系见 [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md)，含可直接阅读的纯文本架构图。
 
 ## 开始观察比赛行为（2026-10-13）
 
@@ -58,6 +58,6 @@ python tools/evaluate_run.py runs/behaviour_27_01 --output runs/behaviour_27_01/
 python tests/run_webots_check.py --attack --visible --output runs/attack_01
 ```
 
-一名 RedForwardA 使用真实共享控制器，其他机器人在旁边站立。测试夹具只设置初始位置，随后通过关节动作接近初始 x=1.2 m 的球、推进并射门；整球越过球门线才出现 ATTACK_CHECK_OK，结果保存 attack-result.json。没有 READY 等待，不统计成正式比分或成功率。2026-10-13 的单次实跑在 147.16 秒完成，速度仍慢。
+一名 RedForwardA 使用真实共享控制器，其他机器人在旁边站立。测试夹具只设置初始位置，随后通过关节动作接近初始 x=1.2 m 的球、推进并射门。当前普通 `--attack` 默认 guarded 调度，要求整球进球且无倾倒/恢复，并检查进球后 1.6 秒的停止稳定性。结果保存 attack-result.json；没有 READY 等待，不统计成正式比分或总体成功率。旧 legacy 基线在 147.16 秒完成且发生恢复；当前标准单人稳定模式为 76.24 秒。方法、布局与限制见 [SINGLE_PLAYER_STABILITY.md](SINGLE_PLAYER_STABILITY.md)。
 
 原策略在 x>1.8 m 就射门，但现有射门动作在近球门夹具中仅推动球约 0.4 m，因此反复在远处射门很低效。现在带球朝向球门开口内最近的可用点，距选定目标不足 0.5 m 时才选择射门。射门距离仍需多场景标定。这项最后的进攻策略修改只做了单人连续进攻与基础检查；不能依据此前导航版本的四对四结果宣称最终策略已经整场验证。

@@ -18,6 +18,11 @@ parser.add_argument("--skills", action="store_true", help="Measure physical shoo
 parser.add_argument("--vision", action="store_true", help="Actual camera and bundled detector probe; requires --output")
 parser.add_argument("--motions", action="store_true", help="Measure locomotion and turn assets in an isolated scene")
 parser.add_argument("--attack", action="store_true", help="Unopposed approach/dribble/shoot sequence; one real player")
+parser.add_argument('--side-transition', choices=('off', 'phase'), default='off', help='Opt-in dribble walk-to-side settling experiment; only --attack/--match with fresh --output')
+parser.add_argument('--locomotion', choices=('legacy', 'guarded'), help='Execution scheduler; normal --attack defaults to guarded, other fixtures to legacy')
+parser.add_argument('--finishing-aim', choices=('centre', 'nearest'), default='centre', help='Near-goal fallback aim experiment; nearest is opt-in, not validated multiplayer stability')
+parser.add_argument('--require-no-fall', action='store_true', help='Attack acceptance: goal, no recovery, upright motion and stable stop after goal')
+parser.add_argument('--attack-layout', choices=('standard', 'mirrored', 'offset'), default='standard', help='Unopposed fixture placement variation')
 parser.add_argument('--transitions', action='store_true', help='Measure no-ball motion transitions, with diagnostics; requires fresh --output')
 parser.add_argument('--transition-profile', choices=('isolated', 'replay'), default='isolated', help='Short no-ball sequences, or recorded pre-fall history with/without ball')
 parser.add_argument('--transition-case', action='append', help='Run selected cases in the profile; may be repeated')
@@ -32,6 +37,22 @@ parser.add_argument("--visible", action="store_true", help="Keep the automatic W
 parser.add_argument("--diagnostics", action="store_true", help="Record IMU, leg angles, foot forces and motion playback; requires --output")
 parser.add_argument("--timeout", type=float, help="Maximum wall-clock seconds; by default scales with match duration")
 args = parser.parse_args()
+if args.locomotion is None:
+    args.locomotion = 'guarded' if args.attack and args.side_transition == 'off' else 'legacy'
+if args.attack and args.locomotion == 'guarded':
+    args.require_no_fall = True
+if args.attack_layout != 'standard' and not args.attack:
+    parser.error('--attack-layout requires --attack')
+if args.require_no_fall and (not args.attack or not args.output):
+    parser.error('--require-no-fall requires --attack and a fresh --output directory')
+if args.locomotion != 'legacy' and (not (args.attack or args.match) or not args.output):
+    parser.error('--locomotion guarded requires --attack or --match and a fresh --output directory')
+if args.finishing_aim != 'centre' and (not (args.attack or args.match) or not args.output):
+    parser.error('--finishing-aim nearest requires --attack or --match and a fresh --output directory')
+if args.locomotion != 'legacy' and args.side_transition != 'off':
+    parser.error('Choose guarded locomotion or the rejected side-transition experiment separately')
+if args.side_transition != 'off' and (not (args.attack or args.match) or not args.output):
+    parser.error('--side-transition phase requires --attack or --match and a fresh --output directory')
 if args.transition_profile != 'isolated' and not args.transitions:
     parser.error('--transition-profile requires --transitions')
 if args.transition_case or args.transition_repeats != 3:
@@ -80,6 +101,8 @@ with tempfile.TemporaryDirectory(prefix="tdp-course-check-") as directory:
     controller.mkdir()
     fixture = "webots_transition_check.py" if args.transitions else "webots_attack_check.py" if args.attack else "webots_motion_check.py" if args.motions else "webots_vision_check.py" if args.vision else "webots_skill_check.py" if args.skills else "webots_match_check.py" if args.match else "webots_course_check.py"
     shutil.copyfile(Path(__file__).with_name(fixture), controller / "CourseCheck.py")
+    if args.attack:
+        shutil.copyfile(Path(__file__).with_name('attack_fixture_spec.py'), controller / 'attack_fixture_spec.py')
     world = project / "worlds/check.wbt"
     contents = (root / "worlds/naotdp.wbt").read_text().replace(
         'controller "Supervisor"', 'controller "CourseCheck"'
@@ -118,6 +141,11 @@ with tempfile.TemporaryDirectory(prefix="tdp-course-check-") as directory:
     environment["PYTHONNOUSERSITE"] = "1"
     environment["TDP_MATCH_SEED"] = str(args.seed)
     environment['TDP_MOTION_DIAGNOSTICS'] = '1' if args.diagnostics else '0'
+    environment['TDP_SIDE_TRANSITION'] = args.side_transition
+    environment['TDP_LOCOMOTION'] = args.locomotion
+    environment['TDP_FINISHING_AIM'] = args.finishing_aim
+    environment['TDP_ATTACK_NO_FALL'] = '1' if args.require_no_fall else '0'
+    environment['TDP_ATTACK_LAYOUT'] = args.attack_layout
     if args.transitions:
         environment['TDP_TRANSITION_PROFILE'] = args.transition_profile
         environment['TDP_TRANSITION_REPEATS'] = str(args.transition_repeats)
@@ -142,12 +170,19 @@ with tempfile.TemporaryDirectory(prefix="tdp-course-check-") as directory:
                        for p in base.rglob("*") if p.is_file() and p.suffix in (".py", ".ini", ".proto", ".wbt"))
         hashes = {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
         fixture_files = [Path(__file__), Path(__file__).with_name(fixture)]
+        if args.attack:
+            fixture_files.append(Path(__file__).with_name('attack_fixture_spec.py'))
         if args.transitions:
             fixture_files += [Path(__file__).with_name(name) for name in ('transition_cases.py', 'transition_replay.json', 'webots_transition_probe.py', 'webots_motion_probe.py')]
         manifest = {"mode": "transitions" if args.transitions else "attack" if args.attack else "motions" if args.motions else "vision" if args.vision else "skills" if args.skills else "match_test" if args.match else "geometry",
                     "seed": args.seed, "python": sys.version, "python_executable": sys.executable,
                     "webots_executable": command[0], "source_sha256": hashes,
                     "motion_diagnostics": args.diagnostics,
+                    'side_transition_mode': args.side_transition,
+                    'locomotion_mode': args.locomotion,
+                    'finishing_aim': args.finishing_aim,
+                    'require_no_fall': args.require_no_fall,
+                    'attack_layout': args.attack_layout if args.attack else None,
                     'transition_profile': args.transition_profile if args.transitions else None,
                     'transition_case': args.transition_case if args.transitions else None,
                     'transition_repeats': args.transition_repeats if args.transitions else None,

@@ -1,0 +1,290 @@
+[
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 5.16,
+    "requested_action": "step_left",
+    "mode": "phase",
+    "motion_time_ms": 960,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 6.36,
+    "elapsed_seconds": 1.2000000000000002,
+    "requested_action": "step_left"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 16.12,
+    "requested_action": "step_left",
+    "mode": "phase",
+    "motion_time_ms": 960,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 17.32,
+    "elapsed_seconds": 1.1999999999999993,
+    "requested_action": "step_left"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 21.400000000000002,
+    "requested_action": "step_left",
+    "mode": "phase",
+    "motion_time_ms": 960,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 22.6,
+    "elapsed_seconds": 1.1999999999999993,
+    "requested_action": "step_left"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 25.12,
+    "requested_action": "step_left",
+    "mode": "phase",
+    "motion_time_ms": 960,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 26.32,
+    "elapsed_seconds": 1.1999999999999993,
+    "requested_action": "step_left"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 48.52,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 800,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 49.72,
+    "elapsed_seconds": 1.1999999999999957,
+    "requested_action": "walk"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 50.68,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 760,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 51.88,
+    "elapsed_seconds": 1.2000000000000028,
+    "requested_action": "step_right"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 54.4,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 720,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 55.6,
+    "elapsed_seconds": 1.2000000000000028,
+    "requested_action": "walk"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 60.24,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 760,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 61.44,
+    "elapsed_seconds": 1.1999999999999957,
+    "requested_action": "walk"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 62.4,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 720,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 63.6,
+    "elapsed_seconds": 1.2000000000000028,
+    "requested_action": "walk"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 66.68,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 800,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 67.88,
+    "elapsed_seconds": 1.1999999999999886,
+    "requested_action": "walk"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 68.84,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 760,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 70.04,
+    "elapsed_seconds": 1.2000000000000028,
+    "requested_action": "step_right"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 72.60000000000001,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 760,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 73.8,
+    "elapsed_seconds": 1.1999999999999886,
+    "requested_action": "walk"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 74.76,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 720,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 75.96000000000001,
+    "elapsed_seconds": 1.2000000000000028,
+    "requested_action": "walk"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 76.96000000000001,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 720,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 78.16,
+    "elapsed_seconds": 1.1999999999999886,
+    "requested_action": "walk"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 79.24,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 800,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 80.44,
+    "elapsed_seconds": 1.2000000000000028,
+    "requested_action": "walk"
+  },
+  {
+    "event": "side_transition",
+    "stage": "begin",
+    "robot": "RedForwardA",
+    "time": 81.4,
+    "requested_action": "step_right",
+    "mode": "phase",
+    "motion_time_ms": 760,
+    "motion_duration_ms": 960
+  },
+  {
+    "event": "side_transition",
+    "stage": "release",
+    "robot": "RedForwardA",
+    "time": 82.60000000000001,
+    "elapsed_seconds": 1.2000000000000028,
+    "requested_action": "step_right"
+  }
+]

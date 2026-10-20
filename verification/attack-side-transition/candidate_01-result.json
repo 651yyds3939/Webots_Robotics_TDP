@@ -1,0 +1,19 @@
+{
+  "scored": true,
+  "seconds_to_end": 162.92000000000002,
+  "start_ball": [
+    1.1999992299277753,
+    -0.00026446941477399703,
+    0.06959785632996597
+  ],
+  "end_ball": [
+    4.570581846953639,
+    -0.988927389318143,
+    0.06959802673216528
+  ],
+  "contacts": [
+    "RedForwardA"
+  ],
+  "opponents_active": false,
+  "success_rate_validated": false
+}

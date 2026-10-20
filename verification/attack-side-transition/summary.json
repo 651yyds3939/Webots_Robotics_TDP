@@ -1,0 +1,115 @@
+{
+  "date": "2026-10-20",
+  "seed": 27,
+  "decision": "not adopted; default off",
+  "unit_tests_passed": 54,
+  "runs": [
+    {
+      "label": "baseline_01",
+      "mode": "off",
+      "scored": true,
+      "seconds_to_end": 147.16,
+      "tilt_episode_count": 1,
+      "low_pose_sample_episodes": [
+        {
+          "start_time": 49.92,
+          "end_time": 54.56,
+          "minimum_height": 0.058372992926229036
+        }
+      ],
+      "recovery_attempts": 2,
+      "side_command_seconds": 59.27999999999999,
+      "stand_command_seconds": 4.480000000000011,
+      "gate_begins": 0,
+      "gate_releases": 0,
+      "completed_gate_seconds": 0,
+      "shoot_attempts": 2
+    },
+    {
+      "label": "candidate_01",
+      "mode": "phase",
+      "scored": true,
+      "seconds_to_end": 162.92000000000002,
+      "tilt_episode_count": 2,
+      "low_pose_sample_episodes": [
+        {
+          "start_time": 115.12,
+          "end_time": 119.84,
+          "minimum_height": 0.0582929885433184
+        },
+        {
+          "start_time": 132.64000000000001,
+          "end_time": 133.76,
+          "minimum_height": 0.10029548217354804
+        }
+      ],
+      "recovery_attempts": 3,
+      "side_command_seconds": 46.8,
+      "stand_command_seconds": 23.879999999999974,
+      "gate_begins": 16,
+      "gate_releases": 16,
+      "completed_gate_seconds": 19.199999999999974,
+      "shoot_attempts": 3
+    },
+    {
+      "label": "candidate_02",
+      "mode": "phase",
+      "scored": true,
+      "seconds_to_end": 162.92000000000002,
+      "tilt_episode_count": 2,
+      "low_pose_sample_episodes": [
+        {
+          "start_time": 115.12,
+          "end_time": 119.84,
+          "minimum_height": 0.0582929885433184
+        },
+        {
+          "start_time": 132.64000000000001,
+          "end_time": 133.76,
+          "minimum_height": 0.10029548217354804
+        }
+      ],
+      "recovery_attempts": 3,
+      "side_command_seconds": 46.8,
+      "stand_command_seconds": 23.879999999999974,
+      "gate_begins": 16,
+      "gate_releases": 16,
+      "completed_gate_seconds": 19.199999999999974,
+      "shoot_attempts": 3
+    },
+    {
+      "label": "candidate_03",
+      "mode": "phase",
+      "scored": true,
+      "seconds_to_end": 162.92000000000002,
+      "tilt_episode_count": 2,
+      "low_pose_sample_episodes": [
+        {
+          "start_time": 115.12,
+          "end_time": 119.84,
+          "minimum_height": 0.0582929885433184
+        },
+        {
+          "start_time": 132.64000000000001,
+          "end_time": 133.76,
+          "minimum_height": 0.10029548217354804
+        }
+      ],
+      "recovery_attempts": 3,
+      "side_command_seconds": 46.8,
+      "stand_command_seconds": 23.879999999999974,
+      "gate_begins": 16,
+      "gate_releases": 16,
+      "completed_gate_seconds": 19.199999999999974,
+      "shoot_attempts": 3
+    }
+  ],
+  "limitations": [
+    "One fixed unopposed fixture; repeated seeds do not establish general success probability.",
+    "Tilt episodes and recovery commands are not validated counts of independent physical falls.",
+    "Stand time includes other pauses; completed gate durations are reported separately.",
+    "No four-versus-four, vision-only or hardware performance validated."
+  ],
+  "candidate_extra_seconds": 15.76000000000002,
+  "candidate_extra_percent": 10.709431910845352
+}
