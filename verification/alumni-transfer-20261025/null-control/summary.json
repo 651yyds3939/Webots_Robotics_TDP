@@ -1,0 +1,56 @@
+{
+  "games": 6,
+  "outcomes": {
+    "draw": 6
+  },
+  "mean_candidate_goal_difference": 0,
+  "team_totals": {
+    "candidate": {
+      "decision_transitions": 616,
+      "action_transitions": 7255,
+      "playing_player_seconds": 13313.600000001035,
+      "support_seconds": 4433.800000000186,
+      "support_behind_ball_seconds": 630.3999999999992,
+      "defending_support_seconds": 575.6000000000005,
+      "defending_support_behind_seconds": 82.99999999999994,
+      "contact_transitions": 3129,
+      "pass_attempts": 251,
+      "kick_contacts": 229,
+      "disc_overlap_player_seconds": 464.4000000000034,
+      "kick_misses": 16,
+      "danger_ball_player_seconds": 672.7999999999942,
+      "expired_passes": 1,
+      "support_behind_fraction": 0.14218052235102457,
+      "defending_support_behind_fraction": 0.14419735927727567,
+      "danger_ball_fraction": 0.050534791491402914
+    },
+    "baseline": {
+      "decision_transitions": 616,
+      "action_transitions": 7255,
+      "playing_player_seconds": 13313.600000001035,
+      "contact_transitions": 3129,
+      "support_seconds": 4433.800000000187,
+      "support_behind_ball_seconds": 630.3999999999992,
+      "disc_overlap_player_seconds": 464.4000000000034,
+      "defending_support_seconds": 575.6000000000005,
+      "defending_support_behind_seconds": 82.99999999999994,
+      "pass_attempts": 251,
+      "kick_contacts": 229,
+      "kick_misses": 16,
+      "danger_ball_player_seconds": 672.7999999999942,
+      "expired_passes": 1,
+      "support_behind_fraction": 0.14218052235102455,
+      "defending_support_behind_fraction": 0.14419735927727567,
+      "danger_ball_fraction": 0.050534791491402914
+    }
+  },
+  "interpretation": "Model-only exploratory comparison; no 3D or hardware performance claim.",
+  "statistical_significance_validated": false,
+  "wall_seconds": 4.690430104994448,
+  "candidate": "baseline",
+  "seeds": [
+    27,
+    28,
+    29
+  ]
+}

@@ -1,0 +1,1405 @@
+[
+  {
+    "seed": 27,
+    "candidate_team": "BLUE",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 96,
+        "action_transitions": 1266,
+        "playing_player_seconds": 2174.4000000002134,
+        "support_seconds": 757.8000000000353,
+        "support_behind_ball_seconds": 77.80000000000057,
+        "defending_support_seconds": 127.40000000000127,
+        "defending_support_behind_seconds": 34.59999999999995,
+        "contact_transitions": 528,
+        "pass_attempts": 45,
+        "kick_contacts": 43,
+        "disc_overlap_player_seconds": 72.20000000000049,
+        "kick_misses": 1,
+        "danger_ball_player_seconds": 572.7999999999932
+      },
+      "BLUE": {
+        "decision_transitions": 143,
+        "action_transitions": 1209,
+        "playing_player_seconds": 2174.4000000002134,
+        "contact_transitions": 585,
+        "support_seconds": 723.2000000000274,
+        "support_behind_ball_seconds": 269.59999999999326,
+        "disc_overlap_player_seconds": 88.60000000000072,
+        "defending_support_seconds": 82.80000000000064,
+        "defending_target_behind_seconds": 82.80000000000064,
+        "defending_support_behind_seconds": 22.199999999999953,
+        "pass_attempts": 34,
+        "kick_contacts": 33
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 27,
+    "candidate_team": "RED",
+    "candidate": "possession",
+    "score_red_blue": [
+      1,
+      0
+    ],
+    "candidate_goal_difference": 1,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 140,
+        "action_transitions": 1075,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 892.600000000066,
+        "support_behind_ball_seconds": 154.1999999999998,
+        "defending_support_seconds": 157.19999999999962,
+        "defending_support_behind_seconds": 15.799999999999976,
+        "defending_target_behind_seconds": 157.19999999999962,
+        "contact_transitions": 532,
+        "pass_attempts": 69,
+        "kick_contacts": 65,
+        "disc_overlap_player_seconds": 112.80000000000106,
+        "kick_misses": 4,
+        "shot_attempts": 2
+      },
+      "BLUE": {
+        "decision_transitions": 154,
+        "action_transitions": 1543,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 557,
+        "support_seconds": 662.6000000000137,
+        "support_behind_ball_seconds": 92.20000000000077,
+        "disc_overlap_player_seconds": 114.80000000000109,
+        "defending_support_seconds": 119.00000000000115,
+        "defending_support_behind_seconds": 9.799999999999997,
+        "pass_attempts": 12,
+        "kick_contacts": 11,
+        "kick_misses": 1,
+        "danger_ball_player_seconds": 133.60000000000096
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 28,
+    "candidate_team": "BLUE",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 165,
+        "action_transitions": 1280,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 538,
+        "support_seconds": 679.0000000000174,
+        "support_behind_ball_seconds": 102.20000000000091,
+        "disc_overlap_player_seconds": 72.40000000000049,
+        "defending_support_seconds": 99.20000000000087,
+        "defending_support_behind_seconds": 13.199999999999985,
+        "pass_attempts": 31,
+        "kick_contacts": 31
+      },
+      "BLUE": {
+        "decision_transitions": 82,
+        "action_transitions": 1285,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 773.6000000000389,
+        "support_behind_ball_seconds": 101.0000000000009,
+        "defending_support_seconds": 165.19999999999916,
+        "defending_support_behind_seconds": 15.599999999999977,
+        "defending_target_behind_seconds": 145.60000000000028,
+        "contact_transitions": 500,
+        "pass_attempts": 42,
+        "kick_contacts": 38,
+        "disc_overlap_player_seconds": 62.00000000000034,
+        "kick_misses": 3,
+        "danger_ball_player_seconds": 99.20000000000087
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 28,
+    "candidate_team": "RED",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 84,
+        "action_transitions": 1328,
+        "playing_player_seconds": 2264.000000000132,
+        "contact_transitions": 535,
+        "support_seconds": 690.2000000000199,
+        "support_behind_ball_seconds": 120.80000000000118,
+        "disc_overlap_player_seconds": 71.40000000000047,
+        "defending_support_seconds": 27.999999999999932,
+        "defending_support_behind_seconds": 14.199999999999982,
+        "defending_target_behind_seconds": 27.999999999999932,
+        "pass_attempts": 33,
+        "kick_contacts": 32
+      },
+      "BLUE": {
+        "decision_transitions": 70,
+        "action_transitions": 1330,
+        "playing_player_seconds": 2264.000000000132,
+        "support_seconds": 894.6000000000664,
+        "support_behind_ball_seconds": 38.80000000000001,
+        "defending_support_seconds": 172.39999999999876,
+        "defending_support_behind_seconds": 10.399999999999995,
+        "contact_transitions": 494,
+        "pass_attempts": 62,
+        "kick_contacts": 47,
+        "disc_overlap_player_seconds": 27.399999999999935,
+        "kick_misses": 14,
+        "danger_ball_player_seconds": 139.20000000000064
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 29,
+    "candidate_team": "BLUE",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 116,
+        "action_transitions": 1367,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 682.0000000000181,
+        "support_behind_ball_seconds": 78.60000000000058,
+        "defending_support_seconds": 181.79999999999822,
+        "defending_support_behind_seconds": 8.200000000000003,
+        "contact_transitions": 435,
+        "pass_attempts": 35,
+        "kick_contacts": 34,
+        "disc_overlap_player_seconds": 73.0000000000005,
+        "expired_passes": 1,
+        "danger_ball_player_seconds": 73.6000000000005
+      },
+      "BLUE": {
+        "decision_transitions": 77,
+        "action_transitions": 1059,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 433,
+        "support_seconds": 676.8000000000169,
+        "support_behind_ball_seconds": 114.40000000000109,
+        "defending_support_seconds": 49.80000000000017,
+        "defending_target_behind_seconds": 49.80000000000017,
+        "disc_overlap_player_seconds": 96.20000000000083,
+        "defending_support_behind_seconds": 15.199999999999978,
+        "pass_attempts": 32,
+        "kick_contacts": 31
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 29,
+    "candidate_team": "RED",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 82,
+        "action_transitions": 1379,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 642.6000000000091,
+        "support_behind_ball_seconds": 145.80000000000027,
+        "defending_support_seconds": 29.999999999999925,
+        "defending_support_behind_seconds": 14.59999999999998,
+        "defending_target_behind_seconds": 29.999999999999925,
+        "contact_transitions": 435,
+        "pass_attempts": 36,
+        "kick_contacts": 35,
+        "disc_overlap_player_seconds": 32.19999999999992,
+        "shot_attempts": 1,
+        "completed_passes": 1
+      },
+      "BLUE": {
+        "decision_transitions": 87,
+        "action_transitions": 1424,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 431,
+        "support_seconds": 731.8000000000294,
+        "support_behind_ball_seconds": 69.00000000000044,
+        "defending_support_seconds": 252.19999999999422,
+        "danger_ball_player_seconds": 150.4,
+        "defending_support_behind_seconds": 20.59999999999996,
+        "disc_overlap_player_seconds": 21.399999999999956,
+        "pass_attempts": 33,
+        "kick_contacts": 32
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 30,
+    "candidate_team": "BLUE",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 102,
+        "action_transitions": 1397,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 510,
+        "support_seconds": 720.2000000000268,
+        "support_behind_ball_seconds": 66.4000000000004,
+        "defending_support_seconds": 118.20000000000114,
+        "disc_overlap_player_seconds": 27.399999999999935,
+        "danger_ball_player_seconds": 90.40000000000074,
+        "defending_support_behind_seconds": 8.000000000000004,
+        "pass_attempts": 31,
+        "kick_contacts": 30
+      },
+      "BLUE": {
+        "decision_transitions": 77,
+        "action_transitions": 1358,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 715.0000000000256,
+        "support_behind_ball_seconds": 121.60000000000119,
+        "defending_support_seconds": 81.80000000000062,
+        "defending_support_behind_seconds": 13.999999999999982,
+        "defending_target_behind_seconds": 81.80000000000062,
+        "contact_transitions": 510,
+        "pass_attempts": 44,
+        "kick_contacts": 42,
+        "disc_overlap_player_seconds": 29.399999999999928
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 30,
+    "candidate_team": "RED",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 82,
+        "action_transitions": 1121,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 434,
+        "support_seconds": 673.4000000000161,
+        "support_behind_ball_seconds": 102.80000000000092,
+        "disc_overlap_player_seconds": 71.00000000000047,
+        "defending_support_seconds": 33.399999999999935,
+        "defending_target_behind_seconds": 33.399999999999935,
+        "defending_support_behind_seconds": 15.399999999999977,
+        "pass_attempts": 33,
+        "kick_contacts": 33,
+        "shot_attempts": 1
+      },
+      "BLUE": {
+        "decision_transitions": 118,
+        "action_transitions": 1447,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 704.4000000000232,
+        "support_behind_ball_seconds": 83.00000000000064,
+        "defending_support_seconds": 230.39999999999546,
+        "defending_support_behind_seconds": 7.600000000000004,
+        "contact_transitions": 434,
+        "pass_attempts": 35,
+        "kick_contacts": 34,
+        "disc_overlap_player_seconds": 59.80000000000031,
+        "expired_passes": 1,
+        "danger_ball_player_seconds": 171.19999999999882
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 31,
+    "candidate_team": "BLUE",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 110,
+        "action_transitions": 1460,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 708.4000000000241,
+        "support_behind_ball_seconds": 90.60000000000075,
+        "defending_support_seconds": 236.5999999999951,
+        "defending_support_behind_seconds": 8.000000000000004,
+        "contact_transitions": 444,
+        "pass_attempts": 35,
+        "kick_contacts": 34,
+        "disc_overlap_player_seconds": 55.60000000000025,
+        "completed_passes": 1,
+        "danger_ball_player_seconds": 183.9999999999981
+      },
+      "BLUE": {
+        "decision_transitions": 78,
+        "action_transitions": 1082,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 443,
+        "support_seconds": 671.2000000000156,
+        "support_behind_ball_seconds": 136.6000000000008,
+        "disc_overlap_player_seconds": 61.600000000000335,
+        "defending_support_seconds": 64.80000000000038,
+        "defending_target_behind_seconds": 64.80000000000038,
+        "defending_support_behind_seconds": 45.80000000000011,
+        "pass_attempts": 32,
+        "kick_contacts": 32,
+        "shot_attempts": 1
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 31,
+    "candidate_team": "RED",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 89,
+        "action_transitions": 1178,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 670.0000000000153,
+        "support_behind_ball_seconds": 92.40000000000077,
+        "defending_support_seconds": 52.0000000000002,
+        "defending_support_behind_seconds": 14.39999999999998,
+        "defending_target_behind_seconds": 52.0000000000002,
+        "contact_transitions": 606,
+        "pass_attempts": 34,
+        "kick_contacts": 33,
+        "disc_overlap_player_seconds": 127.80000000000128
+      },
+      "BLUE": {
+        "decision_transitions": 94,
+        "action_transitions": 1340,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 606,
+        "support_seconds": 719.2000000000265,
+        "support_behind_ball_seconds": 65.20000000000039,
+        "disc_overlap_player_seconds": 127.80000000000128,
+        "defending_support_seconds": 88.80000000000072,
+        "pass_attempts": 42,
+        "kick_contacts": 40,
+        "defending_support_behind_seconds": 8.400000000000002
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 32,
+    "candidate_team": "BLUE",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 118,
+        "action_transitions": 1162,
+        "playing_player_seconds": 2264.800000000131,
+        "contact_transitions": 610,
+        "support_seconds": 743.8000000000321,
+        "support_behind_ball_seconds": 102.80000000000092,
+        "disc_overlap_player_seconds": 41.200000000000045,
+        "defending_support_seconds": 18.599999999999966,
+        "defending_support_behind_seconds": 10.799999999999994,
+        "pass_attempts": 47,
+        "kick_contacts": 46
+      },
+      "BLUE": {
+        "decision_transitions": 70,
+        "action_transitions": 1191,
+        "playing_player_seconds": 2264.800000000131,
+        "support_seconds": 867.0000000000601,
+        "support_behind_ball_seconds": 65.20000000000039,
+        "defending_support_seconds": 61.600000000000335,
+        "defending_support_behind_seconds": 22.399999999999952,
+        "defending_target_behind_seconds": 61.600000000000335,
+        "pass_attempts": 62,
+        "contact_transitions": 582,
+        "kick_contacts": 48,
+        "disc_overlap_player_seconds": 48.80000000000015,
+        "kick_misses": 13
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 32,
+    "candidate_team": "RED",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      1
+    ],
+    "candidate_goal_difference": -1,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 163,
+        "action_transitions": 1528,
+        "playing_player_seconds": 2265.6000000001304,
+        "contact_transitions": 230,
+        "support_seconds": 733.2000000000297,
+        "support_behind_ball_seconds": 84.60000000000066,
+        "disc_overlap_player_seconds": 385.1999999999867,
+        "danger_ball_player_seconds": 265.5999999999935,
+        "defending_support_seconds": 132.20000000000104,
+        "defending_support_behind_seconds": 14.59999999999998,
+        "defending_target_behind_seconds": 99.80000000000088,
+        "pass_attempts": 21,
+        "kick_contacts": 18,
+        "kick_misses": 3
+      },
+      "BLUE": {
+        "decision_transitions": 282,
+        "action_transitions": 2019,
+        "playing_player_seconds": 2265.6000000001304,
+        "support_seconds": 909.2000000000697,
+        "support_behind_ball_seconds": 131.2000000000011,
+        "defending_support_seconds": 156.79999999999964,
+        "defending_support_behind_seconds": 9.799999999999997,
+        "pass_attempts": 6,
+        "contact_transitions": 342,
+        "kick_contacts": 6,
+        "disc_overlap_player_seconds": 420.3999999999847,
+        "kick_misses": 1,
+        "shot_attempts": 1,
+        "danger_ball_player_seconds": 16.799999999999972
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 33,
+    "candidate_team": "BLUE",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 145,
+        "action_transitions": 2272,
+        "playing_player_seconds": 2309.6000000000904,
+        "contact_transitions": 426,
+        "support_seconds": 855.8000000000576,
+        "support_behind_ball_seconds": 133.60000000000096,
+        "disc_overlap_player_seconds": 221.19999999999598,
+        "defending_support_seconds": 45.60000000000011,
+        "defending_support_behind_seconds": 32.59999999999992,
+        "pass_attempts": 15,
+        "kick_contacts": 14,
+        "defending_target_behind_seconds": 16.399999999999974
+      },
+      "BLUE": {
+        "decision_transitions": 45,
+        "action_transitions": 1548,
+        "playing_player_seconds": 2309.6000000000904,
+        "support_seconds": 855.2000000000575,
+        "support_behind_ball_seconds": 54.40000000000023,
+        "defending_support_seconds": 17.79999999999997,
+        "defending_support_behind_seconds": 13.999999999999982,
+        "defending_target_behind_seconds": 17.79999999999997,
+        "contact_transitions": 384,
+        "pass_attempts": 63,
+        "kick_contacts": 51,
+        "disc_overlap_player_seconds": 253.99999999999412,
+        "kick_misses": 11,
+        "danger_ball_player_seconds": 283.1999999999925
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 33,
+    "candidate_team": "RED",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 73,
+        "action_transitions": 1059,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 376,
+        "support_seconds": 808.2000000000468,
+        "support_behind_ball_seconds": 148.8000000000001,
+        "disc_overlap_player_seconds": 126.40000000000126,
+        "defending_support_seconds": 89.00000000000072,
+        "defending_target_behind_seconds": 89.00000000000072,
+        "pass_attempts": 65,
+        "kick_contacts": 62,
+        "kick_misses": 1,
+        "defending_support_behind_seconds": 22.79999999999995
+      },
+      "BLUE": {
+        "decision_transitions": 77,
+        "action_transitions": 1374,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 820.8000000000496,
+        "support_behind_ball_seconds": 77.80000000000057,
+        "defending_support_seconds": 105.00000000000095,
+        "defending_support_behind_seconds": 9.599999999999998,
+        "contact_transitions": 373,
+        "pass_attempts": 39,
+        "kick_contacts": 38,
+        "disc_overlap_player_seconds": 107.20000000000098
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 34,
+    "candidate_team": "BLUE",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 95,
+        "action_transitions": 1334,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 514,
+        "support_seconds": 725.0000000000279,
+        "support_behind_ball_seconds": 100.80000000000089,
+        "defending_support_seconds": 44.20000000000009,
+        "disc_overlap_player_seconds": 63.40000000000036,
+        "pass_attempts": 41,
+        "kick_contacts": 40,
+        "defending_support_behind_seconds": 9.0
+      },
+      "BLUE": {
+        "decision_transitions": 82,
+        "action_transitions": 1195,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 705.4000000000234,
+        "support_behind_ball_seconds": 139.40000000000063,
+        "defending_support_seconds": 189.1999999999978,
+        "defending_support_behind_seconds": 19.199999999999964,
+        "defending_target_behind_seconds": 150.4,
+        "pass_attempts": 34,
+        "contact_transitions": 513,
+        "kick_contacts": 33,
+        "disc_overlap_player_seconds": 66.2000000000004,
+        "danger_ball_player_seconds": 167.999999999999
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 34,
+    "candidate_team": "RED",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 80,
+        "action_transitions": 1202,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 459,
+        "support_seconds": 675.4000000000166,
+        "support_behind_ball_seconds": 117.20000000000113,
+        "defending_support_seconds": 81.40000000000062,
+        "defending_target_behind_seconds": 81.40000000000062,
+        "disc_overlap_player_seconds": 62.40000000000035,
+        "defending_support_behind_seconds": 16.599999999999973,
+        "pass_attempts": 32,
+        "kick_contacts": 32
+      },
+      "BLUE": {
+        "decision_transitions": 106,
+        "action_transitions": 1459,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 707.2000000000238,
+        "support_behind_ball_seconds": 75.80000000000054,
+        "defending_support_seconds": 236.99999999999508,
+        "defending_support_behind_seconds": 8.8,
+        "pass_attempts": 35,
+        "contact_transitions": 460,
+        "kick_contacts": 34,
+        "disc_overlap_player_seconds": 50.400000000000176,
+        "expired_passes": 1,
+        "danger_ball_player_seconds": 178.3999999999984
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 35,
+    "candidate_team": "BLUE",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 104,
+        "action_transitions": 1358,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 484,
+        "support_seconds": 717.4000000000261,
+        "support_behind_ball_seconds": 73.0000000000005,
+        "disc_overlap_player_seconds": 26.799999999999937,
+        "defending_support_seconds": 112.20000000000105,
+        "danger_ball_player_seconds": 88.00000000000071,
+        "defending_support_behind_seconds": 7.800000000000004,
+        "pass_attempts": 33,
+        "kick_contacts": 32
+      },
+      "BLUE": {
+        "decision_transitions": 77,
+        "action_transitions": 1266,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 698.8000000000219,
+        "support_behind_ball_seconds": 123.00000000000121,
+        "defending_support_seconds": 75.40000000000053,
+        "defending_support_behind_seconds": 15.799999999999976,
+        "defending_target_behind_seconds": 75.40000000000053,
+        "contact_transitions": 484,
+        "pass_attempts": 40,
+        "kick_contacts": 38,
+        "disc_overlap_player_seconds": 27.199999999999935
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 35,
+    "candidate_team": "RED",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 79,
+        "action_transitions": 1126,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 433,
+        "support_seconds": 703.800000000023,
+        "support_behind_ball_seconds": 83.40000000000065,
+        "defending_support_seconds": 112.80000000000106,
+        "defending_target_behind_seconds": 83.60000000000065,
+        "danger_ball_player_seconds": 137.60000000000073,
+        "disc_overlap_player_seconds": 25.39999999999994,
+        "defending_support_behind_seconds": 13.799999999999983,
+        "pass_attempts": 33,
+        "kick_contacts": 32
+      },
+      "BLUE": {
+        "decision_transitions": 113,
+        "action_transitions": 1558,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 694.2000000000209,
+        "support_behind_ball_seconds": 123.40000000000121,
+        "defending_support_seconds": 123.60000000000122,
+        "defending_support_behind_seconds": 8.8,
+        "contact_transitions": 432,
+        "pass_attempts": 34,
+        "kick_contacts": 33,
+        "disc_overlap_player_seconds": 20.19999999999996,
+        "shot_attempts": 1,
+        "danger_ball_player_seconds": 31.19999999999992
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 36,
+    "candidate_team": "BLUE",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 107,
+        "action_transitions": 1427,
+        "playing_player_seconds": 2212.8000000001784,
+        "contact_transitions": 531,
+        "support_seconds": 710.2000000000245,
+        "support_behind_ball_seconds": 91.20000000000076,
+        "disc_overlap_player_seconds": 62.00000000000034,
+        "defending_support_seconds": 29.399999999999928,
+        "pass_attempts": 39,
+        "kick_contacts": 37,
+        "defending_support_behind_seconds": 8.400000000000002
+      },
+      "BLUE": {
+        "decision_transitions": 90,
+        "action_transitions": 1340,
+        "playing_player_seconds": 2212.8000000001784,
+        "support_seconds": 722.0000000000272,
+        "support_behind_ball_seconds": 147.80000000000015,
+        "defending_support_seconds": 213.5999999999964,
+        "defending_support_behind_seconds": 27.199999999999935,
+        "defending_target_behind_seconds": 158.79999999999953,
+        "contact_transitions": 529,
+        "pass_attempts": 34,
+        "kick_contacts": 33,
+        "disc_overlap_player_seconds": 69.60000000000045,
+        "danger_ball_player_seconds": 172.79999999999873
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  },
+  {
+    "seed": 36,
+    "candidate_team": "RED",
+    "candidate": "possession",
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "candidate_goal_difference": 0,
+    "simulated_seconds": 601.5999999999998,
+    "phase": "FINISHED",
+    "team_stats": {
+      "RED": {
+        "decision_transitions": 79,
+        "action_transitions": 1100,
+        "playing_player_seconds": 2218.4000000001733,
+        "contact_transitions": 434,
+        "support_seconds": 673.2000000000161,
+        "support_behind_ball_seconds": 105.20000000000095,
+        "disc_overlap_player_seconds": 72.8000000000005,
+        "defending_support_seconds": 30.999999999999922,
+        "defending_target_behind_seconds": 30.999999999999922,
+        "defending_support_behind_seconds": 15.399999999999977,
+        "pass_attempts": 32,
+        "kick_contacts": 32,
+        "shot_attempts": 1
+      },
+      "BLUE": {
+        "decision_transitions": 99,
+        "action_transitions": 1444,
+        "playing_player_seconds": 2218.4000000001733,
+        "support_seconds": 708.200000000024,
+        "support_behind_ball_seconds": 73.0000000000005,
+        "defending_support_seconds": 246.39999999999455,
+        "defending_support_behind_seconds": 8.600000000000001,
+        "contact_transitions": 433,
+        "pass_attempts": 35,
+        "kick_contacts": 34,
+        "disc_overlap_player_seconds": 64.00000000000037,
+        "expired_passes": 1,
+        "danger_ball_player_seconds": 184.79999999999805
+      }
+    },
+    "model": {
+      "dt": 0.2,
+      "half_seconds": 300,
+      "ready_seconds": 10,
+      "walk_speed": 0.08525241087733532,
+      "back_speed": 0.034151821846239855,
+      "left_speed": 0.012710006709112306,
+      "right_speed": 0.02229703610271777,
+      "left_turn": 0.07362390384491213,
+      "right_turn": 0.07569683357192747,
+      "robot_radius": 0.15,
+      "rolling_deceleration": 0.35,
+      "shot_range": 0.406003256198733,
+      "pass_range": 0.3051396105104535,
+      "shot_seconds": 4.8,
+      "pass_seconds": 3.299,
+      "kick_noise_radians": 0.04
+    },
+    "physics_or_hardware_validated": false,
+    "limitations": [
+      "Kinematic discs and contact impulses; no NAO balance or joint dynamics.",
+      "Perfect ground-truth state; no independent camera localisation.",
+      "Ball friction, noise and contact are uncalibrated model assumptions.",
+      "Formation placement at each half is a declared fixture.",
+      "Uses current referee geometry, but not complete physical-foul rules.",
+      "An abstract pass completion is not a validated Webots pass."
+    ]
+  }
+]

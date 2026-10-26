@@ -1,0 +1,8 @@
+{
+  "command": "python -m unittest discover -s tests -p test_*.py",
+  "environment": "robotics-tdp Python 3.10.22",
+  "tests_run": 78,
+  "elapsed_seconds": 3.4,
+  "passed": true,
+  "scope": "Logical and experiment-validity checks; not full football or hardware acceptance."
+}

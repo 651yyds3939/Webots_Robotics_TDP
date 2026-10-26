@@ -27,3 +27,10 @@ The optional `nao_ws/` workspace contains vendored ROS/Gazebo packages, public u
 Development modifications cover scene geometry, referee phases, shared role policy, navigation, camera-ball experiments, motion loading, tests, and publication documentation. Details are recorded in [IMPLEMENTATION_NOTES.md](IMPLEMENTATION_NOTES.md) and [PROJECT_HISTORY.md](PROJECT_HISTORY.md).
 
 The publication snapshot uses fresh local Git history. The original upstream commit identity is retained above, rather than presenting inherited code as newly authored work.
+
+## Alumni design references, 2026-10-25
+
+- [mushyalpha/robotics-tdp-team1](https://github.com/mushyalpha/robotics-tdp-team1), commit `4df4e64d6bf5798752e15b8c6745f7f78765f285`: `Pyrus2D/simple_soccer_sim3.py` illustrates fast 2D role experiments. The new adapter instead calls this repository's existing policy, navigation and referee. No alumni simulator source is vendored.
+- [Team 14's project](https://github.com/ENG5325-Robotics-TDP-M-Team-14/Cyberphysical-RoboCup-Soccer-Teams), commit `bbf0df8ce9142f66a64a53c7768e48b3e2a90c7d`: `environment/3d-environment/FCPCodebase/agent/Agent.py`, especially its non-active player's possession-dependent support line, is the design reference for the optional support experiment. Its code, coordinates and motion implementation are not copied or imported. The upstream FCP subdirectory has its own GPL-3.0 license, separate from the outer repository's Apache-2.0 license.
+
+Experiment scope and limitations are recorded in [ALUMNI_TRANSFER_EXPERIMENTS.md](docs/ALUMNI_TRANSFER_EXPERIMENTS.md). Assisted development is not evidence of independently completed student contributions.

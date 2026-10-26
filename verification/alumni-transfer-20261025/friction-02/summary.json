@@ -1,0 +1,66 @@
+{
+  "games": 20,
+  "outcomes": {
+    "draw": 20
+  },
+  "mean_candidate_goal_difference": 0,
+  "team_totals": {
+    "candidate": {
+      "decision_transitions": 2207,
+      "action_transitions": 25812,
+      "playing_player_seconds": 44529.600000003324,
+      "support_seconds": 14325.000000000517,
+      "support_behind_ball_seconds": 2553.7999999999997,
+      "defending_support_seconds": 1911.0000000000014,
+      "defending_support_behind_seconds": 408.7999999999993,
+      "defending_target_behind_seconds": 1698.0000000000075,
+      "contact_transitions": 9807,
+      "pass_attempts": 739,
+      "kick_contacts": 715,
+      "disc_overlap_player_seconds": 2158.599999999975,
+      "kick_misses": 6,
+      "danger_ball_player_seconds": 3214.400000000022,
+      "completed_passes": 1,
+      "shot_attempts": 1,
+      "support_behind_fraction": 0.17827574171029023,
+      "defending_support_behind_fraction": 0.21391941391941338,
+      "danger_ball_fraction": 0.07218569221371363
+    },
+    "baseline": {
+      "decision_transitions": 2150,
+      "action_transitions": 28268,
+      "playing_player_seconds": 44529.600000003324,
+      "contact_transitions": 9701,
+      "support_seconds": 15042.800000000681,
+      "support_behind_ball_seconds": 2130.7999999999975,
+      "disc_overlap_player_seconds": 1764.5999999999915,
+      "defending_support_seconds": 2558.19999999998,
+      "defending_support_behind_seconds": 213.3999999999999,
+      "pass_attempts": 712,
+      "kick_contacts": 672,
+      "kick_misses": 20,
+      "danger_ball_player_seconds": 2064.799999999976,
+      "expired_passes": 4,
+      "completed_passes": 1,
+      "support_behind_fraction": 0.1416491610604343,
+      "defending_support_behind_fraction": 0.08341802830114986,
+      "danger_ball_fraction": 0.046369156695766904
+    }
+  },
+  "interpretation": "Model-only exploratory comparison; no 3D or hardware performance claim.",
+  "statistical_significance_validated": false,
+  "wall_seconds": 16.53267326200148,
+  "candidate": "possession",
+  "seeds": [
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "sample_count": 2713,
+  "last_time": 601.08,
+  "last_phase": "FINISHED",
+  "playing_seconds_sampled": 461.23999999999995,
+  "setup_removals": {
+    "BlueForwardB": 1,
+    "BlueForwardA": 1
+  },
+  "fixture_formation_count": 2,
+  "robot_path_metres_sampled": {
+    "RedGoalkeeper": 2.9996133762721153,
+    "RedDefender": 23.378063906689267,
+    "RedForwardB": 38.45366220387606,
+    "RedForwardA": 35.86023049657266,
+    "BlueGoalkeeper": 0.18899916146998386,
+    "BlueDefender": 31.056623847714175,
+    "BlueForwardB": 28.431525368001694,
+    "BlueForwardA": 30.606694538598475
+  },
+  "command_seconds_all_phases": {
+    "stand": 2749.719999999965,
+    "right20": 272.7999999999999,
+    "walk": 762.0800000000035,
+    "left40": 434.72,
+    "step_left": 65.55999999999993,
+    "pass": 19.920000000000037,
+    "step_right": 70.2000000000001,
+    "recover_front": 22.32000000000002,
+    "recover_back": 27.199999999999918,
+    "left20": 14.959999999999937,
+    "shoot": 9.600000000000023
+  },
+  "median_walk_bout_seconds": 0.9600000000000364,
+  "commands": {
+    "stand": 846,
+    "walk": 241,
+    "right20": 310,
+    "left40": 151,
+    "left20": 17,
+    "step_right": 45,
+    "pass": 6,
+    "recover_back": 8,
+    "recover_front": 6,
+    "step_left": 43,
+    "shoot": 2
+  },
+  "decision_transitions": {
+    "FORMATION": 26,
+    "DEFEND": 11,
+    "INTERCEPT": 18,
+    "CLEAR": 6,
+    "RESTART": 3,
+    "DRIBBLE": 10,
+    "SUPPORT": 20,
+    "SHOOT": 1,
+    "GUARD": 11,
+    "GUARD_INTERCEPT": 6,
+    "PASS": 1
+  },
+  "goals": {
+    "BLUE": 1
+  },
+  "fallen_removal_penalties": {},
+  "contact_transitions": {
+    "BlueForwardA": 3,
+    "RedDefender": 2,
+    "BlueForwardB": 1,
+    "RedForwardA": 2,
+    "BlueDefender": 5,
+    "RedForwardB": 4
+  },
+  "ball_path_metres_sampled": 13.00268999677621,
+  "limitations": [
+    "Commands are attempts, not successful behaviours.",
+    "Ball path excludes logged referee placements; unlogged fixture movements are not match performance.",
+    "Contact attribution uses Webots contact-location approximation.",
+    "Robot path includes torso sway; it is not calibrated forward speed.",
+    "Command durations include READY and recovery; they are not skill success times.",
+    "No hardware or calibrated-vision accuracy demonstrated."
+  ]
+}

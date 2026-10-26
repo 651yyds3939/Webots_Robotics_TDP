@@ -1,0 +1,8 @@
+{
+  "common_referee_samples": 2713,
+  "old_samples": 2713,
+  "new_samples": 2713,
+  "max_robot_root_position_difference_metres": 0,
+  "match_state_differences": 0,
+  "scope": "Recorded root positions and match state only; not all joint trajectories."
+}

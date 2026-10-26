@@ -1,0 +1,70 @@
+{
+  "games": 20,
+  "outcomes": {
+    "win": 1,
+    "draw": 18,
+    "loss": 1
+  },
+  "mean_candidate_goal_difference": 0,
+  "team_totals": {
+    "candidate": {
+      "decision_transitions": 1772,
+      "action_transitions": 24629,
+      "playing_player_seconds": 44548.800000003306,
+      "support_seconds": 14570.80000000057,
+      "support_behind_ball_seconds": 2428.200000000007,
+      "defending_support_seconds": 1748.9999999999993,
+      "defending_support_behind_seconds": 368.99999999999955,
+      "defending_target_behind_seconds": 1574.200000000005,
+      "contact_transitions": 9437,
+      "pass_attempts": 805,
+      "kick_contacts": 753,
+      "disc_overlap_player_seconds": 1890.9999999999893,
+      "kick_misses": 35,
+      "shot_attempts": 6,
+      "danger_ball_player_seconds": 1126.3999999999853,
+      "completed_passes": 1,
+      "support_behind_fraction": 0.16664836522359183,
+      "defending_support_behind_fraction": 0.2109777015437391,
+      "danger_ball_fraction": 0.025284631684801873
+    },
+    "baseline": {
+      "decision_transitions": 2358,
+      "action_transitions": 29261,
+      "playing_player_seconds": 44548.800000003306,
+      "contact_transitions": 9582,
+      "support_seconds": 14851.80000000064,
+      "support_behind_ball_seconds": 1746.4000000000135,
+      "disc_overlap_player_seconds": 1728.5999999999872,
+      "defending_support_seconds": 2744.79999999998,
+      "defending_support_behind_seconds": 242.99999999999983,
+      "pass_attempts": 685,
+      "kick_contacts": 650,
+      "kick_misses": 17,
+      "danger_ball_player_seconds": 2014.3999999999903,
+      "expired_passes": 4,
+      "completed_passes": 1,
+      "shot_attempts": 2,
+      "defending_target_behind_seconds": 16.399999999999974,
+      "support_behind_fraction": 0.11758844045839147,
+      "defending_support_behind_fraction": 0.08853104051297056,
+      "danger_ball_fraction": 0.045217828538587815
+    }
+  },
+  "interpretation": "Model-only exploratory comparison; no 3D or hardware performance claim.",
+  "statistical_significance_validated": false,
+  "wall_seconds": 17.357275432994356,
+  "candidate": "possession",
+  "seeds": [
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36
+  ]
+}

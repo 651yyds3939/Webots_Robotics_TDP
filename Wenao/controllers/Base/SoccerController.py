@@ -105,8 +105,17 @@ class SoccerController:
         self.finishing_aim = os.environ.get('TDP_FINISHING_AIM', 'centre')
         if self.finishing_aim not in ('centre', 'nearest'):
             raise ValueError('Finishing aim must be centre or nearest')
+        support_mode = os.environ.get('TDP_SUPPORT_MODE', 'baseline')
+        support_team = os.environ.get('TDP_SUPPORT_TEAM', '')
+        if support_mode not in ('baseline', 'possession') or support_team not in ('', 'RED', 'BLUE'):
+            raise ValueError('Invalid support experiment mode/team')
+        if support_mode != 'baseline' and not support_team:
+            raise ValueError('A support candidate must select exactly one team')
+        own_team = 'RED' if self.name.startswith('Red') else 'BLUE'
+        self.support_mode = support_mode if own_team == support_team else 'baseline'
         self.policy = TeamPolicy(self.name, goal_depth=.30 if self.guarded.enabled else 0,
-                                 finishing_nearest=self.finishing_aim == 'nearest')
+                                 finishing_nearest=self.finishing_aim == 'nearest',
+                                 support_mode=self.support_mode)
         self.feet = []
         if self.guarded.enabled:
             self.feet = [self.robot.getDevice(name) for name in ('LFsr', 'RFsr')]
@@ -173,6 +182,7 @@ class SoccerController:
         self.log.write(json.dumps({"event": "command", "robot": self.name, "time": self.robot.getTime(),
                                    "action": action, "behaviour": behaviour, "source": self.source,
                                    "finishing_aim": self.finishing_aim,
+                                   "support_mode": self.support_mode,
                                    "motion_preparation": self.library.audit[action]})+"\n")
         return True
 

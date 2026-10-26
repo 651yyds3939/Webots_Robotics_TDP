@@ -34,7 +34,9 @@ class Decision:
 
 
 class TeamPolicy:
-    def __init__(self, name, goal_depth=0, finishing_nearest=False):
+    def __init__(self, name, goal_depth=0, finishing_nearest=False, support_mode="baseline"):
+        if support_mode not in ("baseline", "possession"):
+            raise ValueError("support_mode must be baseline or possession")
         self.name = name
         self.team = "RED" if name.startswith("Red") else "BLUE"
         self.prefix = "Red" if self.team == "RED" else "Blue"
@@ -42,6 +44,7 @@ class TeamPolicy:
         self.active_chaser = None
         self.goal_depth = goal_depth
         self.finishing_nearest = finishing_nearest
+        self.support_mode = support_mode
 
     def home(self, direction):
         x = -4.15 if self.role == "goalkeeper" else -2.1 if self.role == "defender" else -.8
@@ -114,7 +117,16 @@ class TeamPolicy:
             x = direction*max(-3.6, min(-1.5, direction*ball[0]-.8))
             return Decision("DEFEND", (x, max(-1.9, min(1.9, ball[1]*.65))), tuple(ball))
         side = -1 if self.name.endswith("A") else 1
-        target = (direction*max(-.5, min(3.5, direction*ball[0]+1)), max(-2.4, min(2.4, ball[1]+side*1.1)))
+        support_x = max(-.5, min(3.5, direction*ball[0]+1))
+        if self.support_mode == "possession":
+            # Experiment inspired by Team 14's possession-dependent support line.
+            # A distance advantage is only a proxy, not measured possession.
+            near_team = min((distance(p, ball) for p in teammates.values()), default=math.inf)
+            near_opponent = min((distance(p, ball) for p in opponents), default=math.inf)
+            if near_opponent + .20 < near_team:
+                # Cover behind the ball instead of always running ahead of it.
+                support_x = max(-3.5, min(2.8, direction*ball[0]-.8))
+        target = (direction*support_x, max(-2.4, min(2.4, ball[1]+side*1.1)))
         return Decision("SUPPORT", target, tuple(ball))
 
     def attack(self, own, ball, direction, teammates, opponents, context=""):

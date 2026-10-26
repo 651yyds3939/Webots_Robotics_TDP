@@ -21,6 +21,8 @@ parser.add_argument("--attack", action="store_true", help="Unopposed approach/dr
 parser.add_argument('--side-transition', choices=('off', 'phase'), default='off', help='Opt-in dribble walk-to-side settling experiment; only --attack/--match with fresh --output')
 parser.add_argument('--locomotion', choices=('legacy', 'guarded'), help='Execution scheduler; normal --attack defaults to guarded, other fixtures to legacy')
 parser.add_argument('--finishing-aim', choices=('centre', 'nearest'), default='centre', help='Near-goal fallback aim experiment; nearest is opt-in, not validated multiplayer stability')
+parser.add_argument('--support-mode', choices=('baseline', 'possession'), default='baseline', help='Opt-in possession-dependent support; changes only --candidate-team')
+parser.add_argument('--candidate-team', choices=('RED', 'BLUE'), help='Exactly one candidate team for the support experiment')
 parser.add_argument('--require-no-fall', action='store_true', help='Attack acceptance: goal, no recovery, upright motion and stable stop after goal')
 parser.add_argument('--attack-layout', choices=('standard', 'mirrored', 'offset'), default='standard', help='Unopposed fixture placement variation')
 parser.add_argument('--transitions', action='store_true', help='Measure no-ball motion transitions, with diagnostics; requires fresh --output')
@@ -37,6 +39,10 @@ parser.add_argument("--visible", action="store_true", help="Keep the automatic W
 parser.add_argument("--diagnostics", action="store_true", help="Record IMU, leg angles, foot forces and motion playback; requires --output")
 parser.add_argument("--timeout", type=float, help="Maximum wall-clock seconds; by default scales with match duration")
 args = parser.parse_args()
+if args.support_mode != 'baseline' and (not args.match or not args.output or not args.candidate_team):
+    parser.error('--support-mode possession requires --match, --candidate-team and a fresh --output')
+if args.candidate_team and args.support_mode == 'baseline':
+    parser.error('--candidate-team is only used with --support-mode possession')
 if args.locomotion is None:
     args.locomotion = 'guarded' if args.attack and args.side_transition == 'off' else 'legacy'
 if args.attack and args.locomotion == 'guarded':
@@ -144,6 +150,8 @@ with tempfile.TemporaryDirectory(prefix="tdp-course-check-") as directory:
     environment['TDP_SIDE_TRANSITION'] = args.side_transition
     environment['TDP_LOCOMOTION'] = args.locomotion
     environment['TDP_FINISHING_AIM'] = args.finishing_aim
+    environment['TDP_SUPPORT_MODE'] = args.support_mode
+    environment['TDP_SUPPORT_TEAM'] = args.candidate_team or ''
     environment['TDP_ATTACK_NO_FALL'] = '1' if args.require_no_fall else '0'
     environment['TDP_ATTACK_LAYOUT'] = args.attack_layout
     if args.transitions:
@@ -181,6 +189,8 @@ with tempfile.TemporaryDirectory(prefix="tdp-course-check-") as directory:
                     'side_transition_mode': args.side_transition,
                     'locomotion_mode': args.locomotion,
                     'finishing_aim': args.finishing_aim,
+                    'support_mode': args.support_mode,
+                    'candidate_team': args.candidate_team,
                     'require_no_fall': args.require_no_fall,
                     'attack_layout': args.attack_layout if args.attack else None,
                     'transition_profile': args.transition_profile if args.transitions else None,

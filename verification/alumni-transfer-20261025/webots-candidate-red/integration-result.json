@@ -1,0 +1,34 @@
+{
+  "simulated_seconds": 601.08,
+  "shortened_clock": true,
+  "test_config": {
+    "half_seconds": 300.0,
+    "ready_seconds": 45.0,
+    "stuck_seconds": 120.0,
+    "reset_formation": true
+  },
+  "playing_seconds": 462.00000000008873,
+  "fixture_placement_used": true,
+  "phases": [
+    "FINISHED",
+    "HALFTIME",
+    "PLAYING",
+    "READY",
+    "SET"
+  ],
+  "score": [
+    0,
+    1
+  ],
+  "max_displacement": {
+    "RedGoalkeeper": 8.300099351193582,
+    "RedDefender": 4.200228886628389,
+    "RedForwardB": 3.4139082369068614,
+    "RedForwardA": 2.528294295185789,
+    "BlueGoalkeeper": 8.300100323286124,
+    "BlueDefender": 4.554110607653962,
+    "BlueForwardB": 4.8859471724791685,
+    "BlueForwardA": 5.54747020123031
+  },
+  "behaviour_success_validated": false
+}

@@ -1,0 +1,34 @@
+{
+  "mode": "kinematic_2d_policy_comparison",
+  "python": "3.10.22 (main, Oct  1 2026, 20:14:04) [GCC 14.3.0]",
+  "candidate": "possession",
+  "baseline": "baseline",
+  "seeds": [
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36
+  ],
+  "candidate_teams": [
+    "RED",
+    "BLUE"
+  ],
+  "paired_layouts": true,
+  "formation_fixture": true,
+  "default_webots_policy_changed": false,
+  "source_sha256": {
+    "tools/run_policy_experiment.py": "8f52694b1790f9d87c48a95c8b68a36a5b1608619a08d637b42310d465d3fc0b",
+    "tools/soccer2d.py": "af1190140730d0406d2b00e86c345433d7a92b792b264520e67a23849fec553b",
+    "Wenao/controllers/Utils/TeamPolicy.py": "d91a2d6de2bc8347ee059343b5baada3f518573fb5e39a22af2d8341b605cb16",
+    "Wenao/controllers/Utils/Navigation.py": "2f47b1499bd3db445b591879330fde3212176868a14b9b320cc47f27a04450dc",
+    "Wenao/controllers/Utils/MatchEngine.py": "d92cab0c4a9618608b503c49014ad53dd03c33b960ef5bfcbf896537ae4b0ed2",
+    "Wenao/controllers/Utils/CourseSpecs.py": "329cc279f44dc6e3fa19e089319787c2cafd6c33d5118f0be3fb2e6eeb624bf0"
+  },
+  "git_head": "79b72c30040b9490b6724bcabe0a76c869f07f53"
+}

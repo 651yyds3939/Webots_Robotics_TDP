@@ -1,0 +1,100 @@
+{
+  "baseline": {
+    "score_red_blue": [
+      0,
+      0
+    ],
+    "simulated_seconds": 601.08,
+    "playing_seconds": 508.0400000001123,
+    "recovery_commands": 5,
+    "tilt_episodes": 4,
+    "close_pair_seconds": 41.0000000000004,
+    "actual_modes": {
+      "BlueDefender": [
+        "baseline"
+      ],
+      "BlueForwardA": [
+        "baseline"
+      ],
+      "BlueForwardB": [
+        "baseline"
+      ],
+      "BlueGoalkeeper": [
+        "baseline"
+      ],
+      "RedDefender": [
+        "baseline"
+      ],
+      "RedForwardA": [
+        "baseline"
+      ],
+      "RedForwardB": [
+        "baseline"
+      ],
+      "RedGoalkeeper": [
+        "baseline"
+      ]
+    },
+    "recovery_commands_per_playing_minute": 0.5905046846703679
+  },
+  "candidate": {
+    "score_red_blue": [
+      0,
+      1
+    ],
+    "simulated_seconds": 601.08,
+    "playing_seconds": 462.00000000008873,
+    "recovery_commands": 14,
+    "tilt_episodes": 10,
+    "close_pair_seconds": 74.03999999999996,
+    "actual_modes": {
+      "BlueDefender": [
+        "baseline"
+      ],
+      "BlueForwardA": [
+        "baseline"
+      ],
+      "BlueForwardB": [
+        "baseline"
+      ],
+      "BlueGoalkeeper": [
+        "baseline"
+      ],
+      "RedDefender": [
+        "possession"
+      ],
+      "RedForwardA": [
+        "possession"
+      ],
+      "RedForwardB": [
+        "possession"
+      ],
+      "RedGoalkeeper": [
+        "possession"
+      ]
+    },
+    "recovery_commands_per_playing_minute": 1.8181818181814688
+  },
+  "candidate_team": "RED",
+  "configuration_and_team_isolation_verified": true,
+  "first_sampled_root_position_difference": {
+    "time": 50.800000000000004,
+    "root_position_difference_metres": {
+      "RedGoalkeeper": 0.0,
+      "RedDefender": 0.0,
+      "RedForwardB": 0.0,
+      "RedForwardA": 0.0021265925349860182,
+      "BlueGoalkeeper": 0.0,
+      "BlueDefender": 0.0,
+      "BlueForwardB": 0.0,
+      "BlueForwardA": 0.0
+    }
+  },
+  "limitations": [
+    "One seed and one candidate-side allocation do not establish general performance.",
+    "Goals alter subsequent phases and effective playing time.",
+    "Tilt episodes, recovery commands and root proximity are different measures, not physical fall counts.",
+    "Full ground-truth observations and fixture formations are used."
+  ],
+  "adoption_decision": "Reject default adoption; retain opt-in for reproducing this experiment."
+}
